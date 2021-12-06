@@ -111,7 +111,7 @@ class TagController extends Controller
 
         if($request->logoFile) {
             $file = $request->logoFile;
-            $name = $tag->name . 'Logo' . $file->getClientOriginalExtension();
+            $name = $tag->slug . 'Logo.' . $file->getClientOriginalExtension();
             $file->move('images/Tag', $name);
             $tag->logo = url('images/Tag/' . $name);
         } elseif ($request->logoURL) {
@@ -120,7 +120,7 @@ class TagController extends Controller
 
         if($request->metaimageFile) {
             $file = $request->metaimageFile;
-            $name = $tag->name . 'metaimage' . $file->getClientOriginalExtension();
+            $name = $tag->slug . 'metaimage' . $file->getClientOriginalExtension();
             $file->move('images/Tag/meta', $name);
             $tag->metaimage = url('images/Tag/meta/' . $name);
         } elseif ($request->metaimageURL) {
