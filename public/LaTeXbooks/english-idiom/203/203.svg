@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_203{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_203{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_203{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_203{
+fill: #FFCCCC;
+}
+.g4_203{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_203{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_203{
+fill: none;
+stroke: #F81693;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-dasharray: 2,2;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,111.6H899.8m-706.8,0H899.8M480.5,141.2V112m0,58.5V141.2m0,114.3v-85" class="g0_203"/>
+<path d="M614.6,231.5h61.5" class="g1_203"/>
+<path d="M686.6,231.5h87.2" class="g2_203"/>
+<path d="M794.8,219.8h94.1V186.9H794.8v32.9Z" class="g3_203"/>
+<path d="M480.5,284.7V255.5m0,102.3V284.7" class="g0_203"/>
+<path d="M713.1,334H821.3V301.1H713.1V334Z" class="g3_203"/>
+<path d="M821.3,343.9h33.8" class="g4_203"/>
+<path d="M855.1,343.9h33.8" class="g5_203"/>
+<path d="M480.5,387V357.8m0,58.4V387m0,58.4V416.2m0,114.3V445.4" class="g0_203"/>
+<path d="M746.2,506.5H855.9" class="g1_203"/>
+<path d="M866.4,506.5h22.5" class="g2_203"/>
+<path d="M480.5,559.7V530.5m0,58.4V559.7m0,114.2v-85" class="g0_203"/>
+<path d="M641.8,650H751.5" class="g1_203"/>
+<path d="M772.5,638.2h51.9V605.4H772.5v32.8Z" class="g3_203"/>
+<path d="M838.5,631.8h46.7" class="g6_203"/>
+<path d="M480.5,703.2V673.9m0,58.5V703.2M193,732.8H899.8m-706.8,0H899.8" class="g0_203"/>
+</svg>

@@ -1,0 +1,15 @@
+.xmlparseContainer {
+    label {
+        cursor: pointer;
+        padding: 1rem 2rem;
+    }
+
+    span {
+        padding-left: 1rem;
+        vertical-align: super;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+}

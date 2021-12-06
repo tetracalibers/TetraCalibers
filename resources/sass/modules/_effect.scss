@@ -1,0 +1,57 @@
+.flipRightTop {
+    animation-name: flipRightTopAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes flipRightTopAnime {
+    from {
+        transform: translate(-20px, 80px) rotate(25deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.box {
+    opacity: 0;
+}
+
+$randoms: (1: random(), 2: random(), 3: random(), 4: random(), 5: random(), 6: random());
+
+@each $key, $random in $randoms {
+    .delay-time0#{$key} {
+        animation-delay: #{$random}s;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomInAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomInAnime {
+    from {
+        transform: scale(0.6);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+canvas {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}

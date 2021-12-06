@@ -1,0 +1,192 @@
+.page-foot {
+    background-color: #e9eaed;
+    position: relative;
+    z-index: 10;
+}
+
+.separator_wave {
+    width: 100vw;
+    position: relative;
+    top: -100px;
+    transform: scale(1, -1);
+    height: 100px;
+}
+
+.footContents {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+
+    @media (max-width: $changeLayoutWidth) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        padding-bottom: 1rem;
+    }
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: center;
+    align-self: end;
+    font-size: .8rem;
+    font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+    color: gray;
+    padding: 1rem 0;
+
+    @media (max-width: $changeLayoutWidth) {
+        grid-column: 1;
+        grid-row: 4;
+    }
+}
+
+.tomixyAnime {
+    grid-column: 1;
+    grid-row: 1;
+    width: 35vw;
+    border-radius: 50%;
+    position: relative;
+    top: -70px;
+    justify-self: center;
+    align-self: center;
+
+    &:hover {
+        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%);
+    }
+
+    img {
+        border-radius: 50%;
+        width: 35vw;
+    }
+
+    @media (max-width: $changeLayoutWidth) {
+        width: 80vw;
+
+        img {
+            width: 80vw;
+        }
+    }
+}
+
+.accounts {
+    grid-row: 2;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -2rem;
+}
+
+.contact {
+    background-color: #e9eaed;
+    grid-column: 2;
+    grid-row: 1 / -1;
+    font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    top: -50px;
+    box-sizing: border-box;
+
+    @media (max-width: $changeLayoutWidth) {
+        grid-row: 3;
+        grid-column: 1;
+        top: 0;
+    }
+
+    &_title {
+        text-align: center;
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    p {
+        padding: .5rem;
+    }
+
+    input, textarea {
+        border: none;
+        background-color: #e9eaed;
+        border-radius: 5px;
+        margin-top: .5rem;
+        box-shadow: inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+        padding: .5rem;
+        max-width: 80vw;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type="submit"] {
+        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%),
+                    inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
+        margin-top: 0;
+        transition: box-shadow ease-in-out .5s;
+
+        &:hover {
+            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent,
+            inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+        }
+    }
+}
+
+@mixin account($color, $bg_image) {
+    text-decoration: none;
+    color: $color;
+    display: grid;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url($bg_image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: -1.5rem .5rem 3rem;
+    filter: blur(0.5px);
+
+    @media (max-width: $changeLayoutWidth) {
+        margin: -1.5rem .25rem 3rem;
+    }
+
+    i {
+        justify-self: center;
+        align-self: center;
+    }
+
+    &:hover {
+        transform: scale(1.5);
+        filter: blur(0);
+    }
+}
+
+.twitterAccount {
+    @include account(white, "../images/Accounts/waterpaint_water.jpg");
+}
+
+.clearnoteAccount {
+    @include account(#1298fe, "../images/Accounts/waterpaint_orange.jpg");
+
+    position: relative;
+    top: 1.5rem;
+}
+
+.instagramAccount {
+    @include account(white, "../images/Accounts/waterpaint_instagram.jpg");
+
+    position: relative;
+    top: 2rem;
+}
+
+.githubAccount {
+    @include account(white, "../images/Accounts/waterpaint_black.jpg");
+
+    position: relative;
+    top: 1.5rem;
+}
+
+.hatenablogAccount {
+    @include account(black, "../images/Accounts/waterpaint_white.jpg");
+}

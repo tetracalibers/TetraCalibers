@@ -1,0 +1,27 @@
+.thanks {
+    background-color: #e9eaed;
+    font-family: "TsukushiAMaruGothic";
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    row-gap: 2rem;
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    text-align: center;
+
+    &_title {
+        font-size: 10vw;
+        color: #e9eaed;
+        text-shadow: 2.5px 2.5px 5px #cdcfd6, -2.5px -2.5px 5px white;
+
+        @media (max-width: $changeLayoutWidth) {
+            font-size: 20vw;
+        }
+    }
+
+    p {
+        padding: .5rem;
+        color: gray;
+    }
+}

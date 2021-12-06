@@ -1,0 +1,34 @@
+.my_adminContainer {
+    min-height: 100vh;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.my_adminNav {
+    background-color: #8099ffb3;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    grid-column: 1 / 3;
+    width: calc(100vw / 12 * 2);
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.my_adminMain {
+    min-height: 100vh;
+    height: 100%;
+    grid-column: 3 / -1;
+    position: relative;
+    z-index: 1;
+    width: 95%;
+    justify-self: center;
+    padding: 2rem;
+}
+
+.my_adminLogo {
+    width: 5rem;
+}

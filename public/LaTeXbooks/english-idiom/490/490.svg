@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_490{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_490{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_490{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_490{
+fill: #FFCCCC;
+}
+.g4_490{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_490{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_490{
+fill: none;
+stroke: #FFA313;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g7_490{
+fill: none;
+stroke: #FFA313;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,111.6h812.1m-812.1,0h812.1M527.6,141.2V112m0,58.5V141.2m0,58.5V170.5m0,114.2v-85" class="g0_490"/>
+<path d="M756.7,260.7H848" class="g1_490"/>
+<path d="M858.5,260.7h22.2" class="g2_490"/>
+<path d="M901.7,249h92.5V216.1H901.7V249Z" class="g3_490"/>
+<path d="M527.6,313.9V284.7m0,102.3V313.9" class="g0_490"/>
+<path d="M695.8,363.2H829.4V330.4H695.8v32.8Z" class="g3_490"/>
+<path d="M829.4,373.1H880" class="g4_490"/>
+<path d="M880,373.1h12.8" class="g5_490"/>
+<path d="M892.8,373.1H994.2" class="g4_490"/>
+<path d="M527.6,416.2V387m0,58.4V416.2m0,114.3V445.4" class="g0_490"/>
+<path d="M552.9,506.5h34.6" class="g1_490"/>
+<path d="M598,506.5H994.2" class="g6_490"/>
+<path d="M527.6,559.7V530.5m0,102.2v-73" class="g0_490"/>
+<path d="M638.8,618.9h254" class="g7_490"/>
+<path d="M960.4,618.9h33.8" class="g4_490"/>
+<path d="M527.6,662V632.7M193,662.3h812.1m-812.1,0h812.1" class="g0_490"/>
+</svg>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_960{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_960{
+fill: #FFCCCC;
+}
+.g2_960{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-dasharray: 2,2;
+}
+.g3_960{
+fill: #AEF080;
+}
+.g4_960{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_960{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_960{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g7_960{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,210.6H884.6m-691.6,0H884.6M480,240.2V211m0,58.5V240.2m0,59.4V269.5m0,59.3V299.6m0,58.5V328.8m0,63.2V358.1" class="g0_960"/>
+<path d="M641.6,392h56.8V359.1H641.6V392Z" class="g1_960"/>
+<path d="M712.6,385.6h44.8" class="g2_960"/>
+<path d="M771.6,392H873.7V359.1H771.6V392Z" class="g3_960"/>
+<path d="M480,421.2V392m0,62.1V421.2" class="g0_960"/>
+<path d="M654.4,449.8h65.7" class="g2_960"/>
+<path d="M723.7,454.1h44.8V421.2H723.7v32.9Z" class="g3_960"/>
+<path d="M774.6,454.1h99.1V421.2H774.6v32.9Z" class="g1_960"/>
+<path d="M480,483.3V454.1m0,58.5V483.3m0,114.3v-85" class="g0_960"/>
+<path d="M491,573.6h81" class="g4_960"/>
+<path d="M582.5,573.6H686.3" class="g5_960"/>
+<path d="M480,627.8V597.6m0,103.2v-73" class="g0_960"/>
+<path d="M628.1,686.9h34.5" class="g6_960"/>
+<path d="M789.2,686.9h84.5" class="g7_960"/>
+<path d="M480,730V700.8M193,730.4H884.6m-691.6,0H884.6" class="g0_960"/>
+</svg>

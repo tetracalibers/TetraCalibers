@@ -1,0 +1,114 @@
+.profileContainer {
+    width: 100vw;
+    min-height: calc(100vh + 100px);
+    height: 100%;
+    background-image: $paint;
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
+
+    h1 {
+        font-size: 1.5rem;
+        padding-top: .5rem;
+    }
+
+    p {
+        line-height: 2rem;
+        padding-top: .25rem;
+    }
+}
+
+@mixin profileBlock($textColor, $skew, $imgURL) {
+    background-image: $imgURL;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: fit-content;
+    display: grid;
+    transform: skewY($skew * 1deg);
+    padding: 4rem 1.5rem 8rem;
+    box-sizing: border-box;
+
+    @media (min-width: $changeLayoutWidth + 1px) {
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        box-sizing: content-box;
+    }
+
+    .text {
+        transform: skewY($skew * -1deg);
+        align-self: center;
+        justify-content: center;
+        text-align: center;
+        color: transparent;
+        background: #666666;
+        background-clip: text;
+        text-shadow: 0px 3px 3px darken($color: $textColor, $amount: 4%);
+
+        h1 {
+            font-family: 'Fredericka the Great', cursive;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+.pinkBlock {
+    @include profileBlock(#89f3eb, 9, $greenBoard);
+
+    @media (max-width: $changeLayoutWidth) {
+        grid-row: 1;
+        grid-column: 1;
+        justify-self: center;
+    }
+}
+
+.blueBlock {
+    @include profileBlock(#d19cff, -9, $purpleBoard);
+
+    @media (max-width: $changeLayoutWidth) {
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: center;
+        position: relative;
+        top: -4rem;
+        padding-bottom: 4rem;
+    }
+
+    @media (min-width: $changeLayoutWidth + 1px) {
+        box-sizing: content-box;
+
+        .text {
+            padding: 0 2rem;
+        }
+    }
+}
+
+.returnButton {
+    font-size: 2rem;
+    align-self: start;
+    justify-self: end;
+    font-family: 'Kaisei Opti', serif;
+    position: relative;
+    top: -4rem;
+
+    @media (min-width: $changeLayoutWidth + 1px) {
+        right: 2rem;
+    }
+
+    a {
+        text-decoration: none;
+        background-image: $water;
+        background-clip: text;
+        background-size: contain;
+        background-position: center center;
+        color: transparent;
+    }
+}
+
+.level1 {
+    width: 2rem;
+}
+.level2 {
+    width: 3.5rem;
+}
+.level3 {
+    width: 5rem;
+}

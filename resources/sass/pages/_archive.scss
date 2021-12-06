@@ -1,0 +1,44 @@
+.archiveContainer {
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: rgb(64, 26, 26);
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: 'Share Tech Mono', "TsukushiAMaruGothic";
+}
+
+.shell {
+    padding: 2rem;
+}
+
+.shellMark {
+    font-size: 1.5rem;
+    color: rgb(230, 0, 69);
+}
+
+.command {
+    font-size: 1.5rem;
+    color: white;
+    filter: opacity(0.7);
+}
+
+.articleList {
+    padding: 1rem 2rem;
+
+    li {
+        padding-bottom: 1rem;
+    }
+
+    a {
+        color: white;
+        text-decoration: 1px underline dotted;
+        font-size: 1.25rem;
+        transition: 1s;
+
+        &:hover {
+            text-shadow: 0 0 .1em, 0 0 .3em;
+        }
+    }
+}

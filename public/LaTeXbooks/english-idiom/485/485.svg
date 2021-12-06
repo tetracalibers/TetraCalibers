@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_485{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_485{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_485{
+fill: #FFCCCC;
+}
+.g3_485{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g4_485{
+fill: #B3E9FA;
+}
+.g5_485{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_485{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,111.6h850m-850,0h850M637.4,141.2V112m0,114.3V141.2" class="g0_485"/>
+<path d="M681.6,202.3h75.7" class="g1_485"/>
+<path d="M938,190.6h94V157.7H938v32.9Z" class="g2_485"/>
+<path d="M637.4,256.4V226.3m0,103.2V256.4" class="g0_485"/>
+<path d="M839.3,305.7h57.6V272.9H839.3v32.8Z" class="g2_485"/>
+<path d="M981.4,315.6H1032" class="g3_485"/>
+<path d="M637.4,358.7V329.5m0,58.4V358.7m0,114.3V387.9" class="g0_485"/>
+<path d="M651,423.2V411c0,-2.9,2.3,-5.2,5.1,-5.2h93.1c2.9,0,5.2,2.3,5.2,5.2v12.2c0,2.9,-2.3,5.2,-5.2,5.2H656.1c-2.8,0,-5.1,-2.3,-5.1,-5.2Z" class="g4_485"/>
+<path d="M648.4,449H757" class="g1_485"/>
+<path d="M767.5,449H1032" class="g5_485"/>
+<path d="M637.4,502.2V473m0,58.4V502.2m0,114.2v-85" class="g0_485"/>
+<path d="M664.1,592.5h67.5" class="g1_485"/>
+<path d="M742.1,592.5H1032" class="g5_485"/>
+<path d="M637.4,645.7V616.4m0,102.3v-73" class="g0_485"/>
+<path d="M761.1,704.8H930.7" class="g6_485"/>
+<path d="M930.7,704.8H1032" class="g3_485"/>
+<path d="M637.4,747.9V718.7M193,748.3h850m-850,0h850" class="g0_485"/>
+</svg>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_11{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_11{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_11{
+fill: #02B5EE;
+stroke: #02B5EE;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_11{
+fill: none;
+stroke: #F81693;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g4_11{
+fill: #F81693;
+stroke: #F81693;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_11{
+fill: none;
+stroke: #8007AC;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_11{
+fill: #8007AC;
+stroke: #8007AC;
+stroke-width: 3.653;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g7_11{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+.g8_11{
+}
+.g9_11{
+fill: none;
+stroke: #7F7F7F;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-dasharray: 6,6;
+}
+]]></style>
+</defs>
+<path d="M116.9,159.9H792.5" class="g0_11"/>
+<path d="M169.3,421.4H519.8" class="g1_11"/>
+<path d="M527.9,421.4L517,417.3l3.7,4.1l-3.7,4.1Z" class="g2_11"/>
+<path d="M169.3,473.4H311.9" class="g3_11"/>
+<path d="M320,473.4l-10.8,-4.1l3.6,4.1l-3.6,4.1Z" class="g4_11"/>
+<path d="M325.2,473.4H519.8" class="g5_11"/>
+<path d="M527.9,473.4L517,469.3l3.7,4.1l-3.7,4.1Z" class="g6_11"/>
+<path d="M117.3,577.3h519" class="g0_11"/>
+<path d="M632.8,573c.7,2.6,2.3,3.8,3.8,4.3c-1.5,.5,-3.1,1.8,-3.8,4.4" class="g7_11"/>
+<path d="M327.8,577.3c0,-1.4,-1.2,-2.6,-2.6,-2.6c-1.5,0,-2.6,1.2,-2.6,2.6c0,1.5,1.1,2.6,2.6,2.6c1.4,0,2.6,-1.1,2.6,-2.6Z" class="g8_11"/>
+<path d="M325.2,577.3V369.5" class="g9_11"/>
+<path d="M171.9,317.5c0,-1.4,-1.2,-2.6,-2.6,-2.6c-1.5,0,-2.6,1.2,-2.6,2.6c0,1.4,1.1,2.6,2.6,2.6c1.4,0,2.6,-1.2,2.6,-2.6Z" class="g8_11"/>
+<path d="M169.3,317.5V525.4" class="g9_11"/>
+<path d="M117.3,317.5h519" class="g0_11"/>
+<path d="M632.8,313.1c.7,2.6,2.3,3.9,3.8,4.4c-1.5,.5,-3.1,1.7,-3.8,4.4" class="g7_11"/>
+</svg>

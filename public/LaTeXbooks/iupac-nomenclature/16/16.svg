@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_16{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_16{
+fill: none;
+stroke: #7F7F7F;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_16{
+fill: none;
+stroke: #000000;
+stroke-width: 9.132;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_16{
+fill: none;
+stroke: #FFA313;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g4_16{
+fill: none;
+stroke: #F81693;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_16{
+fill: none;
+stroke: #7F7F7F;
+stroke-width: 2.922;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M116.9,261.9H783.4M117.3,437.1V262.3" class="g0_16"/>
+<path d="M340.7,380.5c1.4,0,2.1,-2.8,3.4,-2.8c1,0,1.9,1.4,2.8,2.8c.9,1.4,1.7,2.7,2.7,2.7c1,0,1.9,-1.3,2.8,-2.7c.9,-1.4,1.7,-2.8,2.7,-2.8c1,0,1.8,1.4,2.7,2.8c.9,1.4,1.8,2.7,2.8,2.7c1,0,1.8,-1.3,2.7,-2.7c.9,-1.4,1.8,-2.8,2.8,-2.8c.9,0,1.8,1.4,2.7,2.8c.9,1.4,1.7,2.7,2.7,2.7c1,0,1.9,-1.3,2.8,-2.7c.9,-1.4,1.7,-2.8,2.7,-2.8c1,0,1.9,1.4,2.8,2.8c.8,1.4,1.7,2.7,2.7,2.7c1.4,0,2.1,-2.7,3.4,-2.7h3.5" class="g1_16"/>
+<path d="M783,437.1V262.3M116.9,437.5H783.4" class="g0_16"/>
+<path d="M126.1,442.4H792.5m-4.6,4.6V270.7" class="g2_16"/>
+<path d="M576,514.6l-49.7,29.5M463.9,506.9l62.4,37.2" class="g3_16"/>
+<path d="M401.4,617.6V544.5" class="g4_16"/>
+<path d="M463.9,506.9l-62.5,37.2" class="g3_16"/>
+<path d="M338.9,506.9l62.5,37.2M338.9,655.2l62.5,-37.3m-62.5,37.3L276.4,617.9m0,-.3V544.5m62.5,-37.6l-62.5,37.2" class="g4_16"/>
+<path d="M476.8,749.4c2.7,0,4.1,-5.4,6.9,-5.4c1.9,0,3.6,2.6,5.4,5.4c1.8,2.8,3.5,5.5,5.5,5.5c2,0,3.7,-2.7,5.5,-5.5c1.8,-2.8,3.5,-5.4,5.5,-5.4c2.7,0,4.1,5.4,6.8,5.4h2.8" class="g5_16"/>
+</svg>

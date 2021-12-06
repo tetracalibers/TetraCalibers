@@ -1,0 +1,52 @@
+.blockEditor {
+    button.accordion {
+        font-size: 11px;
+        width: auto;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+        border: 1px dashed #d1d1d1;
+    }
+
+    textarea {
+        min-height: 10vh;
+        tab-size: 4;
+    }
+
+    .preview {
+        @extend .blogContents;
+
+        width: auto !important;
+        overflow: hidden;
+    }
+
+    .codeArea {
+        background-color: black;
+        color: white;
+    }
+
+    .confirm {
+        border: 1px solid #d1d1d1;
+    }
+
+    .toTopButton {
+        display: inline-block;
+        background-color: #2876f9;
+        background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        opacity: .5;
+        position: relative;
+        top: 1.5rem;
+        cursor: pointer;
+    }
+}

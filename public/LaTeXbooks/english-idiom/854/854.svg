@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_854{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_854{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_854{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_854{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g4_854{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_854{
+fill: none;
+stroke: #FFA313;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_854{
+fill: #B3E9FA;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,210.6H881.5m-688.5,0H881.5M470.4,240.2V211m0,58.5V240.2m0,114.3v-85" class="g0_854"/>
+<path d="M655.4,330.5h34.8" class="g1_854"/>
+<path d="M700.7,330.5h22.5" class="g2_854"/>
+<path d="M470.4,383.7V354.5m0,102.3V383.7" class="g0_854"/>
+<path d="M714.6,442.9h20.2" class="g3_854"/>
+<path d="M740.9,442.9h13" class="g4_854"/>
+<path d="M759.9,442.9h72.3" class="g5_854"/>
+<path d="M470.4,529.8v-73" class="g0_854"/>
+<path d="M498.3,515.9h34.4" class="g4_854"/>
+<path d="M532.7,515.9H802.9" class="g5_854"/>
+<path d="M802.9,515.9h67.6" class="g3_854"/>
+<path d="M470.4,559V529.8m0,58.5V559m0,114.3v-85" class="g0_854"/>
+<path d="M659.6,629.8V611.3c0,-2.9,2.3,-5.2,5.2,-5.2H801.5c2.9,0,5.2,2.3,5.2,5.2v18.5c0,2.9,-2.3,5.2,-5.2,5.2H664.8c-2.9,0,-5.2,-2.3,-5.2,-5.2Z" class="g6_854"/>
+<path d="M657,649.3H809.3" class="g1_854"/>
+<path d="M819.8,649.3h50.7" class="g2_854"/>
+<path d="M470.4,702.5V673.3M193,702.9H881.5m-688.5,0H881.5" class="g0_854"/>
+</svg>

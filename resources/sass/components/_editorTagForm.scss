@@ -1,0 +1,77 @@
+.checkTag {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0 auto auto;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+
+    input {
+        grid-row: 1;
+    }
+
+    .tagName {
+        grid-row: 2;
+        justify-self: center;
+    }
+
+    .tagLogo {
+        grid-row: 3;
+        width: 5rem;
+        height: 5rem;
+        justify-self: center;
+    }
+}
+
+.checkedTag {
+    box-sizing: border-box;
+    position: relative;
+    background-color: transparent;
+
+    &:before {
+        animation-name: bgFadeIn;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        content: '';
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        background-color: #96c8fb;
+        background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%);
+    }
+
+    .tagLogo {
+        filter: drop-shadow(0 0 2px white);
+    }
+}
+
+.selectTag {
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    background-color: #96c8fb;
+    background-image: linear-gradient(to right, #96c8fb 0%, #ddbdfc 74%);
+    margin: 1rem;
+
+    i {
+        padding-left: 1rem;
+        cursor: pointer;
+    }
+}
+
+@keyframes bgFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        filter: none;
+    }
+}

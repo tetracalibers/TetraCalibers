@@ -1,0 +1,167 @@
+/* ノート ---------------------------------------------------------------------- */
+
+@mixin BackgroundNote($hasAccentLine) {
+    background-color: #f7f7f7;
+    background-size: 100% 2em;
+
+    @if ($hasAccentLine == 'yes') {
+        background-image: linear-gradient(90deg, transparent 79px, $geopink 79px, $geopink 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);
+
+        @media (max-width: $changeLayoutWidth) {
+            background-image: linear-gradient(#eee 0.1em, transparent 0.1em);
+        }
+    }
+
+    @if ($hasAccentLine == 'no') {
+        background-image: linear-gradient(#eee 0.1em, transparent 0.1em);
+    }
+}
+
+/* 付箋 ----------------------------------------------------------------------- */
+
+.fusen {
+    width: 35vw; /*幅はお好きなサイズに*/
+    @media (max-width: $changeLayoutWidth) {
+        width: 85vw;
+    }
+
+    @media (max-width: 488px) {
+        width: 90vw;
+    }
+
+    position: relative;
+    z-index: 0;
+
+    div:first-child {
+        transform: translateX(-30px) rotate(-2deg);
+    }
+
+    ul li {
+        margin: 1.6em 0;
+        position: relative;
+
+        /* グラデーションで折り目がついた感じに */
+        background: linear-gradient(to right, white 0%, darken(white, 4%) 0.5%, darken(white, 4%) 13%, white 16%);
+
+        $openTabColor: #f9e5ef;
+        $openTabDarkColor: darken($openTabColor, 4%);
+
+        &.nowVisible {
+            background: linear-gradient(to right, $openTabColor 0%, $openTabDarkColor 0.5%, $openTabDarkColor 13%, $openTabColor 16%);
+        }
+
+        a {
+            padding: 1em;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            bottom: 5px;
+            right: 0;
+            height: 15px;
+            width: 99%;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+            transform: rotate(1.5deg);
+        }
+
+        &:hover::after {
+            display: none;
+        }
+    }
+}
+
+$randoms: (1: random(3), 2: random(3), 3: random(3), 4: random(3), 5: random(3));
+
+@each $key, $random in $randoms {
+    .fusen div:nth-child(#{$key}) {
+        transform: translateX($random * -10px);
+    }
+}
+
+@mixin fusenBox($color) {
+    $TabColor: $color;
+    $TabDarkColor: darken($color, 4%);
+    padding: 1rem;
+    background: linear-gradient(to bottom, $TabColor 0%, $TabDarkColor 0.5%, $TabDarkColor 13%, $TabColor 16%);
+}
+
+/* マーカー --------------------------------------------------------------------- */
+
+$markColor: rgba(#ff3, 0.5);
+
+.marker {
+    background-color: $markColor;
+    position: relative;
+
+    &::before,
+    &::after {
+        background-color: $markColor;
+        content: "";
+        height: 1.1em;
+        position: absolute;
+        transform: skew(10deg);
+        width: 1em;
+        z-index: -1;
+    }
+
+    &::before {
+        left: -.2em;
+        top: 0;
+    }
+
+    &::after {
+        right: -.2em;
+        bottom: 0;
+    }
+}
+
+.markerAnime {
+    // 左半分を透明、右半分を黄色にする
+    background: linear-gradient(to right, $markColor 50%, transparent 50%);
+    background-repeat: no-repeat;
+    // 透明部分は隠れるように、長さは200%
+    background-size: 200% 1.1em;
+    // 左に要素分ずらす
+    background-position: 100% .5em;
+
+    transition: 1.5s;
+
+    &.is-active {
+        background-position: 0% .5em;
+    }
+}
+
+/* ニューモーフィズム ---------------------------------------------------------------- */
+
+@mixin NeumorphismText($color, $in_or_out) {
+    @if $in_or_out == "in" {
+        color: $color;
+        text-shadow: -3px -3px 5px darken($color, 10%), 3px 3px 5px lighten($color, 10%);
+    }
+
+    @if $in_or_out == "out" {
+        color: $color;
+        text-shadow: 5px 5px 10px darken($color, 10%), -5px -5px 10px lighten($color, 10%);
+    }
+}
+
+@mixin NeumorphismBox($color, $in_or_out) {
+    @if $in_or_out == "in" {
+        box-shadow: inset 3px 3px 5px darken($color, 10%), inset -3px -3px 5px lighten($color, 10%);
+
+    }
+
+    @if $in_or_out == "out" {
+        box-shadow: 5px 5px 10px darken($color, 10%), -5px -5px 10px lighten($color, 10%);
+    }
+
+    background-color: $color;
+    border: none;
+    border-radius: 5px;
+    margin-top: .5rem;
+    padding: .5rem;
+}

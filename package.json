@@ -1,0 +1,38 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^4.0.0",
+        "sass-loader": "^12.1.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "@vue/compiler-sfc": "^3.2.19",
+        "imagesloaded": "^4.1.4",
+        "jquery": "^3.6.0",
+        "jquery-bridget": "^3.0.0",
+        "jquery-ui": "^1.13.0",
+        "masonry-layout": "^4.2.2",
+        "particles.js": "^2.0.0",
+        "prismjs": "^1.25.0",
+        "typed.js": "^2.0.12",
+        "v-uploader": "^1.8.0",
+        "vue": "^3.2.19",
+        "vue-loader": "^16.8.1",
+        "vue-mathjax": "^0.0.11",
+        "vue-mathjax-next": "^0.0.3",
+        "vue-router": "^3.5.2"
+    }
+}

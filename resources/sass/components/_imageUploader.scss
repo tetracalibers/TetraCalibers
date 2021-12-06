@@ -1,0 +1,106 @@
+.uploadContainer {
+    input {
+        display: none;
+    }
+
+    ol {
+        display: flex;
+    }
+
+    li {
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 4;
+        height: 20rem;
+        padding: 1rem;
+        margin-right: 2rem;
+        color: white;
+
+        i {
+            cursor: pointer;
+        }
+
+        img {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+            justify-self: center;
+            align-self: center;
+            width: 15rem;
+            height: 15rem;
+        }
+
+        .image_name {
+            grid-column: 1 / -1;
+            grid-row: 4;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    label {
+        cursor: pointer;
+        padding: 1rem 2rem;
+
+        span {
+            padding-left: 1rem;
+            vertical-align: super;
+        }
+    }
+}
+
+.selectImageArea {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    align-content: center;
+
+    .urlInput {
+        grid-column: 1;
+        grid-row: 1;
+        margin: 1rem;
+    }
+
+    .urlPreview {
+        grid-column: 1;
+        grid-row: 2;
+        display: grid;
+        justify-content: center;
+    }
+
+    .fileInput {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .filePreview {
+        grid-column: 2;
+        grid-row: 2;
+        display: grid;
+        justify-content: center;
+    }
+
+    img {
+        width: 144px;
+        height: 144px;
+        justify-self: center;
+    }
+
+    label {
+        cursor: pointer;
+        padding: 1rem 2rem;
+
+        span {
+            padding-left: 1rem;
+            vertical-align: super;
+        }
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    i {
+        cursor: pointer;
+    }
+}

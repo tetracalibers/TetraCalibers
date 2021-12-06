@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_280{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_280{
+fill: #FFCCCC;
+}
+.g2_280{
+fill: #AEF080;
+}
+.g3_280{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-dasharray: 2,2;
+}
+.g4_280{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_280{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g6_280{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g7_280{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,210.6H856.5m-663.5,0H856.5M530.1,240.2V211m0,58.5V240.2m0,60.1V269.5m0,60V300.3m0,58.4V329.5m0,63.2v-34" class="g0_280"/>
+<path d="M576.6,392.7h56.8V359.8H576.6v32.9Z" class="g1_280"/>
+<path d="M643.9,392.7H767.4V359.8H643.9v32.9Z" class="g2_280"/>
+<path d="M781.6,386.3h60.2" class="g3_280"/>
+<path d="M530.1,421.9V392.7m0,62.1V421.9" class="g0_280"/>
+<path d="M625.5,450.4h66.4" class="g3_280"/>
+<path d="M695.6,454.8h44.7V421.9H695.6v32.9Z" class="g2_280"/>
+<path d="M746.4,454.8h99.1V421.9H746.4v32.9Z" class="g1_280"/>
+<path d="M530.1,486.1V454.8m0,60.5V486.1m0,58.5V515.3m0,114.3v-85" class="g0_280"/>
+<path d="M597.4,605.6h51.7" class="g4_280"/>
+<path d="M659.6,605.6H845.5" class="g5_280"/>
+<path d="M530.1,658.8V629.6m0,102.3V658.8" class="g0_280"/>
+<path d="M761,718h33.8" class="g6_280"/>
+<path d="M794.8,718h50.7" class="g7_280"/>
+<path d="M530.1,761.1V731.9M193,761.5H856.5m-663.5,0H856.5" class="g0_280"/>
+</svg>

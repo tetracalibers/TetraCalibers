@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_80{
+fill: none;
+stroke: #000000;
+stroke-width: 1.461;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_80{
+}
+.g2_80{
+fill: #F81693;
+fill-opacity: 0.25;
+stroke: #F81693;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-opacity: 0.25;
+}
+.g3_80{
+fill: #02B5EE;
+fill-opacity: 0.25;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-opacity: 0.25;
+}
+.g4_80{
+fill: #5EE200;
+fill-opacity: 0.25;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-opacity: 0.25;
+}
+.g5_80{
+fill: #FFF200;
+fill-opacity: 0.75;
+stroke: #FFF200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+stroke-opacity: 0.75;
+}
+]]></style>
+</defs>
+<path d="M413.5,481c0,-21.6,-17.5,-39,-39,-39c-21.6,0,-39,17.4,-39,39c0,21.5,17.4,38.9,39,38.9c21.5,0,39,-17.4,39,-38.9Z" class="g0_80"/>
+<path d="M358.3,445.5L346.6,460l2.2,-10.2l-9.1,-4.9Z" class="g1_80"/>
+<path d="M374.5,425.7L405.2,395h-13V378.6H356.8V395h-13Z" class="g2_80"/>
+<path d="M374.5,581.6l30.7,-30.7h-13V534.5H356.7v16.4h-13Z" class="g3_80"/>
+<path d="M272.4,481l23.7,23.7v-13h13.8V470.2H296.1v-13Z" class="g4_80"/>
+<path d="M569.4,481c0,-21.6,-17.5,-39,-39,-39c-21.5,0,-39,17.4,-39,39c0,21.5,17.5,38.9,39,38.9c21.5,0,39,-17.4,39,-38.9Z" class="g0_80"/>
+<path d="M514.2,445.5L502.5,460l2.2,-10.2l-9.1,-4.9Z" class="g1_80"/>
+<path d="M530.4,427l30.7,-30.7h-13v-19H512.7v19h-13Z" class="g2_80"/>
+<path d="M530.4,582.9l30.7,-30.7h-13v-19H512.6v19h-13Z" class="g3_80"/>
+<path d="M637,481L611.2,455.1v13H592.5v25.7h18.7v13Z" class="g4_80"/>
+<path d="M296.5,364V305.6H608.3V364Z" class="g5_80"/>
+<path d="M296.5,597.9v58.5H608.3V597.9Z" class="g5_80"/>
+</svg>

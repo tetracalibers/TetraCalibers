@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1286 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css"><![CDATA[
+.g0_788{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1_788{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g2_788{
+fill: none;
+stroke: #5EE200;
+stroke-width: 1.262;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g3_788{
+fill: #FFCCCC;
+}
+.g4_788{
+fill: none;
+stroke: #5EE200;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g5_788{
+fill: none;
+stroke: #02B5EE;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+]]></style>
+</defs>
+<path d="M193,83.4h900.3M193,111.6h815m-815,0h815M649.2,141.2V112m0,114.3V141.2" class="g0_788"/>
+<path d="M663.6,202.3h81" class="g1_788"/>
+<path d="M755.1,202.3H882" class="g2_788"/>
+<path d="M903,190.6h94V157.7H903v32.9Z" class="g3_788"/>
+<path d="M649.2,255.5V226.3m0,102.2v-73" class="g0_788"/>
+<path d="M677,304.8H828.2V271.9H677v32.9Z" class="g3_788"/>
+<path d="M828.2,314.7H929.5" class="g4_788"/>
+<path d="M929.5,314.7H997" class="g5_788"/>
+<path d="M649.2,357.8V328.5m0,58.5V357.8m0,114.2V387" class="g0_788"/>
+<path d="M676.1,448h81" class="g1_788"/>
+<path d="M767.6,448H882" class="g2_788"/>
+<path d="M903,436.3h94V403.4H903v32.9Z" class="g3_788"/>
+<path d="M649.2,501.2V472m0,102.3V501.2" class="g0_788"/>
+<path d="M660.1,550.6H845V517.7H660.1v32.9Z" class="g3_788"/>
+<path d="M845,560.4h84.5" class="g4_788"/>
+<path d="M929.5,560.4H997" class="g5_788"/>
+<path d="M649.2,603.5V574.3m0,58.4V603.5m0,114.3V632.7" class="g0_788"/>
+<path d="M732.7,693.8H877.1" class="g1_788"/>
+<path d="M887.7,693.8h22.1" class="g2_788"/>
+<path d="M649.2,747V717.8M193,747.4h815m-815,0h815" class="g0_788"/>
+</svg>

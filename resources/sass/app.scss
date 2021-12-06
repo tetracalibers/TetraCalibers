@@ -1,0 +1,73 @@
+@import './plugins/setPrism';
+
+@import './fonts/TsukushiMaruGothic';
+@import './fonts/googleFonts';
+
+@import './modules/images';
+@import './modules/variable';
+@import './modules/color';
+
+@import './modules/design';
+@import './modules/effect';
+
+html {
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Delius Swash Caps', "TsukushiAMaruGothic";
+}
+
+.page-main {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.333em;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+h4, h5, h6 {
+    font-size: 1.25em;
+    line-height: 1.5em;
+}
+
+canvas {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+
+@import 'components/form';
+@import 'components/footer';
+@import 'components/blockEditor';
+@import 'components/editorTagForm';
+@import 'components/toTopButton';
+@import 'components/imageUploader';
+@import 'components/xmlParser';
+
+@import 'pages/top';
+@import 'pages/profile';
+@import 'pages/blog';
+@import 'pages/archive';
+@import 'pages/notes';
+@import 'pages/admin';
+@import 'pages/confirm';
+@import 'pages/thanks';

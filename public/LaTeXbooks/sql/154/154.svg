@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 909 1286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<clipPath id="c0"><path d="M119.5,209.4V182.1H789.9v27.3Z"/></clipPath>
+<style type="text/css"><![CDATA[
+.g0{
+fill: none;
+stroke: #000000;
+stroke-width: 0.73;
+stroke-linecap: butt;
+stroke-linejoin: miter;
+}
+.g1{
+fill: #7F7F7F;
+fill-opacity: 0.01;
+}
+.g2{
+fill: #7F7F7F;
+fill-opacity: 0.02;
+}
+.g3{
+fill: #7F7F7F;
+fill-opacity: 0.04;
+}
+.g4{
+fill: #7F7F7F;
+fill-opacity: 0.07;
+}
+.g5{
+fill: #7F7F7F;
+fill-opacity: 0.11;
+}
+.g6{
+fill: #FFFFFF;
+}
+.g7{
+fill: #7F7F7F;
+}
+.g8{
+fill: #CBCEFB;
+}
+]]></style>
+</defs>
+<path d="M116.9,159.9H792.5" class="g0"/>
+<path d="M122.2,184.8c221.7,0,443.4,0,665,0V409.9c-221.6,-9.3,-443.3,-9.3,-665,0Z" class="g1"/>
+<path d="M122.9,185.4c221.2,0,442.4,0,663.7,0V409.3C565.3,400,344.1,400,122.9,409.3Z" class="g2"/>
+<path d="M123.5,186.1c220.8,0,441.6,0,662.5,0V408.7c-220.9,-9.4,-441.7,-9.4,-662.5,0Z" class="g3"/>
+<path d="M124.1,186.7c220.4,0,440.8,0,661.2,0V408.1c-220.4,-9.4,-440.8,-9.4,-661.2,0Z" class="g4"/>
+<path d="M124.7,187.3c220,0,440,0,660,0V407.5c-220,-9.4,-440,-9.4,-660,0Z" class="g5"/>
+<path d="M125.4,187.9c219.5,0,439.1,0,658.7,0V406.8c-219.6,-9.3,-439.2,-9.3,-658.7,0Z" class="g5"/>
+<path d="M126,188.6c219.1,0,438.3,0,657.5,0V406.2c-219.2,-9.3,-438.4,-9.3,-657.5,0Z" class="g4"/>
+<path d="M126.6,189.2c218.8,0,437.5,0,656.3,0V405.6c-218.8,-9.4,-437.5,-9.4,-656.3,0Z" class="g3"/>
+<path d="M127.2,189.8c218.4,0,436.7,0,655,0V405c-218.3,-9.4,-436.6,-9.4,-655,0Z" class="g2"/>
+<path d="M127.9,190.4c217.9,0,435.8,0,653.7,0V404.3C563.7,395,345.8,395,127.9,404.3Z" class="g1"/>
+<path d="M116.9,399.7V179.5H792.5V399.7Z" class="g6"/>
+<path d="M119.5,397.1V212H789.9V397.1Z" class="g6"/>
+<path d="M119.5,209.4V182.1H789.9v27.3Z" class="g7"/>
+<g clip-path="url(#c0)">
+<image x="119" y="181" width="672" height="28" xlink:href="shade/1.png"/>
+</g>
+<path d="M353.2,261.3H556.3M353.5,290.9V261.7" class="g0"/>
+<path d="M353.9,290.9H482.1V261.7H353.9v29.2Z" class="g8"/>
+<path d="M482.4,290.9V261.7" class="g0"/>
+<path d="M482.8,290.9h72.8V261.7H482.8v29.2Z" class="g8"/>
+<path d="M555.9,290.9V261.7M353.2,291.2H556.3M353.5,320.8V291.6m128.9,29.2V291.6m73.5,29.2V291.6M353.2,321.2H556.3M353.5,350.8V321.6m128.9,29.2V321.6m73.5,29.2V321.6M353.2,351.1H556.3M353.5,380.7V351.5m128.9,29.2V351.5m73.5,29.2V351.5M353.2,381.1H556.3" class="g0"/>
+</svg>

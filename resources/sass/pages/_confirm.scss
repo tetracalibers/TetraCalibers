@@ -1,0 +1,65 @@
+.contactConfirm {
+    background-color: #e9eaed;
+    font-family: "TsukushiAMaruGothic";
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    row-gap: 2rem;
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+
+    .confirm_title {
+        font-size: 4rem;
+        color: #e9eaed;
+        text-shadow: -1.5px -1.5px 2.5px #cdcfd6, 1.5px 1.5px 2.5px white;
+        text-align: center;
+    }
+
+    p {
+        padding: .5rem;
+
+        &.inputedContent, &.back {
+            color: gray;
+        }
+    }
+
+    label {
+        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+    }
+
+    input, button {
+        border: none;
+        background-color: #e9eaed;
+        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+        border-radius: 5px;
+        margin-top: .5rem;
+        box-shadow: inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+        padding: .5rem;
+        max-width: 80vw;
+    }
+
+    input[type="submit"], button {
+        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%),
+                    inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
+        margin-top: 0;
+        transition: box-shadow ease-in-out 0.5s;
+
+        &:hover {
+            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent,
+            inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+        }
+    }
+
+    .submitWrap {
+        display: grid;
+        grid-template-columns: 2;
+        grid-template-rows: 1;
+        align-content: center;
+
+        .send {
+            grid-column: 2;
+            justify-self: right;
+        }
+    }
+}
