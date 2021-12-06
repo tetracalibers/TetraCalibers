@@ -2,14 +2,14 @@
     <div class="xmlparseContainer">
         <label class="_f-indigo _pink _round">
             <i class="far fa-file-word fa-2x"></i>
-            <span>XML原稿ファイルを選択</span>
+            <span>noicolon原稿ファイルを選択</span>
             <input type="file" @change="readfile" accept=".md, .txt" />
         </label>
         <textarea
             :value="data"
             class="confirm confirmHTML _width100"
             :name="textareaName"
-            placeholder="XMLファイルから生成されたHTML"
+            placeholder="原稿ファイルから生成されたHTML"
             readonly
         ></textarea>
     </div>

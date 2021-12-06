@@ -2,7 +2,7 @@
 import blockEditor from './blockEditor.vue'
 import needErrors from './needErrors.vue'
 import richCheckbox from './richCheckbox.vue'
-import xmlFileParser from './xmlFileParser.vue'
+import noicolonParser from './noicolonParser.vue'
 import multiImageUploader from './multiImageUploader.vue'
 import imageUploader from './imageUploader.vue'
 import imageURLpreviewer from './imageURLpreviewer.vue'
@@ -12,7 +12,7 @@ export default {
         "block-editor": blockEditor,
         "rich-checkbox": richCheckbox,
         "need-errors": needErrors,
-        "xml-file-parser": xmlFileParser,
+        "xml-file-parser": noicolonParser,
         "multi-image-uploader": multiImageUploader,
         "image-uploader": imageUploader,
         "image-url-previewer": imageURLpreviewer
