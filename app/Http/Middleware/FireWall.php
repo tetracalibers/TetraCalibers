@@ -12,6 +12,7 @@ final class Firewall
     private const ALLOWED_IPS = [
         '127.0.0.1', // ローカルからのアクセスは許可
         '106.154.156.95',
+        '106.154.152.3'
     ];
 
     /**
