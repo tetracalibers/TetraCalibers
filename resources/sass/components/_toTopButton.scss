@@ -15,7 +15,6 @@
     filter: blur(0.7px);
 
     @media (max-width: $changeLayoutWidth) {
-        filter: blur(0.35px);
         transform: translateZ(0);
     }
 }
