@@ -21,7 +21,7 @@
     </div>
     <div class="blueBlock">
         <div class="returnButton">
-            <a href="/">元の画面に戻る</a>
+            <a href="{{ url('/') }}">元の画面に戻る</a>
         </div>
         <div class="text">
             <h1>FREQUENTLY USED TOOLS</h1>
