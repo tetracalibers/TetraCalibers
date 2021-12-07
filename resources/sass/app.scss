@@ -1,11 +1,12 @@
-@import './plugins/setPrism';
-
-@import './fonts/TsukushiMaruGothic';
-@import './fonts/googleFonts';
-
 @import './modules/images';
 @import './modules/variable';
 @import './modules/color';
+
+@import './plugins/setPrism';
+@import './plugins/linkPrevue';
+
+@import './fonts/TsukushiMaruGothic';
+@import './fonts/googleFonts';
 
 @import './modules/design';
 @import './modules/effect';

@@ -70,14 +70,20 @@ export default {
                 var mylang = reader.result;
                 /** 準備 */
                 mylang = mylang
-                        .replace(/\$/gm, "\$")
-                        .replace(/\./gm, "\.")
-                        .replace(/\^/gm, "\^")
-                        .replace(/\+/gm, "\+")
-                        .replace(/\\/, "\\");
+                    .replace(/\$/gm, "\$")
+                    .replace(/\./gm, "\.")
+                    .replace(/\^/gm, "\^")
+                    .replace(/\+/gm, "\+")
+                    .replace(/\\/, "\\");
 
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
+
+                /** リンク */
+                mylang = mylang.replace(
+                    /^a:\s*(.*?)$/gms,
+                    '<link-prevue url="$1"></link-prevue>'
+                );
 
                 /** ファイル名 */
                 mylang = mylang.replace(
@@ -103,62 +109,95 @@ export default {
                 }
 
                 /** 箇条書きリスト */
-                let lReg = /begin:\s*(?<lMood>[uo])l[^\w](?<lItems>.*?)end:\s*[uo]l/mgsu;
+                let lReg =
+                    /begin:\s*(?<lMood>[uo])l[^\w](?<lItems>.*?)end:\s*[uo]l/gmsu;
                 let lists = mylang.match(lReg);
-                lists.forEach(function (list) {
-                    let lRegResult = lReg.exec(mylang);
-                    let lItems = lRegResult.groups.lItems;
-                    let lMood = lRegResult.groups.lMood;
-                    let lItemsArr = lItems.split(/\n/).slice(0, -1);
-                    for (var i = 0; i < lItemsArr.length; i++) {
-                        lItemsArr[i] = '<li>' + lItemsArr[i] + '</li>';
-                    }
-                    lItems = lItemsArr.join('\n');
-                    mylang = mylang.replace(list, "<" + lMood + "l>" + lItems + "</" + lMood + "l>");
-                });
+                if (lists !== null) {
+                    lists.forEach(function (list) {
+                        let lRegResult = lReg.exec(mylang);
+                        let lItems = lRegResult.groups.lItems;
+                        let lMood = lRegResult.groups.lMood;
+                        let lItemsArr = lItems.split(/\n/).slice(0, -1);
+                        for (var i = 0; i < lItemsArr.length; i++) {
+                            lItemsArr[i] = "<li>" + lItemsArr[i] + "</li>";
+                        }
+                        lItems = lItemsArr.join("\n");
+                        mylang = mylang.replace(
+                            list,
+                            "<" + lMood + "l>" + lItems + "</" + lMood + "l>"
+                        );
+                    });
+                }
 
                 /** 定義リスト */
-                let dlReg = /begin:\s*dl[^\w](?<dlItems>.*?)end:\s*dl/msgu;
+                let dlReg = /begin:\s*dl[^\w](?<dlItems>.*?)end:\s*dl/gmsu;
                 let dlMatch = mylang.match(dlReg);
-                dlMatch.forEach(function (dlist) {
-                    let dlRegResult = dlReg.exec(mylang);
-                    let dlItems = dlRegResult.groups.dlItems;
-                    let dlItemsArr = dlItems.split(/\n/).slice(0, -1);
-                    for (let i = 0; i < dlItemsArr.length; i++) {
-                        if (dlItemsArr[i].match(/dt:.*?/mus)) {
-                            dlItemsArr[i] = '<dt>' + dlItemsArr[i].replace('dt:', '') + '</dt>';
-                        } else {
-                            dlItemsArr[i] = '<dd>' + dlItemsArr[i] + '</dd>';
+                if (dlMatch !== null) {
+                    dlMatch.forEach(function (dlist) {
+                        let dlRegResult = dlReg.exec(mylang);
+                        let dlItems = dlRegResult.groups.dlItems;
+                        let dlItemsArr = dlItems.split(/\n/).slice(0, -1);
+                        for (let i = 0; i < dlItemsArr.length; i++) {
+                            if (dlItemsArr[i].match(/dt:.*?/msu)) {
+                                dlItemsArr[i] =
+                                    "<dt>" +
+                                    dlItemsArr[i].replace("dt:", "") +
+                                    "</dt>";
+                            } else {
+                                dlItemsArr[i] =
+                                    "<dd>" + dlItemsArr[i] + "</dd>";
+                            }
                         }
-                    }
-                    dlItems = dlItemsArr.join('\n');
-                    mylang = mylang.replace(dlist, '<dl>' + dlItems + '</dl>');
-                });
+                        dlItems = dlItemsArr.join("\n");
+                        mylang = mylang.replace(
+                            dlist,
+                            "<dl>" + dlItems + "</dl>"
+                        );
+                    });
+                }
 
                 /** テーブル */
-                let trReg = /begin:\s*tr[^\w](?<trItems>.*?)end:\s*tr/msgu;
+                let trReg = /begin:\s*tr[^\w](?<trItems>.*?)end:\s*tr/gmsu;
                 let trMatch = mylang.match(trReg);
-                trMatch.forEach(function(row) {
-                    let trRegResult = trReg.exec(mylang);
-                    let trItems = trRegResult.groups.trItems;
-                    let trItemsArr = trItems.split(/\n/).slice(0, -1);
-                    for (let i = 0; i < trItemsArr.length; i++) {
-                        if (trItemsArr[i].match(/th:.*?/mus)) {
-                            trItemsArr[i] = '<th>' + trItemsArr[i].replace('th:', '') + '</th>';
-                        } else {
-                            trItemsArr[i] = '<td>' + trItemsArr[i] + '</td>';
+                if (trMatch !== null) {
+                    trMatch.forEach(function (row) {
+                        let trRegResult = trReg.exec(mylang);
+                        let trItems = trRegResult.groups.trItems;
+                        let trItemsArr = trItems.split(/\n/).slice(0, -1);
+                        for (let i = 0; i < trItemsArr.length; i++) {
+                            if (trItemsArr[i].match(/th:.*?/msu)) {
+                                trItemsArr[i] =
+                                    "<th>" +
+                                    trItemsArr[i].replace("th:", "") +
+                                    "</th>";
+                            } else {
+                                trItemsArr[i] =
+                                    "<td>" + trItemsArr[i] + "</td>";
+                            }
                         }
-                    }
-                    trItems = trItemsArr.join('\n');
-                    mylang = mylang.replace(row, '<tr>' + trItems + '</tr>');
-                });
-                mylang = mylang.replace(/begin:\s*table[^\w](.*?)end:\s*table/msgu, '<table>$1</table>');
+                        trItems = trItemsArr.join("\n");
+                        mylang = mylang.replace(
+                            row,
+                            "<tr>" + trItems + "</tr>"
+                        );
+                    });
+                    mylang = mylang.replace(
+                        /begin:\s*table[^\w](.*?)end:\s*table/gmsu,
+                        "<table>$1</table>"
+                    );
+                }
 
                 /** ディレクトリツリー */
-                mylang = mylang.replace(/begin:\s*tree(.*?)end:\s*tree/msug, '<pre><code class="language-treeview">$1</code></pre>');
+                mylang = mylang.replace(
+                    /begin:\s*tree(.*?)end:\s*tree/gmsu,
+                    '<pre><code class="language-treeview">$1</code></pre>'
+                );
 
                 /** 画像 */
-                mylang = mylang.replace(/image:\s*(.*?)$/msug, '<div class="imageWrap"><img src="../images/Articles/$1"></div>');
+                mylang = mylang.replace(
+                    /image:\s*(.*?)$/gmsu,
+                    '<div class="imageWrap"><img src="../images/Articles/$1"></div>'
+                );
 
                 /** コードブロック */
                 let codeReg =

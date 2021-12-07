@@ -1,5 +1,6 @@
 {
     "/js/webpack/validateBlockEditor.js": "/js/webpack/validateBlockEditor.js",
     "/js/webpack/imageSelector.js": "/js/webpack/imageSelector.js",
+    "/js/webpack/linkPreview.js": "/js/webpack/linkPreview.js",
     "/css/app.css": "/css/app.css"
 }

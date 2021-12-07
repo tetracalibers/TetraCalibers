@@ -1,0 +1,123 @@
+.linkPrevue {
+    font-family: "TsukushiAMaruGothic";
+
+    .gridroot {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper {
+        overflow: auto;
+        border-radius: 7px 7px 7px 7px;
+        background-color: #fff;
+        box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+        width: 45vw;
+        margin: 2rem 0;
+
+        @media (max-width: $changeLayoutWidth) {
+            width: 80vw;
+        }
+    }
+
+    .card-img {
+        width: 100%;
+    }
+
+    .card-img img {
+        width: 100%;
+        border-radius: 7px 7px 0 0;
+    }
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+        width: 45vw;
+
+        @media (max-width: $changeLayoutWidth) {
+            width: 80vw;
+        }
+    }
+
+    .card-info {
+        border-radius: 0 0 7px 7px;
+        background-color: #ffffff;
+    }
+
+    .card-text {
+        width: 80%;
+        margin: 0 auto;
+        text-align: justify;
+
+        .title {
+            @extend .marker;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #474747;
+            margin: 5px 0 5px 0;
+
+            @media (max-width: $changeLayoutWidth) {
+                font-size: 1rem;
+            }
+        }
+
+        .description {
+            color: #8d8d8d;
+            font-size: 1rem;
+            padding: 1rem 0 .5rem;
+            line-height: 1.5rem;
+            overflow: hidden;
+            margin: 0;
+            text-align: center;
+
+            @media (max-width: $changeLayoutWidth) {
+                font-size: .8rem;
+            }
+        }
+    }
+
+    .card-btn {
+        margin: 1em 0 1em 0;
+        position: relative;
+        text-align: center;
+
+        a {
+            border-radius: 2em;
+            font-size: .8rem;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            background-color: #ffa9be;
+            padding: 0.25rem 1rem;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none !important;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #ff8fab;
+            }
+        }
+    }
+
+    /* Loader */
+    .spinner {
+        margin-top: 40%;
+        margin-left: 45%;
+        height: 28px;
+        width: 28px;
+        animation: rotate 0.8s infinite linear;
+        border: 5px solid #868686;
+        border-right-color: transparent;
+        border-radius: 50%;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

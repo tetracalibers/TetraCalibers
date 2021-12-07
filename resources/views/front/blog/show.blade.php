@@ -39,7 +39,7 @@
         最終更新日==&#39;{{ $article->updated_at }}&#39;;
     @endif
     </time>
-    <div class="blogContents">
+    <div class="blogContents" id="app">
         {!! $article->content !!}
     </div><!-- END blogContents -->
     <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>

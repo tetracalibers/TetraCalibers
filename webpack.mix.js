@@ -18,4 +18,5 @@ mix.sass('resources/sass/app.scss', 'public/css')
     .sourceMaps()
     .vue()
     .js('resources/js/validateBlockEditor.js', 'public/js/webpack')
-    .js('resources/js/imageSelector.js', 'public/js/webpack');
+    .js('resources/js/imageSelector.js', 'public/js/webpack')
+    .js('resources/js/linkPreview.js', 'public/js/webpack');
