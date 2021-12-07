@@ -126,6 +126,7 @@
     input[type="submit"] {
         font-family: 'Bellota Text', "TsukushiAMaruGothic";
         color: gray;
+        text-transform: uppercase;
         box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%), inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
         margin-top: 0;
         transition: box-shadow ease-in-out .5s;
@@ -151,7 +152,7 @@
 
     @media (max-width: $changeLayoutWidth) {
         margin: -1.5rem .25rem 3rem;
-        filter: blur(0);
+        filter: blur(0.125px);
     }
 
     i {

@@ -34,9 +34,9 @@
         {!! $article->title !!}
     </div><!-- END articleTitle -->
     <time class="articleDate">
-        　　公開日==&#39;{{ $article->created_at }}&#39;;<br>
+        <div>公開日==&#39;{{ $article->created_at }}&#39;;</div>
     @if ($article->created_at != $article->updated_at)
-        最終更新日==&#39;{{ $article->updated_at }}&#39;;
+        <div>最終更新日==&#39;{{ $article->updated_at }}&#39;;</div>
     @endif
     </time>
     <div class="blogContents" id="app">

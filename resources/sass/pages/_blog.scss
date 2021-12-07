@@ -83,6 +83,10 @@ $changeRatioWidth: 1208px;
     z-index: 5;
     font-size: .9rem;
 
+    div {
+        text-align: right;
+    }
+
     @media (max-width: $changeLayoutWidth) {
         margin: 2rem 0 -2rem;
     }
@@ -246,7 +250,7 @@ $changeRatioWidth: 1208px;
         $gridfusenColor: #fffeeb;
         $gridfusenDarkColor: darken($gridfusenColor, 5%);
 
-        background-image: linear-gradient(90deg, transparent 21px, #e7e6a6 22px), linear-gradient(0deg, transparent 21px, #e7e6a6 22px), radial-gradient(circle at 100% 0%, #8099ff80 10px, transparent, transparent), linear-gradient(to right, $gridfusenColor 0%, $gridfusenDarkColor 0.5%, $gridfusenDarkColor 13%, $gridfusenColor 16%);
+        background-image: linear-gradient(90deg, rgba($gridfusenColor, 0) 21px, #e7e6a6 22px), linear-gradient(0deg, rgba($gridfusenColor, 0) 21px, #e7e6a6 22px), radial-gradient(circle at 100% 0%, #8099ff80 10px, rgba($gridfusenColor, 0), rgba($gridfusenColor, 0)), linear-gradient(to right, $gridfusenColor 0%, $gridfusenDarkColor 0.5%, $gridfusenDarkColor 13%, $gridfusenColor 16%);
         background-repeat: repeat, repeat, no-repeat, no-repeat;
         background-size: 22px 22px, 22px 22px, 22px 22px, 100% 100%;
         max-width: 100%;
@@ -465,11 +469,11 @@ $changeRatioWidth: 1208px;
         }
     }
 
-    tr:not(:first-child) th {
-        @media (max-width: $changeRatioWidth) {
-            writing-mode: vertical-lr;
-        }
-    }
+    //tr:not(:first-child) th {
+    //    @media (max-width: $changeRatioWidth) {
+    //        writing-mode: vertical-lr;
+    //    }
+    //}
 
     th {
         text-align: center;
