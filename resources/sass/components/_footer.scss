@@ -31,7 +31,7 @@
     justify-self: center;
     align-self: end;
     font-size: .8rem;
-    font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+    font-family: 'Bellota Text', "TsukushiAMaruGothic";
     color: gray;
     padding: 1rem 0;
 
@@ -83,7 +83,9 @@
     background-color: #e9eaed;
     grid-column: 2;
     grid-row: 1 / -1;
-    font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+    font-family: 'Bellota Text', "TsukushiAMaruGothic";
+    color: gray;
+    text-transform: uppercase;
     justify-self: center;
     align-self: center;
     position: relative;
@@ -107,6 +109,7 @@
     }
 
     input, textarea {
+        -webkit-appearance: none;
         border: none;
         background-color: #e9eaed;
         border-radius: 5px;
@@ -121,15 +124,14 @@
     }
 
     input[type="submit"] {
-        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
-        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%),
-                    inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
+        font-family: 'Bellota Text', "TsukushiAMaruGothic";
+        color: gray;
+        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%), inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
         margin-top: 0;
         transition: box-shadow ease-in-out .5s;
 
         &:hover {
-            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent,
-            inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent, inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
         }
     }
 }
@@ -149,6 +151,7 @@
 
     @media (max-width: $changeLayoutWidth) {
         margin: -1.5rem .25rem 3rem;
+        filter: blur(0.25px);
     }
 
     i {

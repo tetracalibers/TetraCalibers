@@ -25,13 +25,16 @@
     }
 
     label {
-        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+        font-family: 'Bellota Text', "TsukushiAMaruGothic";
+        color: gray;
     }
 
     input, button {
+        -webkit-appearance: none;
         border: none;
         background-color: #e9eaed;
-        font-family: 'Raleway Dots', "TsukushiAMaruGothic";
+        font-family: 'Bellota Text', "TsukushiAMaruGothic";
+        color: gray;
         border-radius: 5px;
         margin-top: .5rem;
         box-shadow: inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
@@ -40,14 +43,13 @@
     }
 
     input[type="submit"], button {
-        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%),
-                    inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
+        -webkit-appearance: none;
+        box-shadow: 5px 5px 10px darken(#e9eaed, 10%), -5px -5px 10px lighten(#e9eaed, 10%), inset 3px 3px 5px transparent, inset -3px -3px 5px transparent;
         margin-top: 0;
         transition: box-shadow ease-in-out 0.5s;
 
         &:hover {
-            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent,
-            inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
+            box-shadow: 5px 5px 10px transparent, -5px -5px 10px transparent, inset 3px 3px 5px darken(#e9eaed, 10%), inset -3px -3px 5px lighten(#e9eaed, 10%);
         }
     }
 
