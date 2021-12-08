@@ -52,7 +52,7 @@ Route::middleware(['firewall'])->group(function() {
     Route::resource('blog', 'BlogController')->except('show');
     Route::resource('readingNote', 'ReadingNoteController');
     Route::resource('tags', 'TagController')->except('show');
-    Route::resource('latexbooks', 'LaTeXBookController');
+    Route::resource('latexbooks', 'LaTeXbookController');
     Route::resource('subjects', 'SubjectController');
     Route::resource('subjects.learningUnits', 'LearningUnitController')->except(['index', 'create', 'edit']);
     Route::resource('subjects.learningUnits.clearnotes', 'ClearnoteController')->except(['index', 'show']);
