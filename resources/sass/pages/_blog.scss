@@ -470,12 +470,6 @@ $changeRatioWidth: 1208px;
         }
     }
 
-    //tr:not(:first-child) th {
-    //    @media (max-width: $changeRatioWidth) {
-    //        writing-mode: vertical-lr;
-    //    }
-    //}
-
     th {
         text-align: center;
         word-break: keep-all;
