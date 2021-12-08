@@ -13,8 +13,5 @@
     cursor: pointer;
     z-index: 9000;
     filter: blur(0.7px);
-
-    @media (max-width: $changeLayoutWidth) {
-        transform: translateZ(0);
-    }
+    transform: translateZ(0);
 }

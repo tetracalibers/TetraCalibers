@@ -149,10 +149,10 @@
     background-repeat: no-repeat;
     margin: -1.5rem .5rem 3rem;
     filter: blur(0.5px);
+    transform: translateZ(0);
 
     @media (max-width: $changeLayoutWidth) {
         margin: -1.5rem .25rem 3rem;
-        transform: translateZ(0);
     }
 
     i {
