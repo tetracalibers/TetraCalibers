@@ -18,7 +18,7 @@
 
             <label for="thumbnail">サムネイル</label>
             <div class="selectImageArea">
-                <image-url-previewer input-name="thumbnailURL" init-value="{{ old('thumbnail', $book->thumbnail)) }}"></image-url-previewer>
+                <image-url-previewer input-name="thumbnailURL" init-value="{{ old('thumbnail', $book->thumbnail) }}"></image-url-previewer>
                 <image-uploader input-name="thumbnailFile"></image-uploader>
             </div>
 
