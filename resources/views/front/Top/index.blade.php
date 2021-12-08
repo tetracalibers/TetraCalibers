@@ -1,7 +1,7 @@
 @extends('front.layouts.base')
 @section('meta')
 <meta property="og:title" content="TOP PAGE of TetraCalibers" />
-<meta property="og:image" content="{{ asset('images/Top/meta/tomixy.jpg') }}" />
+<meta property="og:image" content="{{ asset('images/Top/meta/tomixy_large.jpg') }}" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="{{ $top->metadesc }}" />
 @endsection
