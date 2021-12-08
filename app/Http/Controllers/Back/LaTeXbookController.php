@@ -77,7 +77,7 @@ class LaTeXbookController extends Controller
      */
     public function edit($slug)
     {
-        return view('back.laTeXbooks.edit', [
+        return view('back.latexbooks.edit', [
             'book' => latexbook::findOrFail($slug)
         ]);
     }
