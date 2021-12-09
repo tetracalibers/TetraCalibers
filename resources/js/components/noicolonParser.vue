@@ -101,7 +101,7 @@ export default {
                         nextAddBr = false;
                     } else if (
                         current.match(
-                            /^(incode-\w+)|(image)|(h)|(a)|(fname):.*?$/gmsu
+                            /^(incode-\w+)|(key):.*?$/gmsu
                         )
                     ) {
                         currentAddBr = false;
@@ -230,6 +230,12 @@ export default {
                 mylang = mylang.replace(
                     /image:\s*(.*?)$/gmsu,
                     '<div class="imageWrap"><img src="../images/Articles/$1"></div>'
+                );
+
+                /** キー */
+                mylang = mylang.replace(
+                    /[<\/brp>\n]*^key:\s*(.*?)$/gmsu,
+                    '<span class="key">$1</span>'
                 );
 
                 /** インラインコード */

@@ -339,11 +339,11 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-20px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(4) {
@@ -425,33 +425,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.7956353038s;
-          animation-delay: 0.7956353038s;
+  -webkit-animation-delay: 0.5832802892s;
+          animation-delay: 0.5832802892s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.4781813028s;
-          animation-delay: 0.4781813028s;
+  -webkit-animation-delay: 0.8147084359s;
+          animation-delay: 0.8147084359s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.7719597166s;
-          animation-delay: 0.7719597166s;
+  -webkit-animation-delay: 0.0042823874s;
+          animation-delay: 0.0042823874s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.3311036728s;
-          animation-delay: 0.3311036728s;
+  -webkit-animation-delay: 0.2145520334s;
+          animation-delay: 0.2145520334s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.4145460107s;
-          animation-delay: 0.4145460107s;
+  -webkit-animation-delay: 0.1987283254s;
+          animation-delay: 0.1987283254s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.17931045s;
-          animation-delay: 0.17931045s;
+  -webkit-animation-delay: 0.1965735212s;
+          animation-delay: 0.1965735212s;
 }
 
 .zoomIn {
@@ -1878,6 +1878,20 @@ canvas {
   transition: all 1s;
 }
 .blogContents .url:hover, .blockEditor .preview .url:hover {
+  box-shadow: none;
+}
+.blogContents .key, .blockEditor .preview .key {
+  /** https://neumorphism.io */
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 5px 5px 30px #d2d2d2, -5px -5px 30px #ffffff;
+  color: gray;
+  font-family: "Ubuntu Mono", monospace;
+  background: #f7f7f7;
+  box-shadow: 5px 5px 10px #a1a1a1, -5px -5px 10px #ffffff;
+  transition: all 0.5s;
+}
+.blogContents .key:hover, .blockEditor .preview .key:hover {
   box-shadow: none;
 }
 .blogContents h1, .blockEditor .preview h1, .blogContents h2, .blockEditor .preview h2, .blogContents h3, .blockEditor .preview h3, .blogContents h4, .blockEditor .preview h4, .blogContents h5, .blockEditor .preview h5, .blogContents h6, .blockEditor .preview h6 {
