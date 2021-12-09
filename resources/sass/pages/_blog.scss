@@ -369,19 +369,54 @@ $changeRatioWidth: 1208px;
         margin: 2rem 0;
     }
 
+    ol, ul {
+        display: grid;
+        justify-content: center;
+    }
+
     ul {
-        list-style-type: disclosure-closed;
-        list-style-position: outside;
+        list-style: none;
         padding: 2rem 0 2rem 2rem;
 
+        li {
+            text-indent: -1rem;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                mask: url("/images/icons/triangle_right_24.svg");
+                background-color: #5b6467;
+                background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+                mask-size: cover;
+                vertical-align: middle;
+                padding-right: 0.2rem;
+            }
+        }
+
         @media (max-width: $changeLayoutWidth) {
-            padding: 2rem 0 1rem 2rem;
+            padding: 2rem 0 1rem 1rem;
         }
     }
 
     ol {
         list-style-type: decimal;
-        padding-left: 1.5rem;
+        list-style-position: inside;
+        padding-left: 2rem;
+
+        @media (max-width: $changeLayoutWidth) {
+            padding-left: 1rem;
+        }
+
+        li {
+            text-indent: -1rem;
+
+            &::marker {
+                color: #5b6467;
+                font-size: x-large;
+            }
+        }
     }
 
     pre {

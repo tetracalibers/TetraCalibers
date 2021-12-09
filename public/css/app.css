@@ -308,11 +308,11 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(3) {
@@ -320,11 +320,11 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -398,33 +398,33 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.1838028665s;
-          animation-delay: 0.1838028665s;
+  -webkit-animation-delay: 0.8569741351s;
+          animation-delay: 0.8569741351s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.4786537125s;
-          animation-delay: 0.4786537125s;
+  -webkit-animation-delay: 0.1902736777s;
+          animation-delay: 0.1902736777s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.3062951695s;
-          animation-delay: 0.3062951695s;
+  -webkit-animation-delay: 0.4429838186s;
+          animation-delay: 0.4429838186s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.7826619133s;
-          animation-delay: 0.7826619133s;
+  -webkit-animation-delay: 0.4091862631s;
+          animation-delay: 0.4091862631s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.8304168371s;
-          animation-delay: 0.8304168371s;
+  -webkit-animation-delay: 0.2530167519s;
+          animation-delay: 0.2530167519s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.5777908038s;
-          animation-delay: 0.5777908038s;
+  -webkit-animation-delay: 0.3138062322s;
+          animation-delay: 0.3138062322s;
 }
 
 .zoomIn {
@@ -1834,19 +1834,52 @@ canvas {
   font-size: 1.9rem;
   margin: 2rem 0;
 }
+.blogContents ol, .blockEditor .preview ol, .blogContents ul, .blockEditor .preview ul {
+  display: grid;
+  justify-content: center;
+}
 .blogContents ul, .blockEditor .preview ul {
-  list-style-type: disclosure-closed;
-  list-style-position: outside;
+  list-style: none;
   padding: 2rem 0 2rem 2rem;
+}
+.blogContents ul li, .blockEditor .preview ul li {
+  text-indent: -1rem;
+}
+.blogContents ul li::before, .blockEditor .preview ul li::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  -webkit-mask: url("/images/icons/triangle_right_24.svg");
+          mask: url("/images/icons/triangle_right_24.svg");
+  background-color: #5b6467;
+  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+  -webkit-mask-size: cover;
+          mask-size: cover;
+  vertical-align: middle;
+  padding-right: 0.2rem;
 }
 @media (max-width: 973px) {
   .blogContents ul, .blockEditor .preview ul {
-    padding: 2rem 0 1rem 2rem;
+    padding: 2rem 0 1rem 1rem;
   }
 }
 .blogContents ol, .blockEditor .preview ol {
   list-style-type: decimal;
-  padding-left: 1.5rem;
+  list-style-position: inside;
+  padding-left: 2rem;
+}
+@media (max-width: 973px) {
+  .blogContents ol, .blockEditor .preview ol {
+    padding-left: 1rem;
+  }
+}
+.blogContents ol li, .blockEditor .preview ol li {
+  text-indent: -1rem;
+}
+.blogContents ol li::marker, .blockEditor .preview ol li::marker {
+  color: #5b6467;
+  font-size: x-large;
 }
 .blogContents pre, .blockEditor .preview pre {
   padding-bottom: 0.5rem;
