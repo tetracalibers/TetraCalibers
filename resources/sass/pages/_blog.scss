@@ -118,7 +118,6 @@ $changeRatioWidth: 1208px;
     max-width: 20vw;
     position: relative;
     top: 2rem;
-    font-family: "TsukushiAMaruGothic";
 
     @media (max-width: $changeLayoutWidth) {
         max-width: 80vw;
@@ -137,6 +136,7 @@ $changeRatioWidth: 1208px;
 .blogContainer .toc {
     color: silver;
     list-style-type: "#";
+    font-family: "TsukushiAMaruGothic";
 
     li {
         font-size: 1rem;
@@ -391,7 +391,6 @@ $changeRatioWidth: 1208px;
         /** https://neumorphism.io */
         border-radius: 10px;
         padding: 0.25rem 0.5rem;
-        box-shadow: 5px 5px 30px #d2d2d2, -5px -5px 30px #ffffff;
         color: gray;
         font-family: "Ubuntu Mono", monospace;
         background: #f7f7f7;

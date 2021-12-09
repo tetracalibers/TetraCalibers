@@ -57,7 +57,7 @@ class BlogController extends Controller
 
         if ($request->metaimageFile) {
             $file = $request->metaimageFile;
-            $name = 'metaimage' . date("YmdHis") . '.' . $file->getClientOriginalExtension();
+            $name = 'blog' . $article->id . 'meta.' . $file->getClientOriginalExtension();
             $file->move('images/Articles/meta', $name);
             $article->metaimage = url('images/Articles/meta/' . $name);
         } else {
@@ -138,7 +138,7 @@ class BlogController extends Controller
 
         if ($request->metaimageFile) {
             $file = $request->metaimageFile;
-            $name = 'metaimage' . date("YmdHis") . '.' . $file->getClientOriginalExtension();
+            $name = 'blog' . $article->id . 'meta.' . $file->getClientOriginalExtension();
             $file->move('images/Articles/meta', $name);
             $article->metaimage = url('images/Articles/meta/' . $name);
         } else {
