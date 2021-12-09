@@ -343,15 +343,15 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-30px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -425,33 +425,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.9781463987s;
-          animation-delay: 0.9781463987s;
+  -webkit-animation-delay: 0.7956353038s;
+          animation-delay: 0.7956353038s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.816975339s;
-          animation-delay: 0.816975339s;
+  -webkit-animation-delay: 0.4781813028s;
+          animation-delay: 0.4781813028s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.9523405845s;
-          animation-delay: 0.9523405845s;
+  -webkit-animation-delay: 0.7719597166s;
+          animation-delay: 0.7719597166s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.6069141299s;
-          animation-delay: 0.6069141299s;
+  -webkit-animation-delay: 0.3311036728s;
+          animation-delay: 0.3311036728s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.4994787086s;
-          animation-delay: 0.4994787086s;
+  -webkit-animation-delay: 0.4145460107s;
+          animation-delay: 0.4145460107s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.1842212433s;
-          animation-delay: 0.1842212433s;
+  -webkit-animation-delay: 0.17931045s;
+          animation-delay: 0.17931045s;
 }
 
 .zoomIn {
@@ -1868,14 +1868,13 @@ canvas {
   display: grid;
   justify-content: center;
   font-size: 1.2rem;
-  color: transparent;
+  color: lightpink;
   text-decoration: none;
-  background-color: #ee5166;
-  background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
-  -webkit-background-clip: text;
-          background-clip: text;
+  border-radius: 5px;
   margin: 1rem;
-  box-shadow: 1.5px 1.5px 3px #ee5166, inset -1.5px -1.5px 1px #ee5166;
+  box-shadow: 1.5px 1.5px 1.5px pink, inset -1.5px -1.5px 1px pink;
+  background-color: #d5fefd;
+  background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%);
   transition: all 1s;
 }
 .blogContents .url:hover, .blockEditor .preview .url:hover {
