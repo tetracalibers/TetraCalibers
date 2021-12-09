@@ -69,7 +69,7 @@ export default {
 
             reader.onload = () => {
                 var mylang = reader.result;
-                var mylangArr = mylang.split('\n');
+                var mylangArr = mylang.split("\n");
                 var currentAddBr = true;
                 var nextAddBr = true;
                 var isBetween = false;
@@ -85,9 +85,7 @@ export default {
                 /** 改行の付加 */
                 for (var i = 0; i < mylangArr.length; i++) {
                     var current = mylangArr[i];
-
                     currentAddBr = nextAddBr ? true : false;
-
                     if (current.match(/^(begin):.*?$/gmsu)) {
                         currentAddBr = false;
                         nextAddBr = false;
@@ -96,7 +94,11 @@ export default {
                         currentAddBr = false;
                         nextAddBr = true;
                         isBetween = false;
-                    } else if (current.match(/^(incode-\w+)|(image)|(h)|(a)|(fname):.*?$/gmsu)) {
+                    } else if (
+                        current.match(
+                            /^(incode-\w+)|(image)|(h)|(a)|(fname):.*?$/gmsu
+                        )
+                    ) {
                         currentAddBr = false;
                         nextAddBr = false;
                     } else if (current.match(/^\s*$/gmsu)) {
@@ -105,15 +107,13 @@ export default {
                     } else {
                         nextAddBr = true;
                     }
-
                     if (currentAddBr && !isBetween) {
-                        mylangArr[i] = current + '<br>\n';
+                        mylangArr[i] = current + "<br>\n";
                     } else {
-                        mylangArr[i] = current + '\n';
+                        mylangArr[i] = current + "\n";
                     }
                 }
-
-                mylang = mylangArr.join('');
+                mylang = mylangArr.join("");
 
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
@@ -235,7 +235,7 @@ export default {
                 /** 数式ブロック */
                 mylang = mylang.replace(
                     /begin:\s*math(.*?)end:\s*math/gmsu,
-                    '$$$$$1$$$$'
+                    "$$$$$1$$$$"
                 );
 
                 /** 画像 */
@@ -257,6 +257,46 @@ export default {
                         codeReg,
                         '<pre><code class="language-$1 line-numbers match-braces rainbow-braces">$2</code></pre>'
                     );
+                }
+
+                /** ターミナル */
+                let terminalReg =
+                    /begin:\s*terminal\s*(?<user>[\w\d]*)@?(?<host>[\w\d]*)[^\w](?<command>.*?)end:\s*terminal/gmsu;
+                let terminalMatch = mylang.match(terminalReg);
+                if (terminalMatch !== null) {
+                    terminalMatch.forEach(function (terminal) {
+                        let terminalRegResult = terminalReg.exec(mylang);
+                        if (terminalRegResult !== null) {
+                            let user = terminalRegResult.groups.user;
+                            let host = terminalRegResult.groups.host;
+                            let command = terminalRegResult.groups.command;
+                            let rows = command.split("\n");
+                            let outputIdxArr = [];
+                            for (let i = 0; i < rows.length; i++) {
+                                if (rows[i].match(/^out:\s*(.*?)$/gmsu)) {
+                                    outputIdxArr.push(i + 1);
+                                    rows[i] = rows[i].replace(
+                                        /^out:\s*/gmsu,
+                                        ""
+                                    );
+                                }
+                            }
+                            let outputIdxStr = outputIdxArr.join();
+                            command = vm.escapeHTML(rows.join("\n"));
+                            mylang = mylang.replace(
+                                terminal,
+                                '<div class="switchDark"><pre class="command-line" data-user="' +
+                                    user +
+                                    '" data-host="' +
+                                    host +
+                                    '" data-output="' +
+                                    outputIdxStr +
+                                    '"><code class="language-bash">' +
+                                    command +
+                                    "</code></pre></div>"
+                            );
+                        }
+                    });
                 }
 
                 vm.data = mylang;

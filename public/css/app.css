@@ -16,6 +16,122 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
   background-color: #d83473;
 }
 
+.switchDark {
+  /**
+  * prism.js Dark theme for JavaScript, CSS and HTML
+  * Based on the slides of the talk “/Reg(exp){2}lained/”
+  * @author Lea Verou
+  */
+  /* Code blocks */
+  /* Inline code */
+}
+.switchDark code[class*=language-],
+.switchDark pre[class*=language-] {
+  color: white;
+  background: none;
+  text-shadow: 0 -0.1em 0.2em black;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+}
+@media print {
+  .switchDark code[class*=language-],
+.switchDark pre[class*=language-] {
+    text-shadow: none;
+  }
+}
+.switchDark pre[class*=language-],
+.switchDark :not(pre) > code[class*=language-] {
+  background: #4d4033 !important;
+}
+.switchDark pre[class*=language-] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border: 0.3em solid #7a6652;
+  border-radius: 0.5em;
+  box-shadow: 1px 1px 0.5em black inset;
+}
+.switchDark code[class*=language-] {
+  box-shadow: none !important;
+}
+.switchDark :not(pre) > code[class*=language-] {
+  padding: 0.15em 0.2em 0.05em;
+  border-radius: 0.3em;
+  border: 0.13em solid #7a6652;
+  box-shadow: 1px 1px 0.3em -0.1em black inset;
+  white-space: normal;
+}
+.switchDark .token.comment,
+.switchDark .token.prolog,
+.switchDark .token.doctype,
+.switchDark .token.cdata {
+  color: #998066;
+}
+.switchDark .token.punctuation {
+  opacity: 0.7;
+}
+.switchDark .token.namespace {
+  opacity: 0.7;
+}
+.switchDark .token.property,
+.switchDark .token.tag,
+.switchDark .token.boolean,
+.switchDark .token.number,
+.switchDark .token.constant,
+.switchDark .token.symbol {
+  color: #d1949e;
+}
+.switchDark .token.selector,
+.switchDark .token.attr-name,
+.switchDark .token.string,
+.switchDark .token.char,
+.switchDark .token.builtin,
+.switchDark .token.inserted {
+  color: #bde052;
+}
+.switchDark .token.operator,
+.switchDark .token.entity,
+.switchDark .token.url,
+.switchDark .language-css .token.string,
+.switchDark .style .token.string,
+.switchDark .token.variable {
+  color: #f5b83d;
+}
+.switchDark .token.atrule,
+.switchDark .token.attr-value,
+.switchDark .token.keyword {
+  color: #d1949e;
+}
+.switchDark .token.regex,
+.switchDark .token.important {
+  color: #e90;
+}
+.switchDark .token.important,
+.switchDark .token.bold {
+  font-weight: bold;
+}
+.switchDark .token.italic {
+  font-style: italic;
+}
+.switchDark .token.entity {
+  cursor: help;
+}
+.switchDark .token.deleted {
+  color: red;
+}
+
 .linkPrevue {
   font-family: "TsukushiAMaruGothic";
   /* Loader */
@@ -192,11 +308,11 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(3) {
@@ -208,7 +324,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-20px);
+  transform: translateX(-10px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -282,33 +398,33 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.1527237747s;
-          animation-delay: 0.1527237747s;
+  -webkit-animation-delay: 0.1838028665s;
+          animation-delay: 0.1838028665s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.9601623168s;
-          animation-delay: 0.9601623168s;
+  -webkit-animation-delay: 0.4786537125s;
+          animation-delay: 0.4786537125s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.7488377604s;
-          animation-delay: 0.7488377604s;
+  -webkit-animation-delay: 0.3062951695s;
+          animation-delay: 0.3062951695s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.9749955777s;
-          animation-delay: 0.9749955777s;
+  -webkit-animation-delay: 0.7826619133s;
+          animation-delay: 0.7826619133s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.2999544194s;
-          animation-delay: 0.2999544194s;
+  -webkit-animation-delay: 0.8304168371s;
+          animation-delay: 0.8304168371s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.1487603873s;
-          animation-delay: 0.1487603873s;
+  -webkit-animation-delay: 0.5777908038s;
+          animation-delay: 0.5777908038s;
 }
 
 .zoomIn {
@@ -1827,7 +1943,6 @@ canvas {
 }
 
 pre[class*=language-] {
-  overflow-x: scroll !important;
   background: #000 !important;
 }
 

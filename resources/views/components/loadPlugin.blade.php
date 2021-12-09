@@ -25,6 +25,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/previewers/prism-previewers.min.css" integrity="sha512-A9RNXUtaJI3dQGaPZUpU4rXyVjVnrini2mPgZXK9LN7npkZodrZPuK5VXBi68PN5WlCgc5OU6BY/Nqh+MU3U/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/treeview/prism-treeview.min.css" integrity="sha512-T2070kymkL/92LGEdTHzxTu6cHJjQI66uq8uJ768/iOs6M7yTceI2YcHFh2BHUcqbsDUFn4t9iaXNYAbmUKp8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/command-line/prism-command-line.min.css" integrity="sha512-4Y1uID1tEWeqDdbb7452znwjRVwseCy9kK9BNA7Sv4PlMroQzYRznkoWTfRURSADM/SbfZSbv/iW5sNpzSbsYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endif
 
 {{-- 共通CSS --}}
@@ -94,6 +95,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/show-language/prism-show-language.min.js" integrity="sha512-teI3HjGzxHZz40l8V9ViL7ga18moIgswEgojE/Zl8jhAPhwkZI5/Y+RcIi8yMfA0TW0XHnfOpcmdm9+xj8atow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/data-uri-highlight/prism-data-uri-highlight.min.js" integrity="sha512-OV652xT199oSYUEwFbgqx0BB9HYnv/1FbGairrsqcGqtjFZkylCARmHV+TpOV8GgtUMLn6T6BSAcdsTh7NTw2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/treeview/prism-treeview.js" integrity="sha512-2TGnlW5QL/Esp1U/glgQDgUUuqwWqFWNXR87l6kZQmWCKiVvZeWWzhYJwC2N5gnZCW+5h2QjewmOUiQ4CbYgHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/command-line/prism-command-line.min.js" integrity="sha512-me+qtZLHv+CwTjJ9cihDxHl5JXcQAFkPy8GenPwm+21VF9QU0tY8C4d13wgeLheKSmbYGfRSQnITLSYA6Snr2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('/js/setMathJax.js') }}"></script>
 <script src="{{ asset('/js/setParticles.js') }}"></script>
 <script src="{{ asset('/js/makeToc.js') }}"></script>
