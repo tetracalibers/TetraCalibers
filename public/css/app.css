@@ -335,15 +335,15 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(4) {
@@ -425,33 +425,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.4390606837s;
-          animation-delay: 0.4390606837s;
+  -webkit-animation-delay: 0.2691676398s;
+          animation-delay: 0.2691676398s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.4407378562s;
-          animation-delay: 0.4407378562s;
+  -webkit-animation-delay: 0.7141856321s;
+          animation-delay: 0.7141856321s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.9968553779s;
-          animation-delay: 0.9968553779s;
+  -webkit-animation-delay: 0.7198890794s;
+          animation-delay: 0.7198890794s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.0804471502s;
-          animation-delay: 0.0804471502s;
+  -webkit-animation-delay: 0.6646523051s;
+          animation-delay: 0.6646523051s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.2396449852s;
-          animation-delay: 0.2396449852s;
+  -webkit-animation-delay: 0.471673896s;
+          animation-delay: 0.471673896s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.7075012461s;
-          animation-delay: 0.7075012461s;
+  -webkit-animation-delay: 0.5328273005s;
+          animation-delay: 0.5328273005s;
 }
 
 .zoomIn {

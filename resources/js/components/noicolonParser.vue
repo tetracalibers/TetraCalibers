@@ -259,6 +259,18 @@ export default {
                     );
                 }
 
+                /** vim */
+                let vimReg = /begin:\s*vim[^\w](?<code>.*?)end:\s*vim/gmsu;
+                let vimRegResult = vimReg.exec(mylang);
+                if (vimRegResult !== null) {
+                    let plainVimCode = vimRegResult.groups.code;
+                    mylang.replaceAll(plainVimCode, vm.escapeHTML(plainVimCode));
+                    mylang = mylang.replace(
+                        vimReg,
+                        '<div class="switchDark"><pre><code class="language-vim match-braces rainbow-braces">$1</code></pre></div>'
+                    );
+                }
+
                 /** ターミナル */
                 let terminalReg =
                     /begin:\s*terminal\s*(?<user>[\w\d]*)@?(?<host>[\w\d]*)[^\w](?<command>.*?)end:\s*terminal/gmsu;
@@ -298,6 +310,7 @@ export default {
                         }
                     });
                 }
+
 
                 vm.data = mylang;
                 this.$emit("tomixy_updatecontent", mylang);
