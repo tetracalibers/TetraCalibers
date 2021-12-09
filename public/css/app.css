@@ -335,11 +335,11 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(3) {
@@ -351,7 +351,7 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -425,33 +425,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.2691676398s;
-          animation-delay: 0.2691676398s;
+  -webkit-animation-delay: 0.6501873646s;
+          animation-delay: 0.6501873646s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.7141856321s;
-          animation-delay: 0.7141856321s;
+  -webkit-animation-delay: 0.7990331321s;
+          animation-delay: 0.7990331321s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.7198890794s;
-          animation-delay: 0.7198890794s;
+  -webkit-animation-delay: 0.1176592656s;
+          animation-delay: 0.1176592656s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.6646523051s;
-          animation-delay: 0.6646523051s;
+  -webkit-animation-delay: 0.6906456213s;
+          animation-delay: 0.6906456213s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.471673896s;
-          animation-delay: 0.471673896s;
+  -webkit-animation-delay: 0.845605071s;
+          animation-delay: 0.845605071s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.5328273005s;
-          animation-delay: 0.5328273005s;
+  -webkit-animation-delay: 0.1574001615s;
+          animation-delay: 0.1574001615s;
 }
 
 .zoomIn {
@@ -1563,7 +1563,7 @@ canvas {
   font-size: 0.9rem;
 }
 .articleDate div {
-  text-align: right;
+  text-align: center;
 }
 @media (max-width: 973px) {
   .articleDate {
@@ -1598,9 +1598,12 @@ canvas {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  overflow-y: scroll;
+  max-height: 80vh;
   max-width: 20vw;
   position: relative;
   top: 2rem;
+  font-family: "TsukushiAMaruGothic";
 }
 @media (max-width: 973px) {
   .blogContainer .tocContent {
@@ -1807,7 +1810,8 @@ canvas {
   -webkit-background-clip: text;
           background-clip: text;
   width: 55vw;
-  padding-top: 2rem;
+  padding: 2rem 0;
+  font-family: "TsukushiAMaruGothic";
   align-self: center;
   justify-self: center;
   text-align: center;
@@ -1816,6 +1820,7 @@ canvas {
 @media (max-width: 973px) {
   .articleTitle {
     width: 90vw;
+    padding-bottom: 0;
   }
 }
 
@@ -1827,6 +1832,8 @@ canvas {
   padding-left: 1rem;
   padding-right: 2rem;
   box-sizing: border-box;
+  font-family: "TsukushiAMaruGothic";
+  margin-top: 4rem;
 }
 @media (max-width: 1208px) {
   .blogContents, .blockEditor .preview {
@@ -1857,13 +1864,26 @@ canvas {
     width: 80vw;
   }
 }
+.blogContents .url, .blockEditor .preview .url {
+  display: grid;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: transparent;
+  text-decoration: none;
+  background-color: #ee5166;
+  background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  margin: 1rem;
+  box-shadow: 1.5px 1.5px 3px #ee5166, inset -1.5px -1.5px 1px #ee5166;
+  transition: all 1s;
+}
+.blogContents .url:hover, .blockEditor .preview .url:hover {
+  box-shadow: none;
+}
 .blogContents h1, .blockEditor .preview h1, .blogContents h2, .blockEditor .preview h2, .blogContents h3, .blockEditor .preview h3, .blogContents h4, .blockEditor .preview h4, .blogContents h5, .blockEditor .preview h5, .blogContents h6, .blockEditor .preview h6 {
   font-size: 1.9rem;
   margin: 2rem 0;
-}
-.blogContents ol, .blockEditor .preview ol, .blogContents ul, .blockEditor .preview ul {
-  display: grid;
-  justify-content: center;
 }
 .blogContents ul, .blockEditor .preview ul {
   list-style: none;
@@ -1888,7 +1908,7 @@ canvas {
 }
 @media (max-width: 973px) {
   .blogContents ul, .blockEditor .preview ul {
-    padding: 2rem 0 1rem 1rem;
+    padding: 2rem 0 1rem 2rem;
   }
 }
 .blogContents ol, .blockEditor .preview ol {

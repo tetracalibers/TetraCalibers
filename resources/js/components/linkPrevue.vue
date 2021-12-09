@@ -9,6 +9,9 @@
                 <div class="spinner"></div>
             </slot>
         </div>
+        <a :href="url" @click="viewMore" class="url" target="_blank" rel="noopener noreferrer">
+            外部記事へ
+        </a>
         <div v-if="response" class="gridroot">
             <slot
                 :img="response.image"
@@ -17,13 +20,15 @@
                 :url="url"
             >
                 <div class="wrapper">
-                    <div class="card-img">
+                    <div class="card-img" v-if="response.image">
                         <img :src="response.image" />
                     </div>
-                    <div class="card-info">
+                    <div class="card-info" v-if="response.title">
                         <div class="card-text">
                             <p class="title">{{ response.title }}</p>
-                            <p class="description">{{ response.description }}</p>
+                            <p class="description" v-is="response.description">
+                                {{ response.description }}
+                            </p>
                         </div>
                         <div class="card-btn">
                             <a

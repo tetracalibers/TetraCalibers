@@ -50,7 +50,8 @@ export default {
                 .replace(/</g, "&lt;")
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#x27;");
+                .replace(/'/g, "&#x27;")
+                .replace(/\{\{(.*?)\}\}/gmsu, "<code v-pre>{{$1}}</code>");
         },
         decodeHTML(string) {
             return string
@@ -63,7 +64,6 @@ export default {
         readfile: function (e) {
             const vm = this;
             const file = e.target.files[0];
-            //var mylang;
 
             const reader = new FileReader();
 
@@ -95,19 +95,24 @@ export default {
                         nextAddBr = true;
                         isBetween = false;
                     } else if (
+                        current.match(/^(image)|(h)|(a)|(fname):.*?$/gmsu)
+                    ) {
+                        currentAddBr = false;
+                        nextAddBr = false;
+                    } else if (
                         current.match(
                             /^(incode-\w+)|(image)|(h)|(a)|(fname):.*?$/gmsu
                         )
                     ) {
                         currentAddBr = false;
-                        nextAddBr = false;
-                    } else if (current.match(/^\s*$/gmsu)) {
-                        currentAddBr = false;
                         nextAddBr = true;
                     } else {
+                        currentAddBr = true;
                         nextAddBr = true;
                     }
-                    if (currentAddBr && !isBetween) {
+                    if (current.match(/^(?:)$/gmsu)) {
+                        mylangArr[i] = current + "<p>&nbsp;</p>\n";
+                    } else if (currentAddBr && !isBetween) {
                         mylangArr[i] = current + "<br>\n";
                     } else {
                         mylangArr[i] = current + "\n";
@@ -129,23 +134,6 @@ export default {
                     /fname:\s*(.*?)$/gms,
                     '<p class="code-tag">$1</p>'
                 );
-
-                /** インラインコード */
-                let incodeReg = /^incode-(?<lang>\w+):\s*(?<incode>.*?)$/gmsu;
-                let incodeRegResult = incodeReg.exec(mylang);
-                if (incodeRegResult !== null) {
-                    // TODO BEGIN 本番環境ではコメントを外す
-                    let plainIncode = incodeRegResult.groups.incode;
-                    mylang = mylang.replaceAll(
-                        plainIncode,
-                        vm.escapeHTML(plainIncode)
-                    );
-                    // TODO END
-                    mylang = mylang.replace(
-                        incodeReg,
-                        '<span class="switchDark"><code class="language-$1 match-braces rainbow-braces">$2</code></span>'
-                    );
-                }
 
                 /** 箇条書きリスト */
                 let lReg =
@@ -244,31 +232,64 @@ export default {
                     '<div class="imageWrap"><img src="../images/Articles/$1"></div>'
                 );
 
+                /** インラインコード */
+                let incodeReg =
+                    /[<\/brp>\n]*^incode-(?<lang>\w+):\s*(?<incode>.*?)$/gmsu;
+                let incodes = mylang.match(incodeReg);
+                if (incodes !== null) {
+                    incodes.forEach(function (incode) {
+                        let incodeRegResult = incodeReg.exec(mylang);
+                        let lang = incodeRegResult.groups.lang;
+                        let plainIncode = vm.escapeHTML(
+                            incodeRegResult.groups.incode
+                        );
+                        mylang = mylang.replace(
+                            incode,
+                            '<span class="switchDark"><code class="language-' +
+                                lang +
+                                ' match-braces rainbow-braces">' +
+                                plainIncode +
+                                "</code></span>"
+                        );
+                    });
+                }
+
                 /** コードブロック */
                 let codeReg =
-                    /begin:\s*code-(\w+)[^\w](?<code>.*?)end:\s*code-(\w+)/gmsu;
-                let codeRegResult = codeReg.exec(mylang);
-                if (codeRegResult !== null) {
-                    // TODO BEGIN 本番環境ではコメントを外す
-                    let plainCode = codeRegResult.groups.code;
-                    mylang.replaceAll(plainCode, vm.escapeHTML(plainCode));
-                    // TODO END
-                    mylang = mylang.replace(
-                        codeReg,
-                        '<pre><code class="language-$1 line-numbers match-braces rainbow-braces">$2</code></pre>'
-                    );
+                    /begin:\s*code-(?<lang>\w+)[^\w](?<code>.*?)end:\s*code-(\w+)/gmsu;
+                let codeMatch = mylang.match(codeReg);
+                if (codeMatch !== null) {
+                    codeMatch.forEach(function (code) {
+                        let codeRegResult = codeReg.exec(mylang);
+                        let lang = codeRegResult.groups.lang;
+                        let plainCode = vm.escapeHTML(
+                            codeRegResult.groups.code
+                        );
+                        mylang = mylang.replace(
+                            code,
+                            '<pre><code class="language-' +
+                                lang +
+                                ' line-numbers match-braces rainbow-braces">' +
+                                plainCode +
+                                "</code></pre>"
+                        );
+                    });
                 }
 
                 /** vim */
                 let vimReg = /begin:\s*vim[^\w](?<code>.*?)end:\s*vim/gmsu;
-                let vimRegResult = vimReg.exec(mylang);
-                if (vimRegResult !== null) {
-                    let plainVimCode = vimRegResult.groups.code;
-                    mylang.replaceAll(plainVimCode, vm.escapeHTML(plainVimCode));
-                    mylang = mylang.replace(
-                        vimReg,
-                        '<div class="switchDark"><pre><code class="language-vim match-braces rainbow-braces">$1</code></pre></div>'
-                    );
+                let vimMatch = mylang.match(vimReg);
+                if (vimMatch !== null) {
+                    vimMatch.forEach(function (vim) {
+                        let vimRegResult = vimReg.exec(mylang);
+                        let code = vm.escapeHTML(vimRegResult.groups.code);
+                        mylang = mylang.replace(
+                            vim,
+                            '<div class="switchDark"><pre><code class="language-vim match-braces rainbow-braces">' +
+                                code +
+                                "</code></pre></div>"
+                        );
+                    });
                 }
 
                 /** ターミナル */
@@ -310,7 +331,6 @@ export default {
                         }
                     });
                 }
-
 
                 vm.data = mylang;
                 this.$emit("tomixy_updatecontent", mylang);

@@ -84,7 +84,7 @@ $changeRatioWidth: 1208px;
     font-size: .9rem;
 
     div {
-        text-align: right;
+        text-align: center;
     }
 
     @media (max-width: $changeLayoutWidth) {
@@ -113,9 +113,12 @@ $changeRatioWidth: 1208px;
     justify-self: center;
     width: fit-content;
     height: fit-content;
+    overflow-y: scroll;
+    max-height: 80vh;
     max-width: 20vw;
     position: relative;
     top: 2rem;
+    font-family: "TsukushiAMaruGothic";
 
     @media (max-width: $changeLayoutWidth) {
         max-width: 80vw;
@@ -311,10 +314,12 @@ $changeRatioWidth: 1208px;
     background-image: $colorfullPaper;
     background-clip: text;
     width: 55vw;
-    padding-top: 2rem;
+    padding: 2rem 0;
+    font-family: "TsukushiAMaruGothic";
 
     @media (max-width: $changeLayoutWidth) {
         width: 90vw;
+        padding-bottom: 0;
     }
 
     align-self: center;
@@ -331,6 +336,8 @@ $changeRatioWidth: 1208px;
     padding-left: 1rem;
     padding-right: 2rem;
     box-sizing: border-box;
+    font-family: "TsukushiAMaruGothic";
+    margin-top: 4rem;
 
     @media (max-width: $changeRatioWidth) {
         justify-self: center;
@@ -362,16 +369,30 @@ $changeRatioWidth: 1208px;
         }
     }
 
+    .url {
+        display: grid;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: transparent;
+        text-decoration: none;
+        background-color: #ee5166;
+        background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
+        background-clip: text;
+        margin: 1rem;
+        box-shadow: 1.5px 1.5px 3px #ee5166, inset -1.5px -1.5px 1px #ee5166;
+
+        transition: all 1s;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
     h1, h2, h3, h4, h5, h6 {
         @extend .marker;
 
         font-size: 1.9rem;
         margin: 2rem 0;
-    }
-
-    ol, ul {
-        display: grid;
-        justify-content: center;
     }
 
     ul {
@@ -396,7 +417,7 @@ $changeRatioWidth: 1208px;
         }
 
         @media (max-width: $changeLayoutWidth) {
-            padding: 2rem 0 1rem 1rem;
+            padding: 2rem 0 1rem 2rem;
         }
     }
 
