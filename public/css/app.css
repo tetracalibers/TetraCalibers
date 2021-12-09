@@ -23,7 +23,6 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
   * @author Lea Verou
   */
   /* Code blocks */
-  /* Inline code */
 }
 .switchDark code[class*=language-],
 .switchDark pre[class*=language-] {
@@ -130,6 +129,34 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 .switchDark .token.deleted {
   color: red;
+}
+
+span.switchDark {
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  background-color: #d5fefd;
+  background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%);
+  box-shadow: inset 1px 1px 2px grey, inset -1px -1px 2px grey;
+}
+span.switchDark code[class*=language-],
+span.switchDark pre[class*=language-] {
+  color: mediumpurple;
+  background: none;
+  text-shadow: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
 }
 
 .linkPrevue {
@@ -308,7 +335,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(2) {
@@ -316,11 +343,11 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-30px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(5) {
@@ -398,33 +425,33 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.8569741351s;
-          animation-delay: 0.8569741351s;
+  -webkit-animation-delay: 0.4390606837s;
+          animation-delay: 0.4390606837s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.1902736777s;
-          animation-delay: 0.1902736777s;
+  -webkit-animation-delay: 0.4407378562s;
+          animation-delay: 0.4407378562s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.4429838186s;
-          animation-delay: 0.4429838186s;
+  -webkit-animation-delay: 0.9968553779s;
+          animation-delay: 0.9968553779s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.4091862631s;
-          animation-delay: 0.4091862631s;
+  -webkit-animation-delay: 0.0804471502s;
+          animation-delay: 0.0804471502s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.2530167519s;
-          animation-delay: 0.2530167519s;
+  -webkit-animation-delay: 0.2396449852s;
+          animation-delay: 0.2396449852s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.3138062322s;
-          animation-delay: 0.3138062322s;
+  -webkit-animation-delay: 0.7075012461s;
+          animation-delay: 0.7075012461s;
 }
 
 .zoomIn {
@@ -1977,11 +2004,6 @@ canvas {
 
 pre[class*=language-] {
   background: #000 !important;
-}
-
-:not(pre) > code[class*=language-] {
-  background-color: gray !important;
-  padding: 0.1rem !important;
 }
 
 /* --------------------------------- ソースファイルタイトル -------------------------------- */

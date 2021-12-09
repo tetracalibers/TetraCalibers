@@ -143,7 +143,7 @@ export default {
                     // TODO END
                     mylang = mylang.replace(
                         incodeReg,
-                        '<code class="language-$1 match-braces rainbow-braces">$2</code>'
+                        '<span class="switchDark"><code class="language-$1 match-braces rainbow-braces">$2</code></span>'
                     );
                 }
 

@@ -526,11 +526,6 @@ pre[class*=language-] {
     background: #000 !important;
 }
 
-:not(pre) > code[class*=language-] {
-    background-color: gray !important;
-    padding: .1rem !important;
-}
-
 /* --------------------------------- ソースファイルタイトル -------------------------------- */
 
 .code-tag {
