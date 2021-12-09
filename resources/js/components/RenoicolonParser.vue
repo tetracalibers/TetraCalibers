@@ -63,57 +63,18 @@ export default {
         readfile: function (e) {
             const vm = this;
             const file = e.target.files[0];
-            //var mylang;
 
             const reader = new FileReader();
 
             reader.onload = () => {
                 var mylang = reader.result;
-                var mylangArr = mylang.split('\n');
-                var currentAddBr = true;
-                var nextAddBr = true;
-                var isBetween = false;
-
-                /** 正規表現を使う準備 */
+                /** 準備 */
                 mylang = mylang
                     .replace(/\$/gm, "\$")
                     .replace(/\./gm, "\.")
                     .replace(/\^/gm, "\^")
                     .replace(/\+/gm, "\+")
                     .replace(/\\/, "\\");
-
-                /** 改行の付加 */
-                for (var i = 0; i < mylangArr.length; i++) {
-                    var current = mylangArr[i];
-
-                    currentAddBr = nextAddBr ? true : false;
-
-                    if (current.match(/^(begin):.*?$/gmsu)) {
-                        currentAddBr = false;
-                        nextAddBr = false;
-                        isBetween = true;
-                    } else if (current.match(/^(end):.*?$/gmsu)) {
-                        currentAddBr = false;
-                        nextAddBr = true;
-                        isBetween = false;
-                    } else if (current.match(/^(incode-\w+)|(image)|(h)|(a)|(fname):.*?$/gmsu)) {
-                        currentAddBr = false;
-                        nextAddBr = false;
-                    } else if (current.match(/^\s*$/gmsu)) {
-                        currentAddBr = false;
-                        nextAddBr = true;
-                    } else {
-                        nextAddBr = true;
-                    }
-
-                    if (currentAddBr && !isBetween) {
-                        mylangArr[i] = current + '<br>\n';
-                    } else {
-                        mylangArr[i] = current + '\n';
-                    }
-                }
-
-                mylang = mylangArr.join('');
 
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
@@ -131,7 +92,7 @@ export default {
                 );
 
                 /** インラインコード */
-                let incodeReg = /^incode-(?<lang>\w+):\s*(?<incode>.*?)$/gmsu;
+                let incodeReg = /incode-(?<lang>\w+):\s*(?<incode>.*?)$/gmsu;
                 let incodeRegResult = incodeReg.exec(mylang);
                 if (incodeRegResult !== null) {
                     // TODO BEGIN 本番環境ではコメントを外す
@@ -230,12 +191,6 @@ export default {
                 mylang = mylang.replace(
                     /begin:\s*tree(.*?)end:\s*tree/gmsu,
                     '<pre><code class="language-treeview">$1</code></pre>'
-                );
-
-                /** 数式ブロック */
-                mylang = mylang.replace(
-                    /begin:\s*math(.*?)end:\s*math/gmsu,
-                    '$$$$$1$$$$'
                 );
 
                 /** 画像 */

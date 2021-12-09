@@ -192,11 +192,11 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(3) {
@@ -282,33 +282,33 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.7919749591s;
-          animation-delay: 0.7919749591s;
+  -webkit-animation-delay: 0.1527237747s;
+          animation-delay: 0.1527237747s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.0368915067s;
-          animation-delay: 0.0368915067s;
+  -webkit-animation-delay: 0.9601623168s;
+          animation-delay: 0.9601623168s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.4198032211s;
-          animation-delay: 0.4198032211s;
+  -webkit-animation-delay: 0.7488377604s;
+          animation-delay: 0.7488377604s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.4131867941s;
-          animation-delay: 0.4131867941s;
+  -webkit-animation-delay: 0.9749955777s;
+          animation-delay: 0.9749955777s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.7043403047s;
-          animation-delay: 0.7043403047s;
+  -webkit-animation-delay: 0.2999544194s;
+          animation-delay: 0.2999544194s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.7584406285s;
-          animation-delay: 0.7584406285s;
+  -webkit-animation-delay: 0.1487603873s;
+          animation-delay: 0.1487603873s;
 }
 
 .zoomIn {
