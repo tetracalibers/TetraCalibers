@@ -13,7 +13,7 @@
         <h1 class="shell">
             <span class="shellMark">$&gt;</span>
             <span class="command">ls</span>
-            {{ $tag->name }}
+            {{ str_replace('<wbr>', '', $tag->name) }}
         </h1>
         <ul class="articleList">
         @foreach ($articles as $id => $title)
