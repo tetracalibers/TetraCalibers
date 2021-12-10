@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+Route::get('/sitemap', 'SitemapController@index')->name('sitemap');
+
 Route::post('/confirm', 'ContactController@confirm')->name('contact.confirm');
 Route::post('/thanks', 'ContactController@send')->name('contact.send');
 
