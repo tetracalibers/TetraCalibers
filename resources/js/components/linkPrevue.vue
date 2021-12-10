@@ -9,8 +9,8 @@
                 <div class="spinner"></div>
             </slot>
         </div>
-        <a :href="url" @click="viewMore" class="url" target="_blank" rel="noopener noreferrer">
-            外部記事へ
+        <a :href="url" class="url" target="_blank" rel="noopener noreferrer">
+            <div class="omit">{{ url }}</div>
         </a>
         <div v-if="response" class="gridroot">
             <slot
@@ -86,6 +86,9 @@ export default {
         };
     },
     methods: {
+        omitStr: function(str) {
+            return str.length > 25 ? str.slice(0, 25) + "…" : str;
+        },
         viewMore: function () {
             if (this.onButtonClick !== undefined) {
                 this.onButtonClick(this.response);

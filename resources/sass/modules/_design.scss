@@ -1,3 +1,11 @@
+/* 長い文字列の末尾を省略 -------------------------------------------------------------- */
+
+.omit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* ノート ---------------------------------------------------------------------- */
 
 @mixin BackgroundNote($hasAccentLine) {

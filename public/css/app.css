@@ -284,6 +284,13 @@ span.switchDark pre[class*=language-] {
   font-family: "TsukushiAMaruGothic";
   src: url("/font/AppleTsukuARdGothic-Regular-AlphaNum-01.otf") format("opentype");
 }
+/* 長い文字列の末尾を省略 -------------------------------------------------------------- */
+.omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* ノート ---------------------------------------------------------------------- */
 /* 付箋 ----------------------------------------------------------------------- */
 .fusen {
@@ -335,7 +342,7 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(2) {
@@ -343,15 +350,15 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -425,33 +432,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.1836432691s;
-          animation-delay: 0.1836432691s;
+  -webkit-animation-delay: 0.3479991914s;
+          animation-delay: 0.3479991914s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.4283238767s;
-          animation-delay: 0.4283238767s;
+  -webkit-animation-delay: 0.376920664s;
+          animation-delay: 0.376920664s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.8390125727s;
-          animation-delay: 0.8390125727s;
+  -webkit-animation-delay: 0.1778173544s;
+          animation-delay: 0.1778173544s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.5332421306s;
-          animation-delay: 0.5332421306s;
+  -webkit-animation-delay: 0.4916692004s;
+          animation-delay: 0.4916692004s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.7233987932s;
-          animation-delay: 0.7233987932s;
+  -webkit-animation-delay: 0.3220140944s;
+          animation-delay: 0.3220140944s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.4429171387s;
-          animation-delay: 0.4429171387s;
+  -webkit-animation-delay: 0.4057095388s;
+          animation-delay: 0.4057095388s;
 }
 
 .zoomIn {
@@ -1876,6 +1883,7 @@ canvas {
   background-color: #d5fefd;
   background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%);
   transition: all 1s;
+  padding: 0 0.5rem;
 }
 .blogContents .url:hover, .blockEditor .preview .url:hover {
   box-shadow: none;
