@@ -335,7 +335,7 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-30px);
+  transform: translateX(-20px);
 }
 
 .fusen div:nth-child(2) {
@@ -343,11 +343,11 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-20px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(5) {
@@ -425,33 +425,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.7737524754s;
-          animation-delay: 0.7737524754s;
+  -webkit-animation-delay: 0.1836432691s;
+          animation-delay: 0.1836432691s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.4432263733s;
-          animation-delay: 0.4432263733s;
+  -webkit-animation-delay: 0.4283238767s;
+          animation-delay: 0.4283238767s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.6773218038s;
-          animation-delay: 0.6773218038s;
+  -webkit-animation-delay: 0.8390125727s;
+          animation-delay: 0.8390125727s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.2160029315s;
-          animation-delay: 0.2160029315s;
+  -webkit-animation-delay: 0.5332421306s;
+          animation-delay: 0.5332421306s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.6024996043s;
-          animation-delay: 0.6024996043s;
+  -webkit-animation-delay: 0.7233987932s;
+          animation-delay: 0.7233987932s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.0874703802s;
-          animation-delay: 0.0874703802s;
+  -webkit-animation-delay: 0.4429171387s;
+          animation-delay: 0.4429171387s;
 }
 
 .zoomIn {
@@ -1915,7 +1915,7 @@ canvas {
   background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
   -webkit-mask-size: cover;
           mask-size: cover;
-  vertical-align: middle;
+  vertical-align: baseline;
   padding-right: 0.2rem;
 }
 @media (max-width: 973px) {
