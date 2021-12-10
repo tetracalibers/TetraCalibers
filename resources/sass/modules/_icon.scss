@@ -1,0 +1,26 @@
+.i-sankobunken {
+    text-align: center;
+    margin-bottom: -2rem;
+    color: #8099ffb3;
+
+    &-text {
+        padding: 0 .25rem;
+    }
+}
+
+.i-gutai, .i-tyusho {
+
+    &-text {
+        padding: 0 .25rem;
+    }
+}
+
+.i-tantosha {
+    i {
+        color: gray;
+    }
+
+    &-text {
+        padding-left: 0.25rem;
+    }
+}

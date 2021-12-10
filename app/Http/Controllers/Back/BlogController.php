@@ -147,7 +147,7 @@ class BlogController extends Controller
 
         $article->save();
 
-        return redirect()->route('back.blog.index')->with('message', '記事を更新しました！');
+        return back()->with('message', '記事を更新しました！');
     }
 
     /**

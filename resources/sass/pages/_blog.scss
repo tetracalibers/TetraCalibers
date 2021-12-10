@@ -557,64 +557,6 @@ $changeRatioWidth: 1208px;
     }
 }
 
-pre[class*=language-] {
-    //overflow-x: scroll !important;
-    background: #000 !important;
-}
-
-/* --------------------------------- ソースファイルタイトル -------------------------------- */
-
-.code-tag {
-    position: relative;
-    margin: 2rem 20px -.25rem 5px;
-    padding: 5px 15px;
-    color: #fff;
-    background: #c70067;
-    font-size: 90%;
-    opacity: 0.9;
-    border-radius: 0.1em;
-    left: 1rem;
-    width: fit-content;
-
-    &::before {
-        content: "<";
-        position: absolute;
-        top: 0;
-        left: -10px;
-        width: 0;
-        height: 0;
-        font-size: 25px;
-        line-height: 1.0;
-        color: #c96;
-        opacity: 0.9;
-    }
-
-    &::after {
-        content: " ";
-        position: absolute;
-        top: -2px;
-        left: -10px;
-        bottom: 10px;
-        width: 0;
-        height: 150%;
-        border: #600 solid 2px;
-        border-radius: 2px;
-        transform: rotate(-2deg);
-    }
-}
-
-/* ------------------------------- ソースコードタイトル ------------------------------- */
-
-p.codeTytle {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 17.5px;
-    color: #c70067;
-    font-family: 'Poiret One', cursive;
-    font-size: 120%;
-}
-
 /* ---------------------------------- 注意書き ---------------------------------- */
 
 .frame {

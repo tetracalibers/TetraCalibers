@@ -16,6 +16,66 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
   background-color: #d83473;
 }
 
+/* コード ---------------------------------------------------------------------- */
+pre[class*=language-] {
+  background: #000 !important;
+  border-radius: 1rem;
+}
+pre[class*=language-].line-numbers {
+  font-size: 0.9rem;
+}
+
+/* --------------------------------- ソースファイルタイトル -------------------------------- */
+.code-tag {
+  position: relative;
+  margin: 2rem 20px -0.25rem 5px;
+  padding: 5px 15px;
+  color: #fff;
+  background: #c70067;
+  font-size: 90%;
+  opacity: 0.9;
+  border-radius: 0.1em;
+  left: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.code-tag::before {
+  content: "<";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 0;
+  height: 0;
+  font-size: 25px;
+  line-height: 1;
+  color: #c96;
+  opacity: 0.9;
+}
+.code-tag::after {
+  content: " ";
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  bottom: 10px;
+  width: 0;
+  height: 150%;
+  border: #600 solid 2px;
+  border-radius: 2px;
+  transform: rotate(-2deg);
+}
+
+/* ------------------------------- ソースコードタイトル ------------------------------- */
+p.codeTytle {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 17.5px;
+  color: #c70067;
+  font-family: "Poiret One", cursive;
+  font-size: 120%;
+}
+
 .switchDark {
   /**
   * prism.js Dark theme for JavaScript, CSS and HTML
@@ -342,23 +402,23 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-30px);
+  transform: translateX(-10px);
 }
 
 .fusen div:nth-child(2) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(3) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(4) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -432,33 +492,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.3479991914s;
-          animation-delay: 0.3479991914s;
+  -webkit-animation-delay: 0.859116123s;
+          animation-delay: 0.859116123s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.376920664s;
-          animation-delay: 0.376920664s;
+  -webkit-animation-delay: 0.1219411102s;
+          animation-delay: 0.1219411102s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.1778173544s;
-          animation-delay: 0.1778173544s;
+  -webkit-animation-delay: 0.2745769632s;
+          animation-delay: 0.2745769632s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.4916692004s;
-          animation-delay: 0.4916692004s;
+  -webkit-animation-delay: 0.4772340224s;
+          animation-delay: 0.4772340224s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.3220140944s;
-          animation-delay: 0.3220140944s;
+  -webkit-animation-delay: 0.270670828s;
+          animation-delay: 0.270670828s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.4057095388s;
-          animation-delay: 0.4057095388s;
+  -webkit-animation-delay: 0.5680346107s;
+          animation-delay: 0.5680346107s;
 }
 
 .zoomIn {
@@ -496,6 +556,26 @@ canvas {
   bottom: 0;
   right: 0;
   z-index: 0;
+}
+
+.i-sankobunken {
+  text-align: center;
+  margin-bottom: -2rem;
+  color: #8099ffb3;
+}
+.i-sankobunken-text {
+  padding: 0 0.25rem;
+}
+
+.i-gutai-text, .i-tyusho-text {
+  padding: 0 0.25rem;
+}
+
+.i-tantosha i {
+  color: gray;
+}
+.i-tantosha-text {
+  padding-left: 0.25rem;
 }
 
 html {
@@ -2040,61 +2120,6 @@ canvas {
   padding: 0.5rem 1rem;
   background-color: #ffffff;
   background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
-}
-
-pre[class*=language-] {
-  background: #000 !important;
-}
-
-/* --------------------------------- ソースファイルタイトル -------------------------------- */
-.code-tag {
-  position: relative;
-  margin: 2rem 20px -0.25rem 5px;
-  padding: 5px 15px;
-  color: #fff;
-  background: #c70067;
-  font-size: 90%;
-  opacity: 0.9;
-  border-radius: 0.1em;
-  left: 1rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.code-tag::before {
-  content: "<";
-  position: absolute;
-  top: 0;
-  left: -10px;
-  width: 0;
-  height: 0;
-  font-size: 25px;
-  line-height: 1;
-  color: #c96;
-  opacity: 0.9;
-}
-.code-tag::after {
-  content: " ";
-  position: absolute;
-  top: -2px;
-  left: -10px;
-  bottom: 10px;
-  width: 0;
-  height: 150%;
-  border: #600 solid 2px;
-  border-radius: 2px;
-  transform: rotate(-2deg);
-}
-
-/* ------------------------------- ソースコードタイトル ------------------------------- */
-p.codeTytle {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 17.5px;
-  color: #c70067;
-  font-family: "Poiret One", cursive;
-  font-size: 120%;
 }
 
 /* ---------------------------------- 注意書き ---------------------------------- */

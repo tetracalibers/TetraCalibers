@@ -110,7 +110,7 @@ export default {
                         currentAddBr = true;
                         nextAddBr = true;
                     }
-                    if (current.match(/^(?:)$/gmsu)) {
+                    if (current.match(/^(?:)$/gmsu) && !isBetween) {
                         mylangArr[i] = current + "<p>&nbsp;</p>\n";
                     } else if (currentAddBr && !isBetween) {
                         mylangArr[i] = current + "<br>\n";
@@ -120,13 +120,19 @@ export default {
                 }
                 mylang = mylangArr.join("");
 
+                /** アイコンたち */
+                mylang = mylang.replace(/::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
+                mylang = mylang.replace(/::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
+                mylang = mylang.replace(/担当者::/gmsu, '<span class="i-tantosha"><i class="fas fa-user"></i><span class="i-tantosha-text">担当者：</span></span>');
+                mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span><i class="fas fa-book"></i></div>');
+
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
 
                 /** リンク */
                 mylang = mylang.replace(
                     /^a:\s*(.*?)$/gms,
-                    '<link-prevue url="$1"></link-prevue>'
+                    '<a href="$1" class="url" target="_blank" rel="noopener noreferrer"><div class="omit">$1</div></a>'
                 );
 
                 /** ファイル名 */
@@ -312,7 +318,7 @@ export default {
                             let rows = command.split("\n");
                             let outputIdxArr = [];
                             for (let i = 0; i < rows.length; i++) {
-                                if (rows[i].match(/^out:\s*(.*?)$/gmsu)) {
+                                if (rows[i].match(/^out:\s*(.*?)$/gmsu) || rows[i].match(/^(?:)$/gmsu)) {
                                     outputIdxArr.push(i + 1);
                                     rows[i] = rows[i].replace(
                                         /^out:\s*/gmsu,
