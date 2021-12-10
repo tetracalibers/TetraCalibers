@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
+@import url(//use.fontawesome.com/releases/v5.14.4/css/all.css);
 @charset "UTF-8";
 @font-face {
   font-family: "TsukushiAMaruGothic";
@@ -403,15 +403,15 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(1) {
-  transform: translateX(-10px);
-}
-
-.fusen div:nth-child(2) {
   transform: translateX(-30px);
 }
 
+.fusen div:nth-child(2) {
+  transform: translateX(-10px);
+}
+
 .fusen div:nth-child(3) {
-  transform: translateX(-20px);
+  transform: translateX(-30px);
 }
 
 .fusen div:nth-child(4) {
@@ -419,7 +419,7 @@ span.switchDark pre[class*=language-] {
 }
 
 .fusen div:nth-child(5) {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
 }
 
 /* マーカー --------------------------------------------------------------------- */
@@ -493,33 +493,33 @@ span.switchDark pre[class*=language-] {
 }
 
 .delay-time01 {
-  -webkit-animation-delay: 0.7153283159s;
-          animation-delay: 0.7153283159s;
+  -webkit-animation-delay: 0.7222220782s;
+          animation-delay: 0.7222220782s;
 }
 
 .delay-time02 {
-  -webkit-animation-delay: 0.9021977047s;
-          animation-delay: 0.9021977047s;
+  -webkit-animation-delay: 0.1316170839s;
+          animation-delay: 0.1316170839s;
 }
 
 .delay-time03 {
-  -webkit-animation-delay: 0.5323234618s;
-          animation-delay: 0.5323234618s;
+  -webkit-animation-delay: 0.2030737003s;
+          animation-delay: 0.2030737003s;
 }
 
 .delay-time04 {
-  -webkit-animation-delay: 0.1063768219s;
-          animation-delay: 0.1063768219s;
+  -webkit-animation-delay: 0.5210685242s;
+          animation-delay: 0.5210685242s;
 }
 
 .delay-time05 {
-  -webkit-animation-delay: 0.7473339048s;
-          animation-delay: 0.7473339048s;
+  -webkit-animation-delay: 0.7045462144s;
+          animation-delay: 0.7045462144s;
 }
 
 .delay-time06 {
-  -webkit-animation-delay: 0.0003319553s;
-          animation-delay: 0.0003319553s;
+  -webkit-animation-delay: 0.7628993925s;
+          animation-delay: 0.7628993925s;
 }
 
 .zoomIn {
