@@ -2,13 +2,14 @@
 @import './modules/variable';
 @import './modules/color';
 
+@import './fonts/TsukushiAMaruGothic';
+@import './fonts/googleFonts';
+@import './fonts/fontawesome';
+
 @import './plugins/setPrism';
 @import './plugins/commandLine';
 @import './plugins/inlineCord';
 @import './plugins/linkPrevue';
-
-@import './fonts/TsukushiAMaruGothic';
-@import './fonts/googleFonts';
 
 @import './modules/design';
 @import './modules/effect';
