@@ -35,12 +35,11 @@
 }
 
 .i-filePath, .i-dirPath {
-    font-family: "ubuntu";
-    padding: 0.2rem;
     border-radius: 0.5rem;
     color: gray;
-    letter-spacing: 2px;
-    font-size: .9em;
+    font-family: "Noto Sans Mono", "TsukushiAMaruGothic";
+    letter-spacing: 1px;
+    padding: 0.2rem;
 
     i {
         padding-right: .25rem;
@@ -51,6 +50,7 @@
     text-decoration-style: double;
     color: blueviolet;
     word-break: break-all;
+    hyphens: none;
 
     i {
         padding-right: .25rem;
@@ -59,4 +59,5 @@
 
 .i-button {
     font-family: 'Inconsolata', "TsukushiAMaruGothic";
+    font-size: 1.2rem;
 }
