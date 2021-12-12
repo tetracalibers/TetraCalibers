@@ -46,9 +46,9 @@
 @if (Route::is('back.blog.create') || Route::is('back.blog.edit') || Route::is('back.readingNote.create') || Route::is('back.readingNote.edit'))
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 <script src="{{ asset('/js/checkTag.js') }}"></script>
-<script src="{{ asset('/js/webpack/validateBlockEditor.js') }}" defer="defer"></script>
+<script src="{{ mix('/js/webpack/validateBlockEditor.js') }}" defer="defer"></script>
 @elseif (Route::is('back.*'))
-<script src="{{ asset('/js/webpack/imageSelector.js') }}" defer="defer"></script>
+<script src="{{ mix('/js/webpack/imageSelector.js') }}" defer="defer"></script>
 @endif
 
 {{-- フロント --}}

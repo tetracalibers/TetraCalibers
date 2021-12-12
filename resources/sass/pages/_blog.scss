@@ -369,7 +369,7 @@ $changeRatioWidth: 1208px;
         }
     }
 
-    .url {
+    .url:not(.token) {
         display: grid;
         justify-content: center;
         font-size: 1.2rem;
@@ -484,10 +484,10 @@ $changeRatioWidth: 1208px;
     }
 
     dt {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         position: relative;
         padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-bottom: 1rem;
         text-align: center;
         box-sizing: border-box;
         z-index: 1;
@@ -529,6 +529,9 @@ $changeRatioWidth: 1208px;
 
     dd {
         justify-self: center;
+        padding-bottom: 2rem;
+        font-size: 1.2rem;
+        text-align: center;
     }
 
     table {

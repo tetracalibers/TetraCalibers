@@ -8,8 +8,17 @@
     }
 }
 
-.i-gutai, .i-tyusho {
+.i-github {
+    text-align: center;
+    margin-bottom: -2rem;
+    color: deepskyblue;
 
+    &-text {
+        padding: 0 .25rem;
+    }
+}
+
+.i-gutai, .i-tyusho {
     &-text {
         padding: 0 .25rem;
     }
@@ -23,4 +32,31 @@
     &-text {
         padding-left: 0.25rem;
     }
+}
+
+.i-filePath, .i-dirPath {
+    font-family: "ubuntu";
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    color: gray;
+    letter-spacing: 2px;
+    font-size: .9em;
+
+    i {
+        padding-right: .25rem;
+    }
+}
+
+.i-link {
+    text-decoration-style: double;
+    color: blueviolet;
+    word-break: break-all;
+
+    i {
+        padding-right: .25rem;
+    }
+}
+
+.i-button {
+    font-family: 'Inconsolata', "TsukushiAMaruGothic";
 }

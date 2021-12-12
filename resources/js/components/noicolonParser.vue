@@ -101,7 +101,7 @@ export default {
                         nextAddBr = false;
                     } else if (
                         current.match(
-                            /^(incode-\w+)|(key):.*?$/gmsu
+                            /^(incode-\w+)|(key)|(dir)|(file)|(link)|(button)|(pre):.*?$/gmsu
                         )
                     ) {
                         currentAddBr = false;
@@ -120,24 +120,31 @@ export default {
                 }
                 mylang = mylangArr.join("");
 
-                /** アイコンたち */
+                /** ショートコード */
                 mylang = mylang.replace(/::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
                 mylang = mylang.replace(/::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
                 mylang = mylang.replace(/担当者::/gmsu, '<span class="i-tantosha"><i class="fas fa-user"></i><span class="i-tantosha-text">担当者：</span></span>');
                 mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span><i class="fas fa-book"></i></div>');
+                mylang = mylang.replace(/:最新のコードはこちら:/gmsu, '<div class="i-github"><i class="fas fa-code"></i><span class="i-github-text">最新のコードはこちら</span><i class="fas fa-code"></i></div>');
 
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
 
-                /** リンク */
+                /** ブロックURL */
                 mylang = mylang.replace(
                     /^a:\s*(.*?)$/gms,
                     '<a href="$1" class="url" target="_blank" rel="noopener noreferrer"><div class="omit">$1</div></a>'
                 );
 
+                /** インラインURL */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*link:\s*(.*?)\[(.*?)\]/gms,
+                    '<a href="$2" class="i-link" target="_blank rel="noopener noreferrer><i class="fas fa-link"></i>$2</a>'
+                );
+
                 /** ファイル名 */
                 mylang = mylang.replace(
-                    /fname:\s*(.*?)$/gms,
+                    /fname:\s*(.*?)/gms,
                     '<p class="code-tag">$1</p>'
                 );
 
@@ -234,7 +241,7 @@ export default {
 
                 /** 画像 */
                 mylang = mylang.replace(
-                    /image:\s*(.*?)$/gmsu,
+                    /^image:\s*(.*?)$/gmsu,
                     '<div class="imageWrap"><img src="../images/Articles/$1"></div>'
                 );
 
@@ -244,9 +251,21 @@ export default {
                     '<span class="key">$1</span>'
                 );
 
+                /** ディレクトリ */
+                mylang = mylang.replace(/(?:<br>|<\/p>)?[\n\t\s]*dir:\s*(.*?)(?:$|::::)/gmsu, '<span class="i-dirPath"><i class="far fa-folder-open"></i>$1</span>');
+
+                /** ファイル */
+                mylang = mylang.replace(/(?:<br>|<\/p>)?[\n\t\s]*file:\s*(.*?)(?:$|::::)/gmsu, '<span class="i-filePath"><i class="far fa-file-alt"></i>$1</span>');
+
+                /** ボタン */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*(?:button|pre):\s*(.*?)(?:$|::::)/gmsu,
+                    '<span class="i-button"><span class="i-button-text">$1</span></span>'
+                );
+
                 /** インラインコード */
                 let incodeReg =
-                    /[<\/brp>\n]*^incode-(?<lang>\w+):\s*(?<incode>.*?)$/gmsu;
+                    /(?:<br>|<\/p>)?[\n\t\s]*incode-(?<lang>\w+):\s*(?<incode>.*?)(?:$|::::)/gmsu;
                 let incodes = mylang.match(incodeReg);
                 if (incodes !== null) {
                     incodes.forEach(function (incode) {
@@ -288,7 +307,19 @@ export default {
                     });
                 }
 
-                /** vim */
+                /** プログラムのソースではないデータファイル */
+                let dataReg = /begin:\s*data-(?<type>\w+)[^\w](?<data>.*?)end:\s*data-(\w+)/gmsu;
+                let dataMatch = mylang.match(dataReg);
+                if (dataMatch !== null) {
+                    dataMatch.forEach(function (data) {
+                        let dataRegResult = dataReg.exec(mylang);
+                        let type = dataRegResult.groups.type;
+                        let plaindata = vm.escapeHTML(dataRegResult.groups.data);
+                        mylang = mylang.replace(data, '<div class="switchSolaLight"><pre><code class="language-' + type + ' match-braces rainbow-braces">' + plaindata + '</code></pre></div>');
+                    });
+                }
+
+                /** vimエディタ */
                 let vimReg = /begin:\s*vim[^\w](?<code>.*?)end:\s*vim/gmsu;
                 let vimMatch = mylang.match(vimReg);
                 if (vimMatch !== null) {

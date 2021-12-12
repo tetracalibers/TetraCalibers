@@ -12,7 +12,6 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 /* コード ---------------------------------------------------------------------- */
 pre[class*=language-] {
     background: #000 !important;
-    border-radius: 1rem;
 
     &.line-numbers {
         font-size: .9rem;
@@ -23,7 +22,6 @@ pre[class*=language-] {
 
 .code-tag {
     position: relative;
-    margin: 2rem 20px -.25rem 5px;
     padding: 5px 15px;
     color: #fff;
     background: #c70067;
@@ -32,6 +30,7 @@ pre[class*=language-] {
     border-radius: 0.1em;
     left: 1rem;
     width: fit-content;
+    margin-top: 1rem;
 
     &::before {
         content: "<";

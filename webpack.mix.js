@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,12 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/app.scss', 'public/css')
+mix.sass("resources/sass/app.scss", "public/css")
     .options({
-        processCssUrls: false
+        processCssUrls: false,
     })
     .sourceMaps()
     .vue()
-    .js('resources/js/validateBlockEditor.js', 'public/js/webpack')
-    .js('resources/js/imageSelector.js', 'public/js/webpack')
-    .js('resources/js/linkPreview.js', 'public/js/webpack');
+    .js("resources/js/validateBlockEditor.js", "public/js/webpack")
+    .js("resources/js/imageSelector.js", "public/js/webpack")
+    .js("resources/js/linkPreview.js", "public/js/webpack");
+
+if (mix.inProduction()) {
+    mix.version();
+}
