@@ -50,5 +50,13 @@ $headHeight: 3rem;
         transform: scale(1, 0.75);
         height: 300px;
         filter: drop-shadow(4px 4px 10px white) opacity(0.9);
+
+        @media (max-width: $changeLayoutWidth) {
+            filter: opacity(1);
+
+            rect, path {
+                fill: rgb(64, 26, 26);
+            }
+        }
     }
 }
