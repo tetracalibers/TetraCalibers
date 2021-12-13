@@ -26,7 +26,7 @@ $(function() {
         $destination = $($this.attr('href'));
         $destination.velocity('scroll', {
             duration: 1000,
-            offset: -1 * 16 * 2,
+            offset: -1 * 16 * 2 - 125,
             easing: 'easeOutSine'
         });
     });
