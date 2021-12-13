@@ -1,6 +1,5 @@
 .topContainer {
     @include BackgroundNote("yes");
-
     min-height: calc(100vh + 100px);
     width: 100vw;
     box-sizing: border-box;

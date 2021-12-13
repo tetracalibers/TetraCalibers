@@ -22,8 +22,13 @@
     <title>@yield('title')</title>
     <x-loadPlugin />
 </head>
-<body class="my_frontContainer">
-    @yield('main')
+<body>
+    @if (!Request::is('/') && !Request::is('profile'))
+    <x-front.header />
+    @endif
+    <main class="my_frontContainer">
+        @yield('main')
+    </main>
+    <x-front.footer />
 </body>
-<x-front.footer />
 </html>

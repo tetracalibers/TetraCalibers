@@ -11,6 +11,7 @@ $changeRatioWidth: 1208px;
     grid-template-columns: 20vw 55vw 25vw;
     grid-template-rows: auto auto;
     box-sizing: border-box;
+    padding-top: 125px;
 
     @media (max-width: $changeRatioWidth) {
         grid-template-columns: 25vw 50vw 25vw;
@@ -99,7 +100,7 @@ $changeRatioWidth: 1208px;
     overflow-y: auto;
     padding-bottom: 2rem;
     position: sticky;
-    top: 2rem;
+    top: 100px;
     display: grid;
 
     @media (max-width: $changeLayoutWidth) {
@@ -114,7 +115,7 @@ $changeRatioWidth: 1208px;
     width: fit-content;
     height: fit-content;
     overflow-y: auto;
-    max-height: 80vh;
+    max-height: 70vh;
     max-width: 20vw;
     position: relative;
     top: 2rem;
@@ -152,7 +153,7 @@ $changeRatioWidth: 1208px;
 .categoryList {
     height: 100vh;
     position: sticky;
-    top: 0;
+    top: 300px;
     justify-self: center;
     align-self: start;
     padding-top: 2rem;
@@ -168,7 +169,7 @@ $changeRatioWidth: 1208px;
         grid-column: 1;
         grid-row: 1;
         justify-self: center;
-        align-self: center;
+        align-self: start;
         z-index: 6;
     }
 
@@ -314,7 +315,7 @@ $changeRatioWidth: 1208px;
     background-image: $colorfullPaper;
     background-clip: text;
     width: 55vw;
-    padding: 2rem 0;
+    padding: 0 0 2rem;
     font-family: "TsukushiAMaruGothic";
 
     @media (max-width: $changeLayoutWidth) {
@@ -337,10 +338,10 @@ $changeRatioWidth: 1208px;
     padding-right: 2rem;
     box-sizing: border-box;
     font-family: "TsukushiAMaruGothic";
-    margin-top: 4rem;
 
     @media (max-width: $changeRatioWidth) {
         justify-self: center;
+        margin-top: 8rem;
     }
 
     &:not(pre),
