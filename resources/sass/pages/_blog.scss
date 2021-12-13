@@ -152,13 +152,16 @@ $changeRatioWidth: 1208px;
 
 .categoryList {
     height: 100vh;
-    position: sticky;
-    top: 300px;
     justify-self: center;
     align-self: start;
     padding-top: 2rem;
     z-index: 5;
     display: grid;
+
+    @media (min-width: $changeLayoutWidth + 1) {
+        position: sticky;
+        top: 300px;
+    }
 
     @media (max-width: $changeLayoutWidth) {
         position: relative;
