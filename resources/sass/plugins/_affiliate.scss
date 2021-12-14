@@ -1,5 +1,7 @@
 .aff {
     margin: 3rem auto 1rem;
+    position: relative;
+    z-index: 9;
 
     @media (max-width: $changeLayoutWidth) {
         &.forSP {
