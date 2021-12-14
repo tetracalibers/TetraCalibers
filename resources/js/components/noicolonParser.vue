@@ -10,7 +10,6 @@
             class="confirm confirmHTML _width100"
             :name="textareaName"
             placeholder="原稿ファイルから生成されたHTML"
-            readonly
         ></textarea>
     </div>
 </template>
