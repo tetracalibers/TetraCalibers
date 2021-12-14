@@ -401,6 +401,7 @@ $changeRatioWidth: 1208px;
         background: #f7f7f7;
         box-shadow: 5px 5px 10px #a1a1a1, -5px -5px 10px #ffffff;
         transition: all .5s;
+        margin: 1rem 0.5rem;
 
         &:hover {
             box-shadow: none;
@@ -443,7 +444,7 @@ $changeRatioWidth: 1208px;
     ol {
         list-style-type: decimal;
         list-style-position: inside;
-        padding-left: 2rem;
+        padding: 2rem 0 2rem 2rem;
 
         @media (max-width: $changeLayoutWidth) {
             padding-left: 1rem;

@@ -247,7 +247,7 @@ export default {
 
                 /** キー */
                 mylang = mylang.replace(
-                    /[<\/brp>\n]*^key:\s*(.*?)$/gmsu,
+                    /(?:<br>|<\/p>)?[\n\t\s]*key:\s*(.*?)(?:$|::::)/gmsu,
                     '<span class="key">$1</span>'
                 );
 
