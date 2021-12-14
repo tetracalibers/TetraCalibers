@@ -28,5 +28,6 @@
     </div>
     @endforeach
     <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>
+    <x-front.affiliate />
 </article>
 @endsection

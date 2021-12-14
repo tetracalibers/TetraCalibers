@@ -42,6 +42,7 @@
     <div class="blogContents">
         {!! $article->content !!}
     </div><!-- END blogContents -->
+    <x-front.affiliate />
     <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>
 </article>
 @endsection

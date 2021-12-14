@@ -1,4 +1,23 @@
 .aff {
-    display: grid;
-    justify-content: center;
+    margin: 3rem auto 1rem;
+
+    @media (max-width: $changeLayoutWidth) {
+        &.forSP {
+            display: block;
+        }
+
+        &.forPC {
+            display: none;
+        }
+    }
+
+    @media (min-width: $changeLayoutWidth + 1) {
+        &.forSP {
+            display: none;
+        }
+
+        &.forPC {
+            display: block;
+        }
+    }
 }
