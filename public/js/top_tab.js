@@ -10,7 +10,6 @@ $(function() {
         var default_category = 'latexbooks';
         var $defaultShow = $('#' + default_category);
         var $defaultOpenTab = $('a[href="#' + default_category + '"]').parent();
-        console.log($defaultOpenTab);
         $defaultShow.fadeIn();
         $defaultOpenTab.addClass('nowVisible');
 

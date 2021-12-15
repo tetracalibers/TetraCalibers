@@ -75,6 +75,15 @@ class TopController extends Controller
         $info = Top::find($id);
         $info->metadesc = $request->metadesc;
 
+        if ($request->metaimageFile) {
+            $file = $request->metaimageFile;
+            $name = 'top' . 'MetaImage.' . $file->getClientOriginalExtension();
+            $file->move('images/Top/meta', $name);
+            $info->metaimage = url('images/Top/meta/' . $name);
+        } else {
+            $info->metaimage = $request->metaimageURL;
+        }
+
         $info->save();
         return back()->with('message', 'トップページの情報を更新しました！');
     }

@@ -10,12 +10,20 @@
     </div>
     <x-back.formResult />
 
-    <form method="post" action="/admin/top/{{ $info->id }}" enctype="multipart/form-data">
-    @csrf
-    @method('PATCH')
-        <label for="metadesc">og:description</label>
-        <input type="text" name="metadesc" class="_width100" value="{{ $info->metadesc }}">
+    <div id="app">
+        <form method="post" action="/admin/top/{{ $info->id }}" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
+            <label for="metaimage">og:image</label>
+            <div class="selectImageArea">
+                <image-url-previewer input-name="metaimageURL" init-value="{{ $info->metaimage }}"></image-url-previewer>
+                <image-uploader input-name="metaimageFile"></image-uploader>
+            </div>
 
-        <button type="submit" class="_primary">更新</button>
-    </form>
+            <label for="metadesc">og:description</label>
+            <input type="text" name="metadesc" class="_width100" value="{{ $info->metadesc }}">
+
+            <button type="submit" class="_primary">更新</button>
+        </form>
+    </div>
 @endsection

@@ -1,11 +1,11 @@
 @extends('front.layouts.base')
 @section('meta')
-<meta property="og:title" content="TOP PAGE of TetraCalibers" />
-<meta property="og:image" content="{{ asset('images/Top/meta/tomixy.jpg') }}" />
+<meta property="og:title" content="TetraCalibers - Top" />
+<meta property="og:image" content="{{ $top->metaimage }}" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="{{ $top->metadesc }}" />
 @endsection
-@section('title', 'トップ')
+@section('title', 'TetraCalibers - Top')
 
 @section('main')
 <article class="topContainer">
