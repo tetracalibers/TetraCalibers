@@ -34,6 +34,6 @@ class TopController extends Controller
             }
         }
 
-        return view('front.top.index', compact('top', 'books', 'subjects', 'tags', 'archive'));
+        return view('front.Top.index', compact('top', 'books', 'subjects', 'tags', 'archive'));
     }
 }
