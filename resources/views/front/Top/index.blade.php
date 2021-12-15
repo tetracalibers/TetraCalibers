@@ -75,7 +75,6 @@
             <img src="{{ asset('images/Top/tpUSGlogo_white.jpg')}}">
         </a>
     </div>
-    <x-front.affiliate />
 </article>
 <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>
 @endsection
