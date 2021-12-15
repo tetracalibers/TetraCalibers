@@ -17,7 +17,7 @@
 @section('title', $book->title)
 
 @section('body')
-<body class="light-theme">
+<body class="light-theme idrviewerContainer">
     <nav id="sidebar">
         <div id="sidebar-controls" class="controls">
             <button id="btnThumbnails" data-lang-title="control.thumbnails" title="Thumbnails" class="btn"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i></button>
@@ -38,7 +38,7 @@
         </div>
     </nav>
 
-    <div id="main">
+    <main id="main">
         <nav id="controls" class="controls">
             <div id="controls-left">
                 <button id="btnSideToggle" data-lang-title="control.sidebar" title="Sidebar" class="btn"><i class="fa fa-th fa-lg" aria-hidden="true"></i></button>
@@ -78,7 +78,10 @@
         <div id="idrviewer">
 
         </div>
-    </div>
+        <a class="tomixyPDF" href="{{ url('/') }}">
+            <img src="{{ asset('images/tomixy.gif') }}">
+        </a>
+    </main>
     <script src="{{ url('/LaTeXbooks/' . $book->slug . '/config.js')}}" type="text/javascript"></script>
     <script type="text/javascript">IDRViewer.setup();</script>
 </body>
