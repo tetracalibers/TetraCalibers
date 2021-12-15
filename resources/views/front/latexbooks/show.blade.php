@@ -84,5 +84,8 @@
     </main>
     <script src="{{ url('/LaTeXbooks/' . $book->slug . '/config.js')}}" type="text/javascript"></script>
     <script type="text/javascript">IDRViewer.setup();</script>
+    <script type="text/javascript">
+        document.title = '<?=str_replace('<wbr>', '', $book->title) ?>';
+    </script>
 </body>
 @endsection
