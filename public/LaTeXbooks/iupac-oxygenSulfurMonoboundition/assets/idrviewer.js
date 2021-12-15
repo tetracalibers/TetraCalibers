@@ -1,2 +1,1425 @@
-/*! IDRViewer - v1.12.1 | Copyright 2021 IDRsolutions */
-!function(){"use strict";var a,b,c,d,e={LAYOUT_PRESENTATION:"presentation",LAYOUT_MAGAZINE:"magazine",LAYOUT_CONTINUOUS:"continuous",SELECT_SELECT:"select",SELECT_PAN:"pan",ZOOM_SPECIFIC:"specific",ZOOM_ACTUALSIZE:"actualsize",ZOOM_FITWIDTH:"fitwidth",ZOOM_FITHEIGHT:"fitheight",ZOOM_FITPAGE:"fitpage",ZOOM_AUTO:"auto"},f=1,g=0,h=[],i=10,j=!1;e.setup=function(p){p||(p=IDRViewer.config),j=!0,d=p.bounds,g=p.pagecount,(f<1||f>g)&&(f=1),b=document.getElementById("idrviewer");var q=document.createElement("div");q.style.position="relative",q.style.display="inline-block",q.style.verticalAlign="middle",q.style.minWidth="100%",q.style.lineHeight="normal",b.appendChild(q),a=document.createElement("div"),a.id="contentContainer",a.style.overflow="hidden",a.style.transform="translateZ(0)",a.style.padding=i/2+"px",q.appendChild(a);for(var r=1;r<=g;r++){var s=document.createElement("div");s.id="page"+r,s.setAttribute("style","width: "+d[r-1][0]+"px; height: "+d[r-1][1]+"px;"),s.className="page",a.appendChild(s),h[r]=s}n.setup(),l.setup(),k.setup(p.pageType,p.url),m.setup(!!p.isR2L),o.setup(),c.goToPage(f),l.setPage(f,!0);var t={selectMode:n.currentSelectMode,isMobile:/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),layout:c.toString(),availableLayouts:m.getAvailableLayouts(),isFirstPage:1===f,isLastPage:c.isLastPage(f)};for(var u in p)p.hasOwnProperty(u)&&(t[u]=p[u]);t.page=f,e.fire("ready",t)};var k=function(){var a,b,c,e={},f=!1,i=[],j="file:"===location.protocol,k="";e.setup=function(d,e){c="svgz"===d,b=c||"svg"===d,e&&(k=e);var f=document.createElement("style");f.setAttribute("type","text/css"),document.head.appendChild(f),a=f.sheet,b&&window.addEventListener("mousedown",function(a){0===a.button&&n(window)})},e.clearSelection=function(){b?n(window):m(window)};var m=function(a){try{a.getSelection?a.getSelection().empty?a.getSelection().empty():a.getSelection().removeAllRanges&&a.getSelection().removeAllRanges():a.document.selection&&a.document.selection.empty()}catch(b){}},n=function(a){try{m(a);for(var b=1;b<=g;b++)l.isVisible(b)&&m(h[b].firstChild.contentDocument)}catch(c){}},o=function(a,b){var c=document.createElement("iframe");c.setAttribute("class","page-inner"),c.setAttribute("src",k+a+".html"),c.setAttribute("style","width: "+d[a-1][0]+"px; height: "+d[a-1][1]+"px; position: absolute; border: 0;"),c.onload=b,h[a].appendChild(c)},q=function(a,b){var e=function(){this.removeEventListener("load",e);try{this.contentDocument.addEventListener("mousedown",function(a){0===a.button&&n(window)})}catch(a){}b()},f=document.createElement("object");f.setAttribute("width",""+d[a-1][0]),f.setAttribute("height",""+d[a-1][1]),f.setAttribute("data",k+a+(c?".svgz":".svg")),f.setAttribute("type","image/svg+xml"),f.setAttribute("class","page-inner"),f.setAttribute("style","position: absolute"),f.addEventListener("load",e),h[a].appendChild(f)},r=function(b,c,d){var e=document.createElement("div");e.innerHTML=b;var g=e.querySelector("#p"+c);g.style.margin="0",g.style.overflow="hidden",g.style.position="absolute";var j=function(){this&&this.removeEventListener("load",j),d()},l=g.querySelector("#pdf"+c),m=l.getAttribute("data")||l.getAttribute("src");if(m&&l.addEventListener("load",j),k){var n=l.getAttribute("data");n?l.setAttribute("data",k+n):(n=l.getAttribute("src"),n&&n.indexOf("base64")===-1&&l.setAttribute("src",k+n))}var o=g.querySelector("#fonts"+c);if(o){var q=o.innerHTML;o.parentNode.removeChild(o),q.match(/@font-face {[\s\S]*?}/g).forEach(function(b){i.indexOf(b)===-1&&(i.push(b),a.insertRule(b.replace('url("','url("'+k),a.cssRules.length))})}var r=g.querySelector(".shared-css");r&&(r.parentNode.removeChild(r),f||(document.head.appendChild(r),f=!0)),p.addClass(g,"page-inner"),h[c].appendChild(g),m||j()},s=function(a,b){var c=new XMLHttpRequest;c.open("GET",k+a+".html",!0),c.onload=function(){c.status>=200&&c.status<400?r(c.responseText,a,b):o(a,b)},c.onerror=function(){o(a,b)},c.send()};return e.show=function(a){h[a].firstChild.style.display="block"},e.hide=function(a){h[a].firstChild.style.display="none"},e.load=function(a,c){b?q(a,c):j?o(a,c):s(a,c)},e.unload=function(a){h[a].removeChild(h[a].firstChild)},e}(),l=function(){var a,b,c,d={LOADING:"loading",HIDDEN:"hidden",UNLOADED:"unloaded",LOADED:"loaded"},f={},h=500,i=50,j=20,l=2,m=0,n=0,o=0,p=[];f.setup=function(){c=g;for(var a=1;a<=g;a++)p[a]=d.UNLOADED};var q=function(a,b){r(p[a],b),p[a]=b},r=function(a,b){switch(a){case d.LOADING:m--;break;case d.LOADED:n--;break;case d.HIDDEN:o--;break;case d.UNLOADED:c--}switch(b){case d.LOADING:m++;break;case d.LOADED:n++;break;case d.HIDDEN:o++;break;case d.UNLOADED:c++}},s=function(a){return p[a]===d.LOADED},t=function(a){return p[a]===d.LOADED||p[a]===d.HIDDEN},u=function(a){p[a]===d.LOADED&&(q(a,d.HIDDEN),k.hide(a))},v=function(a){if(p[a]===d.HIDDEN&&(q(a,d.LOADED),k.show(a)),p[a]===d.UNLOADED){q(a,d.LOADING);var b=function(){q(a,d.LOADED),e.fire("pageload",{page:a})};k.load(a,b)}},w=function(a){p[a]!==d.LOADED&&p[a]!==d.HIDDEN||(q(a,d.UNLOADED),k.unload(a),e.fire("pageunload",{page:a}))},x=function(){if(v(a),m<l)for(var d=1;d<j/2&&(y(a-d)&&(s(a-d)||v(a-d)),m!==l)&&(y(a+d)&&(s(a+d)||v(a+d)),m!==l);d++);for(var e=1,f=g;n+m>j;)a-e>f-a?(s(e)&&u(e),e++):(s(f)&&u(f),f--);for(e=1,f=g;g-c>i;)a-e>f-a?(t(e)&&w(e),e++):(t(f)&&w(f),f--);b=setTimeout(x,h)},y=function(a){return a>=1&&a<=g};return f.setPage=function(c,d){a=c,d&&v(c),clearTimeout(b),b=setTimeout(x,h)},f.stopLoading=function(){clearTimeout(b),b=setTimeout(x,h)},f.hide=u,f.isVisible=s,f}(),m=function(){var a,h={},i={},j=!0,k=!1;return h.setup=function(e){k=e;for(var f=0;f<g;f++)if(d[f][0]!==d[0][0]||d[f][1]!==d[0][1]){j=!1;break}c=i[a]||i[IDRViewer.LAYOUT_CONTINUOUS],c.setup(j,k),p.addClass(b,"layout-"+c.toString()),k&&p.addClass(b,"isR2L")},h.setLayout=function(a){c.unload(),p.removeClass(b,"layout-"+c.toString()),c=i[a],c.setup(j,k),p.addClass(b,"layout-"+c.toString()),o.updateZoom(IDRViewer.ZOOM_AUTO),c.goToPage(f),e.fire("layoutchange",{layout:a})},h.addLayout=function(a,b){i[a]=b},h.setDefault=function(b){a=b},h.getAvailableLayouts=function(){return Object.keys(i)},h.updatePage=function(a){f!=a&&(f=a,l.setPage(a),e.fire("pagechange",{page:f,pagecount:g,isFirstPage:1===f,isLastPage:c.isLastPage(a)}))},h}();m.addLayout(e.LAYOUT_PRESENTATION,function(){var c,j={};j.setup=function(a){c=a},j.unload=function(){for(var b=1;b<=g;b++)h[b].style.marginLeft="",h[b].style.marginTop="",p.removeClass(h[b],"current","prev","next","before","after");a.style.width="",a.style.height=""},j.goToPage=function(a){m.updatePage(a),c||o.updateZoom(),b.scrollTop=0,k(a),j.updateLayout()},j.getVisiblePages=function(){return[f]};var k=function(a){for(var b=1;b<=g;b++)p.removeClass(h[b],"current","prev","next","before","after"),b<a?p.addClass(h[b],"before"):b>a&&p.addClass(h[b],"after");p.addClass(h[a],"current"),a-1>=1&&p.addClass(h[a-1],"prev"),a+1<=g&&p.addClass(h[a+1],"next")};return j.updateLayout=function(){var c=o.getZoom(),e=Math.floor(d[f-1][0]*c),j=0,k=b.clientWidth-i;k>e?j=(k-e)/2:k=e;var l=Math.floor(d[f-1][1]*c),m=0,n=b.clientHeight-i;n>l?m=(n-l)/2:n=l,a.style.width=k+"px",a.style.height=n+"px";for(var p=1;p<=g;p++)h[p].style.marginLeft=j+"px",h[p].style.marginTop=m+"px"},j.isLastPage=function(a){return a===g},j.getZoomBounds=function(){return{width:d[f-1][0],height:d[f-1][1]}},j.getAutoZoom=function(a,b){return Math.min(a,b)},j.next=function(){e.goToPage(f+1)},j.prev=function(){e.goToPage(f-1)},j.toString=function(){return IDRViewer.LAYOUT_PRESENTATION},j}()),m.addLayout(e.LAYOUT_MAGAZINE,function(){function c(a){return a>1&&a<g}var j,k,l={};l.setup=function(a,b){j=a,k=b},l.unload=function(){for(var b=1;b<=g;b++)h[b].style.marginLeft="",h[b].style.marginTop="",p.removeClass(h[b],"current","prev","next","before","after");a.style.width="",a.style.height=""},l.goToPage=function(a){1!==a&&a%2!==0&&(a-=1),m.updatePage(a),j||o.updateZoom(),n(a),l.updateLayout()},l.getVisiblePages=function(){var a=[f];return c(f)&&a.push(f+1),a};var n=function(a){for(var b=1;b<=g;b++)p.removeClass(h[b],"current","prev","next","before","after");if(p.addClass(h[a],"current"),c(a)&&p.addClass(h[a+1],"current"),1==a&&(a=0),a+2<=g&&(p.addClass(h[a+2],"next"),a+3<=g&&p.addClass(h[a+3],"next")),a-1>0&&(p.addClass(h[a-1],"prev"),a-2>0&&p.addClass(h[a-2],"prev")),a+4<=g)for(b=a+4;b<=g;b++)p.addClass(h[b],"after");if(a-3>0)for(b=a-3;b>0;b--)p.addClass(h[b],"before")};return l.updateLayout=function(){var e=c(f),j=o.getZoom(),l=Math.floor(d[f-1][0]*j),m=e?Math.floor(d[f][0]*j):l,n=2*Math.max(l,m),p=Math.max(n,b.clientWidth-i),q=Math.floor(p/2),r=q,s=q;k?s-=m:r-=l;var t=Math.floor(d[f-1][1]*j),u=e?Math.floor(d[f][1]*j):t,v=Math.max(t,u,b.clientHeight-i),w=Math.floor((v-(k?u:t))/2),x=Math.floor((v-(k?t:u))/2);a.style.width=p+"px",a.style.height=v+"px",h[1].style.marginLeft=s+"px",h[1].style.marginTop=x+"px";for(var y=2;y<=g;y+=2)h[y].style.marginLeft=r+"px",h[y].style.marginTop=w+"px",y<g&&(h[y+1].style.marginLeft=s+"px",h[y+1].style.marginTop=x+"px")},l.isLastPage=function(a){return a+(1==a?1:2)>g},l.getZoomBounds=function(){var a=c(f),b=Math.floor(d[f-1][0]),e=a?Math.floor(d[f][0]):0,g=Math.floor(d[f-1][1]),h=a?Math.floor(d[f][1]):0;return{width:2*Math.max(b,e),height:Math.max(g,h)}},l.getAutoZoom=function(a,b){return Math.min(a,b)},l.next=function(){e.goToPage(f+(1==f?1:2))},l.prev=function(){e.goToPage(f-1)},l.toString=function(){return IDRViewer.LAYOUT_MAGAZINE},l}()),m.addLayout(e.LAYOUT_CONTINUOUS,function(){var a={},c=0,j=0,k=[];a.setup=function(){b.addEventListener("scroll",n);for(var a=0;a<g;a++)d[a][0]>c&&(c=d[a][0]),d[a][1]>j&&(j=d[a][1])},a.unload=function(){b.removeEventListener("scroll",n)};var n=function(){l.stopLoading(),p()},p=function(){var a,b;if(h[1].getBoundingClientRect().top>0)m.updatePage(1);else for(a=1;a<=g;a++){var c=h[a].getBoundingClientRect();b=c.top;var d=c.bottom-c.top;if(b<=.25*d&&b>.5*-d){m.updatePage(a);break}}q()},q=function(){k=[f];var a,c,d=b.clientHeight,e=function(a){return c=h[a].getBoundingClientRect(),c.bottom>0&&c.top<d};for(a=f-1;a>=1&&e(a);a--)k.push(a);for(a=f+1;a<=g&&e(a);a++)k.push(a)};return a.goToPage=function(a,c){var e=0;if(c){var f=c.split(" ");switch(f[0]){case"XYZ":e=Number(f[2]);break;case"FitH":e=Number(f[1]);break;case"FitR":e=Number(f[4]);break;case"FitBH":e=Number(f[1])}(isNaN(e)||e<0||e>d[a-1][1])&&(e=0),0!==e&&(e=d[a-1][1]-e)}var g=o.getZoom();b.scrollTop=h[a].offsetTop-i/2+e*g,m.updatePage(a),q()},a.getVisiblePages=function(){return k},a.updateLayout=function(){},a.isLastPage=function(a){return a===g},a.getZoomBounds=function(){return{width:c,height:j}},a.getAutoZoom=function(c){return a.getZoomBounds().width>b.clientWidth-i?c:1},a.next=function(){e.goToPage(f+1)},a.prev=function(){e.goToPage(f-1)},a.toString=function(){return IDRViewer.LAYOUT_CONTINUOUS},a}());var n=function(){var c,d,f,g,h={},i=!1;h.setup=function(){switch(g=document.createElement("div"),g.id="overlay",a.parentNode.insertBefore(g,a),f){case IDRViewer.SELECT_PAN:case IDRViewer.SELECT_SELECT:break;default:f=IDRViewer.SELECT_SELECT}this.currentSelectMode=f,this.currentSelectMode==e.SELECT_SELECT?h.enableTextSelection():h.enablePanning()},h.enableTextSelection=function(){this.currentSelectMode=e.SELECT_SELECT,p.removeClass(g,"panning"),g.removeEventListener("mousedown",j),document.removeEventListener("mouseup",l),g.removeEventListener("mousemove",m)};var j=function(a){return a=a||window.event,p.addClass(g,"mousedown"),c=a.clientX,d=a.clientY,i=!0,!1},l=function(){p.removeClass(g,"mousedown"),i=!1},m=function(a){if(i)return a=a||window.event,b.scrollLeft=b.scrollLeft+c-a.clientX,b.scrollTop=b.scrollTop+d-a.clientY,c=a.clientX,d=a.clientY,!1};return h.enablePanning=function(){this.currentSelectMode=e.SELECT_PAN,k.clearSelection(),p.addClass(g,"panning"),g.addEventListener("mousedown",j),document.addEventListener("mouseup",l),g.addEventListener("mousemove",m)},h.setDefaultMode=function(a){f=a},h}();e.setSelectMode=function(a){j?(a==e.SELECT_SELECT?n.enableTextSelection():n.enablePanning(),e.fire("selectchange",{type:a})):n.setDefaultMode(a)};var o=function(){var a,f,j,k={},m=e.ZOOM_AUTO,n=[.25,.5,.75,1,1.25,1.5,2,2.5,3,3.5,4],o=[e.ZOOM_AUTO,e.ZOOM_FITPAGE,e.ZOOM_FITHEIGHT,e.ZOOM_FITWIDTH,e.ZOOM_ACTUALSIZE],p=0,q=1;k.setup=function(){var a=document.createElement("style");a.setAttribute("type","text/css"),document.head.appendChild(a),f=a.sheet,window.addEventListener("resize",function(){s()}),s(j)};var r=function(a,b,c,d,e){var f;return f=e?"translate3d("+b+"px, "+c+"px, 0) scale("+d+")":"translateX("+b+"px) translateY("+c+"px) scale("+d+")","-webkit-transform: "+f+";\n-ms-transform: "+f+";\ntransform: "+f+";"},s=function(i){l.stopLoading(),q=v(i);var j=!1,k=!1;q>=4?(q=4,k=!0):q<=.25&&(q=.25,j=!0);var n=b.scrollTop/b.scrollHeight;c.updateLayout();for(var o=c.getVisiblePages(),t=1;t<=g;t++)o.indexOf(t)===-1&&l.hide(t);a&&f.deleteRule(a);var u=r(null,0,0,q,!1);a=f.insertRule(".page-inner { \n"+u+"\n}",f.cssRules.length);for(var w=0;w<g;w++)h[w+1].style.width=Math.floor(d[w][0]*q)+"px",h[w+1].style.height=Math.floor(d[w][1]*q)+"px";b.scrollTop=b.scrollHeight*n,p++,p%2===1&&s(),e.fire("zoomchange",{zoomType:m,zoomValue:q,isMinZoom:j,isMaxZoom:k})},t=function(){for(var a=q,b=n[n.length-1],c=0;c<n.length;c++)if(n[c]>a){b=n[c];break}var d;for(c=0;c<o.length;c++){var e=v(o[c]);if(e>a&&e<=b){if(d&&e===b)continue;d=o[c],b=e}}return d||b},u=function(){for(var a=q,b=n[0],c=n.length-1;c>=0;c--)if(n[c]<a){b=n[c];break}var d;for(c=0;c<o.length;c++){var e=v(o[c]);if(e<a&&e>=b){if(d&&e===b)continue;d=o[c],b=e}}return d||b},v=function(a){var d=c.getZoomBounds(),f=(b.clientWidth-i)/d.width,g=(b.clientHeight-i)/d.height,h=parseFloat(a);switch(isNaN(h)||(q=h,a=e.ZOOM_SPECIFIC),a||(a=m),a){case e.ZOOM_AUTO:q=c.getAutoZoom(f,g);break;case e.ZOOM_FITWIDTH:q=f;break;case e.ZOOM_FITHEIGHT:q=g;break;case e.ZOOM_FITPAGE:q=Math.min(f,g);break;case e.ZOOM_ACTUALSIZE:q=1}return m=a,q};return k.updateZoom=s,k.zoomIn=function(){s(t())},k.zoomOut=function(){s(u())},k.getZoom=function(){return q},k.setDefault=function(a){j=a},k}();e.zoomIn=function(){o.zoomIn()},e.zoomOut=function(){o.zoomOut()},e.setZoom=function(a){j?o.updateZoom(a):o.setDefault(a)},e.goToPage=function(a,b){j?a>=1&&a<=g&&c.goToPage(Number(a),b):f=a},e.next=function(){c.next()},e.prev=function(){c.prev()},e.setLayout=function(a){j?m.setLayout(a):m.setDefault(a)},e.updateLayout=function(){o.updateZoom()},function(){var a={};e.on=function(b,c){a[b]||(a[b]=[]),a[b].indexOf(c)===-1&&a[b].push(c)},e.off=function(b,c){if(a[b]){var d=a[b].indexOf(c);d!==-1&&a[b].splice(d,1)}},e.fire=function(b,c){a[b]&&a[b].forEach(function(a){a(c)})}}();var p=function(){return{addClass:function(a,b){var c=0!==a.className.length?a.className.split(" "):[],d=c.indexOf(b);d===-1&&(c.push(b),a.className=c.join(" "))},removeClass:function(){for(var a=arguments[0],b=0!==a.className.length?a.className.split(" "):[],c=1;c<arguments.length;c++){var d=b.indexOf(arguments[c]);d!==-1&&b.splice(d,1)}a.className=b.join(" ")}}}();"function"==typeof define&&define.amd?define(["idrviewer"],[],function(){return e}):"object"==typeof module&&module.exports?module.exports=e:window.IDRViewer=e}();
+(function () {
+    "use strict";
+
+    var IDR = {
+        LAYOUT_PRESENTATION: 'presentation',
+        LAYOUT_MAGAZINE: 'magazine',
+        LAYOUT_CONTINUOUS: 'continuous',
+
+        SELECT_SELECT: 'select',
+        SELECT_PAN: 'pan',
+
+        ZOOM_SPECIFIC: 'specific',
+        ZOOM_ACTUALSIZE: 'actualsize',
+        ZOOM_FITWIDTH: 'fitwidth',
+        ZOOM_FITHEIGHT: 'fitheight',
+        ZOOM_FITPAGE: 'fitpage',
+        ZOOM_AUTO: 'auto'
+    };
+
+    var curPg = 1,
+        pgCount = 0,
+        pageContainer,
+        mainContainer,
+        layout,
+        bounds,
+        pages = [],
+        PADDING = 10,
+        isSetup = false;
+
+    IDR.setup = function (config) {
+        if (!config) {
+            config = IDRViewer.config;
+        }
+
+        isSetup = true;
+
+        bounds = config.bounds;
+        pgCount = config.pagecount;
+
+        // Validate starting page
+        if (curPg < 1 || curPg > pgCount) {
+            curPg = 1;
+        }
+
+        mainContainer = document.getElementById("idrviewer");
+
+        var contain = document.createElement('div');
+        contain.style.position = "relative";
+        contain.style.display = "inline-block"; // Required for continuous mode when pages larger than browser width
+        contain.style.verticalAlign = "middle"; // Fixes Chrome showing scrollbars in presentation/magazine layout
+        // contain.style.float = "left"; // Other potential fix for Chrome scrollbars.
+        contain.style.minWidth = "100%";
+        contain.style.lineHeight = "normal";
+        mainContainer.appendChild(contain);
+
+        pageContainer = document.createElement('div');
+        pageContainer.id = "contentContainer";
+        pageContainer.style.overflow = "hidden";
+        pageContainer.style.transform = "translateZ(0)";
+        pageContainer.style.padding = (PADDING / 2) + "px";
+        contain.appendChild(pageContainer);
+
+        for (var i = 1; i <= pgCount; i++) {
+            var page = document.createElement('div');
+            page.id = 'page' + i;
+            page.setAttribute('style', 'width: ' + bounds[i - 1][0] + 'px; height: ' + bounds[i - 1][1] + 'px;');
+            page.className = "page";
+            pageContainer.appendChild(page);
+            pages[i] = page;
+        }
+
+        SelectionManager.setup();
+
+        LoadManager.setup();
+
+        PageManager.setup(config.pageType, config.url);
+
+        LayoutManager.setup(!!config.isR2L);
+
+        ZoomManager.setup();
+
+        layout.goToPage(curPg);
+        LoadManager.setPage(curPg, true);
+
+        var data = {
+            selectMode: SelectionManager.currentSelectMode,
+            isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+            layout: layout.toString(),
+            availableLayouts: LayoutManager.getAvailableLayouts(),
+            isFirstPage: curPg === 1,
+            isLastPage: layout.isLastPage(curPg)
+        };
+        for (var prop in config) {
+            if (config.hasOwnProperty(prop)) {
+                data[prop] = config[prop];
+            }
+        }
+        data.page = curPg;
+        IDR.fire('ready', data);
+    };
+
+    var PageManager = (function() {
+        var exports = {},
+            fontsSheet,
+            isSharedCssAppended = false,
+            fontList = [],
+            isSVG,
+            isSVGZ,
+            isLocal = location.protocol === "file:",
+            URL = '/LaTeXbooks/iupac-oxygenSulfurMonoboundition/';
+
+        exports.setup = function(pageType, url) {
+            isSVGZ = pageType === "svgz";
+            isSVG = isSVGZ || pageType === "svg";
+
+            if (url) {
+                URL = url;
+            }
+
+            if (isLocal && !isSVG) {
+                console.log("Cannot load pages using AJAX over the file:// protocol. Falling back to iframes (some features may not be available).");
+            }
+
+            var fontStyleElement = document.createElement('style');
+            fontStyleElement.setAttribute('type', 'text/css');
+            document.head.appendChild(fontStyleElement);
+            fontsSheet = fontStyleElement.sheet;
+
+            if (isSVG) {
+                window.addEventListener('mousedown', function (event) {
+                    if (event.button === 0) {
+                        clearSelectionAll(window);
+                    }
+                });
+            }
+        };
+
+        exports.clearSelection = function() {
+            if (isSVG) {
+                clearSelectionAll(window);
+            } else {
+                clearSelection(window);
+            }
+        };
+
+        var clearSelection = function(win) {
+            try {
+                if (win.getSelection) {
+                    if (win.getSelection().empty) {  // Chrome / Edge
+                        win.getSelection().empty();
+                    } else if (win.getSelection().removeAllRanges) {  // Firefox / IE 11
+                        win.getSelection().removeAllRanges();
+                    }
+                } else if (win.document.selection) {  // IE 11 does not use, maybe older versions do?
+                    win.document.selection.empty();   // Note: This might break if used as svg's pass document as argument
+                }                                     // rather than window.
+            } catch (ignore) {}
+        };
+
+        var clearSelectionAll = function(win) {
+            try {
+                clearSelection(win);
+                for (var i = 1; i <= pgCount; i++) {
+                    if (LoadManager.isVisible(i)) {
+                        clearSelection(pages[i].firstChild.contentDocument);
+                    }
+                }
+            } catch (ignore) {}
+        };
+
+        var iframeLoad = function(page, callback) {
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute('class', 'page-inner');
+            iframe.setAttribute('src', URL + page + '.html');
+            iframe.setAttribute('style', 'width: ' + bounds[page - 1][0] + 'px; height: ' + bounds[page - 1][1] + 'px; position: absolute; border: 0;');
+            iframe.onload = callback;
+            pages[page].appendChild(iframe);
+        };
+
+        var svgLoad = function(page, callback) {
+            var svgLoadHandler = function() {
+                this.removeEventListener('load', svgLoadHandler);
+                try {
+                    this.contentDocument.addEventListener('mousedown', function (event) {
+                        if (event.button === 0) {
+                            clearSelectionAll(window);
+                        }
+                    });
+                } catch (ignore) {}
+                callback();
+            };
+
+            var svgElement = document.createElement('object');
+            svgElement.setAttribute('width', '' + bounds[page - 1][0]);
+            svgElement.setAttribute('height', '' + bounds[page - 1][1]);
+            svgElement.setAttribute('data', URL + page + (isSVGZ ? '.svgz' : '.svg'));
+            svgElement.setAttribute('type', 'image/svg+xml');
+            svgElement.setAttribute('class', 'page-inner');
+            svgElement.setAttribute('style', 'position: absolute');
+            svgElement.addEventListener('load', svgLoadHandler);
+            pages[page].appendChild(svgElement);
+        };
+
+        var handleLoad = function(html, page, callback) {
+            var newDoc = document.createElement('div');
+            newDoc.innerHTML = html;
+            var pageElement = newDoc.querySelector("#p" + page);
+            pageElement.style.margin = '0';
+            pageElement.style.overflow = 'hidden';
+            pageElement.style.position = 'absolute';
+
+            var setLoaded = function() {
+                if (this) {
+                    this.removeEventListener('load', setLoaded);
+                }
+                callback();
+            };
+
+            var background = pageElement.querySelector('#pdf' + page);
+            var externalBackground = background.getAttribute("data") || background.getAttribute("src");
+            if (externalBackground) {
+                background.addEventListener('load', setLoaded);
+            }
+
+            if (URL) {
+                var currentSrc = background.getAttribute("data"); // NS_ERROR_UNEXPECTED (before appending)
+                if (currentSrc) {
+                    background.setAttribute("data", URL + currentSrc);
+                } else {
+                    currentSrc = background.getAttribute("src");
+                    if (currentSrc && currentSrc.indexOf("base64") === -1) {
+                        background.setAttribute("src", URL + currentSrc);
+                    }
+                }
+            }
+
+            var fontFaceElement = pageElement.querySelector('#fonts' + page);
+            if (fontFaceElement) {
+                var fontFacesString = fontFaceElement.innerHTML;
+                fontFaceElement.parentNode.removeChild(fontFaceElement);
+
+                fontFacesString.match(/@font-face {[\s\S]*?}/g).forEach(function(fontFace) {
+                    if (fontList.indexOf(fontFace) === -1) {
+                        fontList.push(fontFace);
+                        // Replace does not catch base64 fonts because they do not include the quote
+                        fontsSheet.insertRule(fontFace.replace("url(\"", "url(\"" + URL), fontsSheet.cssRules.length);
+                    }
+                });
+            }
+
+            var sharedCssElement = pageElement.querySelector(".shared-css");
+            if (sharedCssElement) {
+                sharedCssElement.parentNode.removeChild(sharedCssElement);
+                if (!isSharedCssAppended) {
+                    document.head.appendChild(sharedCssElement);
+                    isSharedCssAppended = true;
+                }
+            }
+
+            ClassHelper.addClass(pageElement, 'page-inner');
+
+            pages[page].appendChild(pageElement);
+
+            if (!externalBackground) {
+                setLoaded();
+            }
+        };
+
+        var ajaxLoad = function(page, callback) {
+            var request = new XMLHttpRequest();
+            request.open('GET', URL + page + ".html", true);
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    handleLoad(request.responseText, page, callback);
+                } else {
+                    iframeLoad(page, callback); // Fall back to iframe
+                }
+            };
+            request.onerror = function() {
+                iframeLoad(page, callback); // Fall back to iframe
+            };
+            request.send();
+        };
+
+        exports.show = function(page) {
+            pages[page].firstChild.style.display = "block";
+        };
+
+        exports.hide = function(page) {
+            pages[page].firstChild.style.display = "none";
+        };
+
+        exports.load = function(page, callback) {
+            if (isSVG) {
+                svgLoad(page, callback);
+            } else if (isLocal) {
+                iframeLoad(page, callback);
+            } else {
+                ajaxLoad(page, callback);
+            }
+        };
+
+        exports.unload = function(page) {
+            pages[page].removeChild(pages[page].firstChild);
+        };
+
+        return exports;
+    })();
+
+    var LoadManager = (function() {
+        var PageStates = {
+            LOADING: 'loading',
+            HIDDEN: 'hidden',
+            UNLOADED: 'unloaded',
+            LOADED: 'loaded'
+        };
+
+        var exports = { },
+            page,
+            timer,
+            DELAY = 500,
+            MAX_LOADED = 50,
+            MAX_VISIBLE = 20,
+            MAX_SIMULTANEOUS = 2,
+            numLoading = 0,
+            numLoaded = 0,
+            numHidden = 0,
+            numUnloaded,
+            states = [];
+
+        exports.setup = function() {
+            numUnloaded = pgCount;
+
+            for (var i = 1; i <= pgCount; i++) {
+                states[i] = PageStates.UNLOADED; // Initialise states to unloaded
+                pages[i].dataset.state = PageStates.UNLOADED;
+            }
+        };
+
+        var setState = function(page, state) {
+            updateStateCounts(states[page], state);
+            states[page] = state;
+            pages[page].dataset.state = state;
+        };
+
+        var updateStateCounts = function(before, after) {
+            switch(before) {
+                case PageStates.LOADING:
+                    numLoading--;
+                    break;
+                case PageStates.LOADED:
+                    numLoaded--;
+                    break;
+                case PageStates.HIDDEN:
+                    numHidden--;
+                    break;
+                case PageStates.UNLOADED:
+                    numUnloaded--;
+                    break;
+            }
+            switch(after) {
+                case PageStates.LOADING:
+                    numLoading++;
+                    break;
+                case PageStates.LOADED:
+                    numLoaded++;
+                    break;
+                case PageStates.HIDDEN:
+                    numHidden++;
+                    break;
+                case PageStates.UNLOADED:
+                    numUnloaded++;
+                    break;
+            }
+        };
+
+        var isVisible = function(page) {
+            return states[page] === PageStates.LOADED;
+        };
+
+        var isLoaded = function(page) {
+            return states[page] === PageStates.LOADED || states[page] === PageStates.HIDDEN;
+        };
+
+        var hide = function(page) {
+            if (states[page] === PageStates.LOADED) {
+                setState(page, PageStates.HIDDEN);
+                PageManager.hide(page);
+            }
+        };
+
+        var load = function(page) {
+            if (states[page] === PageStates.HIDDEN) {
+                setState(page, PageStates.LOADED);
+                PageManager.show(page);
+            }
+            if (states[page] === PageStates.UNLOADED) {
+                setState(page, PageStates.LOADING);
+
+                var callback = function() {
+                    setState(page, PageStates.LOADED);
+                    IDR.fire('pageload', {
+                        page: page
+                    });
+                };
+
+                PageManager.load(page, callback);
+            }
+        };
+
+        var unload = function(page) {
+            if (states[page] === PageStates.LOADED || states[page] === PageStates.HIDDEN) {
+                setState(page, PageStates.UNLOADED);
+                PageManager.unload(page);
+                IDR.fire('pageunload', {
+                    page: page
+                });
+            }
+        };
+
+        var process = function() {
+            load(page); // Always load the current page
+
+            if (numLoading < MAX_SIMULTANEOUS) {
+                for (var i = 1; i < MAX_VISIBLE / 2; i++) {
+                    if (checkBounds(page - i)) {
+                        if (!isVisible(page - i)) {
+                            load(page - i);
+                        }
+                    }
+                    if (numLoading === MAX_SIMULTANEOUS) {
+                        break;
+                    }
+                    if (checkBounds(page + i)) {
+                        if (!isVisible(page + i)) {
+                            load(page + i);
+                        }
+                    }
+                    if (numLoading === MAX_SIMULTANEOUS) {
+                        break;
+                    }
+                }
+            }
+
+            // Hide pages
+            var pointerA = 1;
+            var pointerB = pgCount;
+            while (numLoaded + numLoading > MAX_VISIBLE) {
+                // Using the current page as the midpoint, start at the extremities and gradually work inwards
+                // hiding pages until number of pages loaded is within tolerance.
+                if (page - pointerA > pointerB - page) {
+                    if (isVisible(pointerA)) {
+                        hide(pointerA);
+                    }
+                    pointerA++;
+                } else {
+                    if (isVisible(pointerB)) {
+                        hide(pointerB);
+                    }
+                    pointerB--;
+                }
+            }
+
+            // Unload pages
+            pointerA = 1;
+            pointerB = pgCount;
+            while ((pgCount - numUnloaded) > MAX_LOADED) {
+                // Using the current page as the midpoint, start at the extremities and gradually work inwards
+                // unloading pages until number of pages loaded is within tolerance.
+                if (page - pointerA > pointerB - page) {
+                    if (isLoaded(pointerA)) {
+                        unload(pointerA);
+                    }
+                    pointerA++;
+                } else {
+                    if (isLoaded(pointerB)) {
+                        unload(pointerB);
+                    }
+                    pointerB--;
+                }
+            }
+
+            timer = setTimeout(process, DELAY);
+        };
+
+        var checkBounds = function(page) {
+            return page >= 1 && page <= pgCount;
+        };
+
+        exports.setPage = function(pg, forceLoad) {
+            page = pg;
+            if (forceLoad) {
+                load(pg);
+            }
+            clearTimeout(timer);
+            timer = setTimeout(process, DELAY);
+        };
+
+        exports.stopLoading = function() {
+            clearTimeout(timer);
+            timer = setTimeout(process, DELAY);
+        };
+
+        exports.hide = hide;
+
+        exports.isVisible = isVisible;
+
+        return exports;
+    })();
+
+    var LayoutManager = (function() {
+        var exports = { },
+            layouts = {},
+            defaultLayout,
+            allPagesSameSize = true,
+            isDirectionR2L = false;
+
+        exports.setup = function(isR2L) {
+            isDirectionR2L = isR2L;
+
+            for (var i = 0; i < pgCount; i++) {
+                if (bounds[i][0] !== bounds[0][0] || bounds[i][1] !== bounds[0][1]) {
+                    allPagesSameSize = false;
+                    break;
+                }
+            }
+
+            layout = layouts[defaultLayout] || layouts[IDRViewer.LAYOUT_CONTINUOUS];
+            layout.setup(allPagesSameSize, isDirectionR2L);
+
+            ClassHelper.addClass(mainContainer, 'layout-' + layout.toString());
+
+            if (isDirectionR2L) {
+                ClassHelper.addClass(mainContainer, "isR2L");
+            }
+        };
+
+        exports.setLayout = function(name) {
+            layout.unload();
+            ClassHelper.removeClass(mainContainer, 'layout-' + layout.toString());
+
+            layout = layouts[name];
+
+            layout.setup(allPagesSameSize, isDirectionR2L);
+            ClassHelper.addClass(mainContainer, 'layout-' + layout.toString());
+
+            ZoomManager.updateZoom(IDRViewer.ZOOM_AUTO);
+            layout.goToPage(curPg);
+
+            IDR.fire('layoutchange', {
+                layout: name
+            });
+        };
+
+        exports.addLayout = function(name, layout) {
+            layouts[name] = layout;
+        };
+
+        exports.setDefault = function(layout) {
+            defaultLayout = layout;
+        };
+
+        exports.getAvailableLayouts = function() {
+            return Object.keys(layouts);
+        };
+
+        exports.updatePage = function(page) {
+            if (curPg != page) {
+                curPg = page;
+                LoadManager.setPage(page);
+
+                IDR.fire('pagechange', {
+                    page : curPg,
+                    pagecount: pgCount,
+                    isFirstPage: curPg === 1,
+                    isLastPage: layout.isLastPage(page)
+                });
+            }
+        };
+
+        return exports;
+    })();
+
+    LayoutManager.addLayout(IDR.LAYOUT_PRESENTATION, (function() {
+        var Presentation = { },
+            allPagesSameSize;
+
+        Presentation.setup = function(sameSizePages) {
+            allPagesSameSize = sameSizePages;
+        };
+
+        Presentation.unload = function() {
+            /*jshint loopfunc: true */
+            for (var i = 1; i <= pgCount; i++) {
+                pages[i].style.marginLeft = "";
+                pages[i].style.marginTop = "";
+
+                ClassHelper.removeClass(pages[i], 'current', 'prev', 'next', 'before', 'after');
+            }
+
+            pageContainer.style.width = "";
+            pageContainer.style.height = "";
+        };
+
+        Presentation.goToPage = function(pg) {
+            LayoutManager.updatePage(pg);
+
+            if (!allPagesSameSize) {
+                ZoomManager.updateZoom();
+            }
+
+            mainContainer.scrollTop = 0;
+
+            updateClasses(pg);
+
+            Presentation.updateLayout();
+        };
+
+        Presentation.getVisiblePages = function() {
+            return [curPg];
+        };
+
+        var updateClasses = function(pg) {
+            /*jshint loopfunc: true */
+            for (var i = 1; i <= pgCount; i++) {
+                ClassHelper.removeClass(pages[i], 'current', 'prev', 'next', 'before', 'after');
+
+                if (i < pg) {
+                    ClassHelper.addClass(pages[i], 'before');
+                } else if (i > pg) {
+                    ClassHelper.addClass(pages[i], 'after');
+                }
+            }
+            ClassHelper.addClass(pages[pg], 'current');
+
+            if (pg - 1 >= 1) {
+                ClassHelper.addClass(pages[pg - 1], 'prev');
+            }
+            if (pg + 1 <= pgCount) {
+                ClassHelper.addClass(pages[pg + 1], 'next');
+            }
+        };
+
+        Presentation.updateLayout = function() {
+            var zoom = ZoomManager.getZoom();
+            var pageWidth = Math.floor(bounds[curPg - 1][0] * zoom);
+            var marginLeft = 0;
+            var viewPortWidth = (mainContainer.clientWidth - PADDING);
+            if (viewPortWidth > pageWidth) {
+                marginLeft = (viewPortWidth - pageWidth) / 2;
+            } else {
+                viewPortWidth = pageWidth;
+            }
+
+            var pageHeight = Math.floor(bounds[curPg - 1][1] * zoom);
+            var marginTop = 0;
+            var viewPortHeight = (mainContainer.clientHeight - PADDING);
+            if (viewPortHeight > pageHeight) {
+                marginTop = (viewPortHeight - pageHeight) / 2;
+            } else {
+                viewPortHeight = pageHeight;
+            }
+
+            pageContainer.style.width = viewPortWidth + "px";
+            pageContainer.style.height = viewPortHeight + "px";
+
+            // Will be wrong if not all pages same size
+            for (var i = 1; i <= pgCount; i++) {
+                pages[i].style.marginLeft = marginLeft + "px";
+                pages[i].style.marginTop = marginTop + "px";
+            }
+        };
+
+        Presentation.isLastPage = function(page) {
+            return page === pgCount;
+        };
+
+        Presentation.getZoomBounds = function() {
+            return {
+                width: bounds[curPg - 1][0],
+                height: bounds[curPg - 1][1]
+            };
+        };
+
+        Presentation.getAutoZoom = function(fitWidth, fitHeight) {
+            return Math.min(fitWidth, fitHeight);
+        };
+
+        Presentation.next = function() {
+            IDR.goToPage(curPg + 1);
+        };
+
+        Presentation.prev = function() {
+            IDR.goToPage(curPg - 1);
+        };
+
+        Presentation.toString = function() {
+            return IDRViewer.LAYOUT_PRESENTATION;
+        };
+
+        return Presentation;
+    })());
+
+    LayoutManager.addLayout(IDR.LAYOUT_MAGAZINE, (function() {
+        var Magazine = { },
+            allPagesSameSize,
+            isDirectionR2L;
+
+        function isDoubleSpread(page) {
+            return page > 1 && page < pgCount;
+        }
+
+        Magazine.setup = function(sameSizePages, isR2L) {
+            allPagesSameSize = sameSizePages;
+            isDirectionR2L = isR2L;
+        };
+
+        Magazine.unload = function() {
+            /*jshint loopfunc: true */
+            for (var i = 1; i <= pgCount; i++) {
+                pages[i].style.marginLeft = "";
+                pages[i].style.marginTop = "";
+
+                ClassHelper.removeClass(pages[i], 'current', 'prev', 'next', 'before', 'after');
+            }
+            pageContainer.style.width = "";
+            pageContainer.style.height = "";
+        };
+
+        Magazine.goToPage = function(pg) {
+            if (pg !== 1 && pg % 2 !== 0) {
+                pg -= 1; // Normalise to left page
+            }
+
+            LayoutManager.updatePage(pg);
+
+            if (!allPagesSameSize) {
+                ZoomManager.updateZoom();
+            }
+
+            updateClasses(pg);
+
+            Magazine.updateLayout();
+        };
+
+        Magazine.getVisiblePages = function() {
+            var visiblePages = [curPg];
+            if (isDoubleSpread(curPg)) {
+                visiblePages.push(curPg + 1);
+            }
+            return visiblePages;
+        };
+
+        var updateClasses = function(pg) {
+            /*jshint loopfunc: true */
+            for (var i = 1; i <= pgCount; i++) {
+                ClassHelper.removeClass(pages[i], 'current', 'prev', 'next', 'before', 'after');
+            }
+
+            ClassHelper.addClass(pages[pg], 'current');
+            if (isDoubleSpread(pg)) {
+                ClassHelper.addClass(pages[pg + 1], 'current');
+            }
+
+            if (pg == 1) {
+                pg = 0;
+            }
+
+            if (pg + 2 <= pgCount) {
+                ClassHelper.addClass(pages[pg + 2], 'next');
+                if (pg + 3 <= pgCount) {
+                    ClassHelper.addClass(pages[pg + 3], 'next');
+                }
+            }
+
+            if (pg - 1 > 0) {
+                ClassHelper.addClass(pages[pg - 1], 'prev');
+                if (pg - 2 > 0) {
+                    ClassHelper.addClass(pages[pg - 2], 'prev');
+                }
+            }
+
+            if (pg + 4 <= pgCount) {
+                for (i = pg + 4; i <= pgCount; i++) {
+                    ClassHelper.addClass(pages[i], 'after');
+                }
+            }
+            if (pg - 3 > 0) {
+                for (i = pg - 3; i > 0; i--) {
+                    ClassHelper.addClass(pages[i], 'before');
+                }
+            }
+        };
+
+        Magazine.updateLayout = function() {
+            var isTwoPages = isDoubleSpread(curPg);
+            var zoom = ZoomManager.getZoom();
+
+            // Calculate left margins & viewPortWidth
+            var pageWidthA = Math.floor(bounds[curPg - 1][0] * zoom);
+            var pageWidthB = isTwoPages ? Math.floor(bounds[curPg][0] * zoom) : pageWidthA;
+            var pageWidth = 2 * Math.max(pageWidthA, pageWidthB);
+            var viewPortWidth = Math.max(pageWidth, mainContainer.clientWidth - PADDING);
+
+            var centerX = Math.floor(viewPortWidth / 2);
+            var marginLeftA = centerX;
+            var marginLeftB = centerX;
+
+            if (isDirectionR2L) {
+                marginLeftB -= pageWidthB; // B|A
+            } else {
+                marginLeftA -= pageWidthA; // A|B
+            }
+
+            // Calculate top margins & viewPortHeight
+            var pageHeightA = Math.floor(bounds[curPg - 1][1] * zoom);
+            var pageHeightB = isTwoPages ? Math.floor(bounds[curPg][1] * zoom) : pageHeightA;
+            var viewPortHeight = Math.max(pageHeightA, pageHeightB, mainContainer.clientHeight - PADDING);
+            var marginTopA = Math.floor((viewPortHeight - (isDirectionR2L ? pageHeightB : pageHeightA)) / 2);
+            var marginTopB = Math.floor((viewPortHeight - (isDirectionR2L ? pageHeightA : pageHeightB)) / 2);
+
+            // Apply viewport sizes & margins
+            // We need to adjust all pages because other pages may become visible if transitions are used and the
+            // viewport size changes (which would adjust the margins).
+            // If pages are not all the same size then pages will be visible anyway if transitions used because pages
+            // can't be hidden behind other pages if bounds are different.
+            pageContainer.style.width = viewPortWidth + 'px';
+            pageContainer.style.height = viewPortHeight + 'px';
+
+            pages[1].style.marginLeft = marginLeftB + "px";
+            pages[1].style.marginTop = marginTopB + "px";
+
+            for (var i = 2; i <= pgCount; i += 2) {
+                pages[i].style.marginLeft = marginLeftA + "px";
+                pages[i].style.marginTop = marginTopA + "px";
+                if (i < pgCount) {
+                    pages[i + 1].style.marginLeft = marginLeftB + "px";
+                    pages[i + 1].style.marginTop = marginTopB + "px";
+                }
+            }
+        };
+
+        Magazine.isLastPage = function(page) {
+            return page + (page == 1 ? 1 : 2) > pgCount;
+        };
+
+        Magazine.getZoomBounds = function() {
+            var isTwoPages = isDoubleSpread(curPg);
+            var pageWidthA = Math.floor(bounds[curPg - 1][0]);
+            var pageWidthB = isTwoPages ? Math.floor(bounds[curPg][0]) : 0;
+            var pageHeightA = Math.floor(bounds[curPg - 1][1]);
+            var pageHeightB = isTwoPages ? Math.floor(bounds[curPg][1]) : 0;
+            return {
+                width: 2 * Math.max(pageWidthA, pageWidthB),
+                height: Math.max(pageHeightA, pageHeightB)
+            };
+        };
+
+        Magazine.getAutoZoom = function(fitWidth, fitHeight) {
+            return Math.min(fitWidth, fitHeight);
+        };
+
+        Magazine.next = function() {
+            IDR.goToPage(curPg + (curPg == 1 ? 1 : 2));
+        };
+
+        Magazine.prev = function() {
+            IDR.goToPage(curPg - 1);
+        };
+
+        Magazine.toString = function() {
+            return IDRViewer.LAYOUT_MAGAZINE;
+        };
+
+        return Magazine;
+    })());
+
+    LayoutManager.addLayout(IDR.LAYOUT_CONTINUOUS, (function() {
+        var Continuous = { },
+            largestWidth = 0,
+            largestHeight = 0,
+            visiblePages = [];
+
+        Continuous.setup = function() {
+            mainContainer.addEventListener('scroll', scrollEvent);
+
+            for (var i = 0; i < pgCount; i++) {
+                if (bounds[i][0] > largestWidth) {
+                    largestWidth = bounds[i][0];
+                }
+                if (bounds[i][1] > largestHeight) {
+                    largestHeight = bounds[i][1];
+                }
+            }
+        };
+
+        Continuous.unload = function() {
+            mainContainer.removeEventListener('scroll', scrollEvent);
+        };
+
+        var scrollEvent = function() {
+            LoadManager.stopLoading();
+            scrollUpdate();
+        };
+
+        var scrollUpdate = function() {
+            var i, y;
+
+            if (pages[1].getBoundingClientRect().top > 0) {
+                LayoutManager.updatePage(1);
+            } else {
+                for (i = 1; i <= pgCount; i++) {
+                    var bounds = pages[i].getBoundingClientRect();
+                    y = bounds.top;
+                    var height = bounds.bottom - bounds.top;
+
+                    if (y <= height*0.25 && y > -height*0.5) {
+                        LayoutManager.updatePage(i);
+                        break;
+                    }
+                }
+            }
+            setVisiblePages();
+        };
+
+        var setVisiblePages = function() {
+            visiblePages = [curPg];
+            var i, bounds, viewPortHeight = mainContainer.clientHeight;
+
+            var isPageVisible = function(page) {
+                bounds = pages[page].getBoundingClientRect();
+                return bounds.bottom > 0 && bounds.top < viewPortHeight;
+            };
+
+            for (i = curPg - 1; i >= 1 && isPageVisible(i); i--) {
+                visiblePages.push(i);
+            }
+            for (i = curPg + 1; i <= pgCount && isPageVisible(i); i++) {
+                visiblePages.push(i);
+            }
+        };
+
+        Continuous.goToPage = function(pg, location) {
+            var offset = 0;
+
+            if (location) {
+                var locationArr = location.split(" ");
+                switch(locationArr[0]) {
+                    case "XYZ":
+                        offset = Number(locationArr[2]);
+                        break;
+                    case "FitH":
+                        offset = Number(locationArr[1]);
+                        break;
+                    case "FitR":
+                        offset = Number(locationArr[4]);
+                        break;
+                    case "FitBH":
+                        offset = Number(locationArr[1]);
+                        break;
+                }
+                if (isNaN(offset) || offset < 0 || offset > bounds[pg - 1][1]) {
+                    offset = 0;
+                }
+                if (offset !== 0) {
+                    offset = bounds[pg - 1][1] - offset;
+                }
+            }
+
+            var zoom = ZoomManager.getZoom();
+            mainContainer.scrollTop = pages[pg].offsetTop - (PADDING / 2) + (offset * zoom);
+            LayoutManager.updatePage(pg);
+            setVisiblePages();
+        };
+
+        Continuous.getVisiblePages = function() {
+            return visiblePages;
+        };
+
+        Continuous.updateLayout = function() { };
+
+        Continuous.isLastPage = function(page) {
+            return page === pgCount;
+        };
+
+        Continuous.getZoomBounds = function() {
+            return {
+                width: largestWidth,
+                height: largestHeight
+            };
+        };
+
+        Continuous.getAutoZoom = function(fitWidth) {
+            if (Continuous.getZoomBounds().width > mainContainer.clientWidth - PADDING) {
+                return fitWidth;
+            } else {
+                return 1;
+            }
+        };
+
+        Continuous.next = function() {
+            IDR.goToPage(curPg + 1);
+        };
+
+        Continuous.prev = function() {
+            IDR.goToPage(curPg - 1);
+        };
+
+        Continuous.toString = function() {
+            return IDRViewer.LAYOUT_CONTINUOUS;
+        };
+
+        return Continuous;
+    })());
+
+    /**
+     * @name window.chrome
+     */
+    /**
+     * @name InstallTrigger
+     */
+    var SelectionManager = (function() {
+        var Selection = { },
+            mouseX,
+            mouseY,
+            isMouseDown = false,
+            defaultMode,
+            overlay;
+
+        Selection.setup = function() {
+            overlay = document.createElement('div');
+            overlay.id = 'overlay';
+            pageContainer.parentNode.insertBefore(overlay, pageContainer);
+
+            // Validate defaultMode
+            switch (defaultMode) {
+                case IDRViewer.SELECT_PAN:
+                case IDRViewer.SELECT_SELECT:
+                    break; // Allow PAN and SELECT.
+                default:
+                    defaultMode = IDRViewer.SELECT_SELECT; // Set fallback/default value
+            }
+
+            this.currentSelectMode = defaultMode;
+
+            if (this.currentSelectMode == IDR.SELECT_SELECT) {
+                Selection.enableTextSelection();
+            } else {
+                Selection.enablePanning();
+            }
+        };
+
+        Selection.enableTextSelection = function() {
+            this.currentSelectMode = IDR.SELECT_SELECT;
+            ClassHelper.removeClass(overlay, "panning");
+
+            overlay.removeEventListener("mousedown", handleMouseDown);
+            document.removeEventListener("mouseup", handleMouseUp);
+            overlay.removeEventListener("mousemove", handleMouseMove);
+        };
+
+        var handleMouseDown = function(e) {
+            e = e || window.event;
+            ClassHelper.addClass(overlay, "mousedown");
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            isMouseDown = true;
+            return false;
+        };
+
+        var handleMouseUp = function() {
+            ClassHelper.removeClass(overlay, "mousedown");
+            isMouseDown = false;
+        };
+
+        var handleMouseMove = function(e) {
+            if (isMouseDown) {
+                e = e || window.event;
+                mainContainer.scrollLeft = mainContainer.scrollLeft + mouseX - e.clientX;
+                mainContainer.scrollTop = mainContainer.scrollTop + mouseY - e.clientY;
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                return false;
+            }
+        };
+
+        Selection.enablePanning = function() {
+            this.currentSelectMode = IDR.SELECT_PAN;
+            PageManager.clearSelection();
+
+            ClassHelper.addClass(overlay, "panning");
+
+            overlay.addEventListener("mousedown", handleMouseDown);
+            document.addEventListener("mouseup", handleMouseUp);
+            overlay.addEventListener("mousemove", handleMouseMove);
+        };
+
+        Selection.setDefaultMode = function(mode) {
+            defaultMode = mode;
+        };
+
+        return Selection;
+    })();
+
+
+    IDR.setSelectMode = function(type) {
+        if (isSetup) {
+            if (type == IDR.SELECT_SELECT) {
+                SelectionManager.enableTextSelection();
+            } else {
+                SelectionManager.enablePanning();
+            }
+
+            IDR.fire('selectchange', {
+                type: type
+            });
+        } else {
+            SelectionManager.setDefaultMode(type); // Set default mode
+        }
+    };
+
+    var ZoomManager = (function() {
+        var exports = {},
+            zoomType = IDR.ZOOM_AUTO,
+            lastRulePosition,
+            zoomValues = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 3.5, 4],
+            namedZoomValues = [IDR.ZOOM_AUTO, IDR.ZOOM_FITPAGE, IDR.ZOOM_FITHEIGHT, IDR.ZOOM_FITWIDTH, IDR.ZOOM_ACTUALSIZE],
+            zoomCount = 0,
+            styleSheet,
+            zoom = 1,
+            defaultZoom;
+
+        exports.setup = function() {
+            var styleElement = document.createElement('style');
+            styleElement.setAttribute('type', 'text/css');
+            document.head.appendChild(styleElement);
+            styleSheet = styleElement.sheet;
+
+            window.addEventListener('resize', function() { updateZoom(); });
+
+            updateZoom(defaultZoom);
+        };
+
+        var setTransform = function(element, x, y, scale, hardwareAccelerate) {
+            var transform;
+            if (hardwareAccelerate) {
+                transform = "translate3d(" + x + "px, " + y + "px, 0) scale(" + scale + ")";
+            } else {
+                transform = "translateX(" + x + "px) translateY(" + y + "px) scale(" + scale + ")";
+            }
+
+            return "-webkit-transform: " + transform + ";\n" +
+                "-ms-transform: " + transform + ";\n" +
+                "transform: " + transform + ";";
+        };
+
+        var updateZoom = function(value) {
+            LoadManager.stopLoading();
+
+            zoom = calculateZoomValue(value);
+
+            var isMinZoom = false, isMaxZoom = false;
+
+            if (zoom >= 4) {
+                zoom = 4;
+                isMaxZoom = true;
+            } else if (zoom <= 0.25) {
+                zoom = 0.25;
+                isMinZoom = true;
+            }
+
+            var scrollRatio = mainContainer.scrollTop / mainContainer.scrollHeight;
+
+            layout.updateLayout();
+
+            var visiblePages = layout.getVisiblePages();
+            for (var j = 1; j <= pgCount; j++) {
+                if (visiblePages.indexOf(j) === -1) {
+                    LoadManager.hide(j);
+                }
+            }
+
+            if (lastRulePosition) {
+                styleSheet.deleteRule(lastRulePosition);
+            }
+
+            var transform = setTransform(null, 0, 0, zoom, false);
+            lastRulePosition = styleSheet.insertRule(".page-inner { \n" + transform + "\n}", styleSheet.cssRules.length);
+
+            for (var i = 0; i < pgCount; i++) {
+                pages[i + 1].style.width = Math.floor(bounds[i][0] * zoom) + "px";
+                pages[i + 1].style.height = Math.floor(bounds[i][1] * zoom) + "px";
+            }
+
+            mainContainer.scrollTop = mainContainer.scrollHeight * scrollRatio;
+
+            zoomCount++;
+            if (zoomCount % 2 === 1) {
+                updateZoom();//Re-run zoom to fix scroll bar calculation issues
+            }
+
+            IDR.fire('zoomchange', {
+                zoomType: zoomType,
+                zoomValue: zoom,
+                isMinZoom: isMinZoom,
+                isMaxZoom: isMaxZoom
+            });
+        };
+
+        var calculateNextZoom = function() {
+            var oldZoom = zoom;
+            var newZoom = zoomValues[zoomValues.length - 1];
+            for (var i = 0; i < zoomValues.length; i++) {
+                if (zoomValues[i] > oldZoom) {
+                    newZoom = zoomValues[i];
+                    break;
+                }
+            }
+            var bestNamedValue;
+            for (i = 0; i < namedZoomValues.length; i++) {
+                var value = calculateZoomValue(namedZoomValues[i]);
+                if (value > oldZoom && value <= newZoom) {
+                    if (bestNamedValue && value === newZoom) {
+                        continue; // If multiple named values correspond to the same zoom level then use the earliest
+                    }
+                    bestNamedValue = namedZoomValues[i];
+                    newZoom = value;
+                }
+            }
+            return bestNamedValue || newZoom;
+        };
+
+        var calculatePrevZoom = function() {
+            var oldZoom = zoom;
+            var newZoom = zoomValues[0];
+            for (var i = zoomValues.length - 1; i >= 0; i--) {
+                if (zoomValues[i] < oldZoom) {
+                    newZoom = zoomValues[i];
+                    break;
+                }
+            }
+            var bestNamedValue;
+            for (i = 0; i < namedZoomValues.length; i++) {
+                var value = calculateZoomValue(namedZoomValues[i]);
+                if (value < oldZoom && value >= newZoom) {
+                    if (bestNamedValue && value === newZoom) {
+                        continue; // If multiple named values correspond to the same zoom level then use the earliest
+                    }
+                    bestNamedValue = namedZoomValues[i];
+                    newZoom = value;
+                }
+            }
+            return bestNamedValue || newZoom;
+        };
+
+        var calculateZoomValue = function(value) {
+            var zoomBounds = layout.getZoomBounds();
+            var fitWidthZoom = (mainContainer.clientWidth - PADDING) / zoomBounds.width;
+            var fitHeightZoom = (mainContainer.clientHeight - PADDING) / zoomBounds.height;
+
+            var zoomValue = parseFloat(value);
+            if (!isNaN(zoomValue)) {
+                zoom = zoomValue;
+                value = IDR.ZOOM_SPECIFIC;
+            }
+
+            if (!value) {
+                value = zoomType;
+            }
+
+            switch(value) {
+                case IDR.ZOOM_AUTO:
+                    zoom = layout.getAutoZoom(fitWidthZoom, fitHeightZoom);
+                    break;
+                case IDR.ZOOM_FITWIDTH:
+                    zoom = fitWidthZoom;
+                    break;
+                case IDR.ZOOM_FITHEIGHT:
+                    zoom = fitHeightZoom;
+                    break;
+                case IDR.ZOOM_FITPAGE:
+                    zoom = Math.min(fitWidthZoom, fitHeightZoom);
+                    break;
+                case IDR.ZOOM_ACTUALSIZE:
+                    zoom = 1;
+                    break;
+            }
+            zoomType = value;
+
+            return zoom;
+        };
+
+        exports.updateZoom = updateZoom;
+        exports.zoomIn = function() {
+            updateZoom(calculateNextZoom());
+        };
+        exports.zoomOut = function() {
+            updateZoom(calculatePrevZoom());
+        };
+        exports.getZoom = function() {
+            return zoom;
+        };
+        exports.setDefault =  function(zoom) {
+            defaultZoom = zoom;
+        };
+        return exports;
+    })();
+
+
+    IDR.zoomIn = function() {
+        ZoomManager.zoomIn();
+    };
+
+    IDR.zoomOut = function() {
+        ZoomManager.zoomOut();
+    };
+
+    IDR.setZoom = function(zoomType) {
+        if (isSetup) {
+            ZoomManager.updateZoom(zoomType);
+        } else {
+            ZoomManager.setDefault(zoomType);
+        }
+    };
+
+    IDR.goToPage = function(pg, location) {
+        if (isSetup) {
+            if (pg >= 1 && pg <= pgCount) {
+                layout.goToPage(Number(pg), location);
+            }
+        } else {
+            curPg = pg; // Sets the default page
+        }
+    };
+
+    IDR.next = function() {
+        layout.next();
+    };
+
+    IDR.prev = function() {
+        layout.prev();
+    };
+
+    IDR.setLayout = function(name) {
+        if (isSetup) {
+            LayoutManager.setLayout(name);
+        } else {
+            LayoutManager.setDefault(name);
+        }
+    };
+
+    IDR.updateLayout = function() {
+        ZoomManager.updateZoom();
+    };
+
+    /* EventManager */
+    (function() {
+        var events = {};
+
+        IDR.on = function(eventType, eventListener) {
+            if (!events[eventType]) {
+                events[eventType] = [];
+            }
+            if (events[eventType].indexOf(eventListener) === -1) {
+                events[eventType].push(eventListener);
+            }
+        };
+
+        IDR.off = function(eventType, eventListener) {
+            if (events[eventType]) {
+                var index = events[eventType].indexOf(eventListener);
+                if (index !== -1) {
+                    events[eventType].splice(index, 1);
+                }
+            }
+        };
+
+        IDR.fire = function(type, data) {
+            if (events[type]) {
+                events[type].forEach(function(listener) {
+                    listener(data);
+                });
+            }
+        };
+    })();
+
+    var ClassHelper = (function() {
+        return {
+            addClass: function(ele, name) {
+                var classes = ele.className.length !== 0 ? ele.className.split(" ") : [];
+                var index = classes.indexOf(name);
+                if (index === -1) {
+                    classes.push(name);
+                    ele.className = classes.join(" ");
+                }
+            },
+
+            removeClass: function() {
+                var ele = arguments[0];
+                var classes = ele.className.length !== 0 ? ele.className.split(" ") : [];
+
+                for (var i = 1; i < arguments.length; i++) {
+                    var index = classes.indexOf(arguments[i]);
+                    if (index !== -1) {
+                        classes.splice(index, 1);
+                    }
+                }
+
+                ele.className = classes.join(" ");
+            }
+        };
+    })();
+
+    if(typeof define === "function" && define.amd) {
+        //noinspection JSUnresolvedFunction
+        define(['idrviewer'], [], function() {
+            return IDR;
+        });
+    } else if(typeof module === "object" && module.exports) {
+        module.exports = IDR;
+    } else {
+        window.IDRViewer = IDR;
+    }
+
+}());

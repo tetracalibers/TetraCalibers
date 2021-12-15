@@ -46,7 +46,7 @@
 
         IDRViewer.on("ready", function(data) {
             config = data;
-            var baseUrl = data.url || "";
+            var baseUrl = "/LaTeXbooks/algorithm-datastructure/"
 
             var request = new XMLHttpRequest();
             request.open('GET', baseUrl + 'annotations.json', true);

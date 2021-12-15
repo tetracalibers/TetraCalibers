@@ -40,7 +40,7 @@
 
     IDRViewer.on("ready", function(data) {
         pageHandler = data.pageType === "html" ? HTMLPageHandler : SVGPageHandler;
-        baseUrl = data.url || "";
+        baseUrl = "/LaTeXbooks/ap/"
     });
 
     IDRViewer.loadSearch = function(loadListener, progressListener) {

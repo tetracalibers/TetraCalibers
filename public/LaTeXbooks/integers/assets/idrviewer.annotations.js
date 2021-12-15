@@ -11,7 +11,7 @@
 
         (function() {
             var request = new XMLHttpRequest();
-            request.open('GET', 'annotations.json', true);
+            request.open('GET', '/LaTeXbooks/integers/annotations.json', true);
 
             request.onload = function() {
                 if (request.status >= 200 && request.status < 400) {

@@ -107,7 +107,7 @@
             isSVG,
             isSVGZ,
             isLocal = location.protocol === "file:",
-            URL = '/LaTeXbooks/thermodynamics-university/';
+            URL = "";
 
         exports.setup = function(pageType, url) {
             isSVGZ = pageType === "svgz";

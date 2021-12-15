@@ -51,7 +51,7 @@
     </div>
     <div class="top_tabcontents" id="latexbooks">
         @foreach ($books as $book)
-        <a class="CategoryLink" href="{{ url('/LaTeXbooks/' . $book->slug . '/index.html') }}" target="_blank" rel="noopener noreferrer">
+        <a class="CategoryLink" href="{{ url('/latexbook/' . $book->slug) }}" target="_blank" rel="noopener noreferrer">
             <div>{!! $book->title !!}</div>
             <img src="{{ $book->thumbnail }}">
         </a>
