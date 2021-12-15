@@ -22,6 +22,9 @@
                 <image-uploader input-name="thumbnailFile"></image-uploader>
             </div>
 
+            <label for="metadesc">og:description</label>
+            <input type="text" name="metadesc" class="_width100" value="{{ old('metadesc', $book->metadesc) }}">
+
             <button type="submit" class="_primary">更新</button>
             <a href="{{ route('back.latexbooks.index') }}">
                 <button type="button">一覧へ戻る</button>

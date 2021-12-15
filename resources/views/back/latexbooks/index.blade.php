@@ -17,9 +17,8 @@
                 <th>タイトル</th>
                 <th>スラッグ</th>
                 <th>サムネイル</th>
-                <!--
+                <th>og:description</th>
                 <th>{{-- 表示 --}}</th>
-                -->
                 <th>{{-- 編集 --}}</th>
                 <th>{{-- 削除 --}}</th>
             </tr>
@@ -37,13 +36,12 @@
                         <div class="caption"></div>
                     </div>
                 </td>
-                <!--
+                <td>{{ $book->metadesc }}</td>
                 <td>
-                    <a href="{{-- route('front.latexbooks.show', [$book->slug])--}}" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ url('/latexbook/' . $book->slug) }}" target="_blank" rel="noopener noreferrer">
                         <button class="_info">表示</button>
                     </a>
                 </td>
-                -->
                 <td>
                     <a href="{{ route('back.latexbooks.edit', $book->slug) }}">
                         <button class="_primary">編集</button>

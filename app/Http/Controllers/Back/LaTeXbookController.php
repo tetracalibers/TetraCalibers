@@ -42,6 +42,7 @@ class LaTeXbookController extends Controller
 
         $book->title = $request->title;
         $book->slug = $request->slug;
+        $book->metadesc = $request->metadesc;
 
         if ($request->thumbnailFile) {
             $file = $request->thumbnailFile;
@@ -94,6 +95,7 @@ class LaTeXbookController extends Controller
         $book = latexbook::where('slug', $slug)->first();
 
         $book->title = $request->title;
+        $book->metadesc = $request->metadesc;
 
         if ($request->thumbnailFile) {
             $file = $request->thumbnailFile;

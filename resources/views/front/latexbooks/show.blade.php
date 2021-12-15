@@ -3,7 +3,7 @@
 <meta property="og:title" content="{{ $book->title }}" />
 <meta property="og:image" content="{{ $book->thumbnail }}" />
 <meta property="og:type" content="article" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="{{ $book->metadesc }}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('/LaTeXbooks/' . $book->slug . '/assets/idrviewer.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/buildVu.css') }}">
