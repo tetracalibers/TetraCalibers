@@ -12,7 +12,7 @@
     background-color: #f7f7f7;
     background-size: 100% 2em;
 
-    @if ($hasAccentLine == 'yes') {
+    @if $hasAccentLine == "yes" {
         background-image: linear-gradient(90deg, transparent 79px, $geopink 79px, $geopink 81px, transparent 81px), linear-gradient(#eee 0.1em, transparent 0.1em);
 
         @media (max-width: $changeLayoutWidth) {
@@ -20,7 +20,7 @@
         }
     }
 
-    @if ($hasAccentLine == 'no') {
+    @if $hasAccentLine == "no" {
         background-image: linear-gradient(#eee 0.1em, transparent 0.1em);
     }
 }
@@ -93,6 +93,7 @@ $randoms: (1: random(3), 2: random(3), 3: random(3), 4: random(3), 5: random(3))
 @mixin fusenBox($color) {
     $TabColor: $color;
     $TabDarkColor: darken($color, 4%);
+
     padding: 1rem;
     background: linear-gradient(to bottom, $TabColor 0%, $TabDarkColor 0.5%, $TabDarkColor 13%, $TabColor 16%);
 }
@@ -131,11 +132,12 @@ $markColor: rgba(#ff3, 0.5);
     // 左半分を透明、右半分を黄色にする
     background: linear-gradient(to right, $markColor 50%, transparent 50%);
     background-repeat: no-repeat;
+
     // 透明部分は隠れるように、長さは200%
     background-size: 200% 1.1em;
+
     // 左に要素分ずらす
     background-position: 100% .5em;
-
     transition: 1.5s;
 
     &.is-active {
@@ -160,7 +162,6 @@ $markColor: rgba(#ff3, 0.5);
 @mixin NeumorphismBox($color, $in_or_out) {
     @if $in_or_out == "in" {
         box-shadow: inset 3px 3px 5px darken($color, 10%), inset -3px -3px 5px lighten($color, 10%);
-
     }
 
     @if $in_or_out == "out" {

@@ -123,7 +123,7 @@ export default {
                 mylang = mylang.replace(/::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
                 mylang = mylang.replace(/::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
                 mylang = mylang.replace(/担当者::/gmsu, '<span class="i-tantosha"><i class="fas fa-user"></i><span class="i-tantosha-text">担当者：</span></span>');
-                mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span><i class="fas fa-book"></i></div>');
+                mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span></div>');
                 mylang = mylang.replace(/:最新のコードはこちら:/gmsu, '<div class="i-github"><i class="fas fa-code"></i><span class="i-github-text">最新のコードはこちら</span><i class="fas fa-code"></i></div>');
 
                 /** 見出し */

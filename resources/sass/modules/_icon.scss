@@ -1,10 +1,28 @@
 .i-sankobunken {
     text-align: center;
-    margin-bottom: -2rem;
+    margin: 2rem 0 -3rem;
     color: #8099ffb3;
+    font-size: 1.5rem;
+    position: relative;
+    height: 6rem;
+
+    i {
+        position: absolute;
+        left: 0;
+        font-size: 4rem;
+        transform: rotate(-20deg);
+        color: transparent;
+        background-color: #d9e4f5;
+        background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+        background-clip: text;
+        display: inline-block;
+    }
 
     &-text {
-        padding: 0 .25rem;
+        position: absolute;
+        left: 2rem;
+        padding-top: 1rem;
+        display: inline-block;
     }
 }
 
