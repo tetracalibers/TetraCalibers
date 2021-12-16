@@ -143,7 +143,7 @@ export default {
 
                 /** ファイル名 */
                 mylang = mylang.replace(
-                    /fname:\s*(.*?)/gms,
+                    /^fname:\s*(.*?)$/gms,
                     '<p class="code-tag">$1</p>'
                 );
 
