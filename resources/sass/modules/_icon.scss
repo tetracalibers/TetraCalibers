@@ -78,3 +78,110 @@
 .i-button {
     font-family: 'Inconsolata', "TsukushiAMaruGothic";
 }
+
+.i-next {
+    text-align: right;
+    padding-right: 1.5rem;
+    display: block;
+    text-decoration: none;
+    z-index: 1;
+    margin-top: 2rem;
+
+    &-text {
+        display: inline-block;
+        margin-right: .5rem;
+
+        span {
+            font-size: 2rem;
+            text-transform: uppercase;
+            display: inline-block;
+            position: relative;
+            color: transparent;
+            background-color: #63a4ff;
+            background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+            background-clip: text;
+
+            &:first-child {
+                font-size: 2.5rem;
+            }
+
+            &:nth-child(odd) {
+                top: -0.5rem;
+            }
+        }
+    }
+
+    &-title {
+        margin: 0 1rem;
+        display: inline-block;
+        color: blueviolet;
+        margin-right: .5rem;
+
+        @media (max-width: $changeLayoutWidth) {
+            display: none;
+        }
+    }
+
+    i {
+        color: transparent;
+        display: inline-block;
+        background-color: #045de9;
+        background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+        background-clip: text;
+    }
+}
+
+.i-prev {
+    text-align: left;
+    display: block;
+    text-decoration: none;
+    z-index: 1;
+    margin-bottom: 2rem;
+
+    &-text {
+        display: inline-block;
+
+        span {
+            font-size: 2rem;
+            text-transform: uppercase;
+            display: inline-block;
+            position: relative;
+            color: transparent;
+            background-color: #ee5166;
+            background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
+            background-clip: text;
+            top: .5rem;
+            letter-spacing: -1px;
+
+            &:first-child {
+                font-size: 2.5rem;
+                padding-left: .5rem;
+            }
+
+            &:nth-child(even) {
+                top: 1rem;
+            }
+        }
+    }
+
+    &-title {
+        margin: 0 1rem;
+        display: inline-block;
+        color: blueviolet;
+        margin-left: .5rem;
+        position: relative;
+        top: 1rem;
+
+        @media (max-width: $changeLayoutWidth) {
+            display: none;
+        }
+    }
+
+    i {
+        color: transparent;
+        display: inline-block;
+        background-color: #ee5166;
+        background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
+        background-clip: text;
+    }
+}

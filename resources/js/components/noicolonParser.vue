@@ -126,6 +126,12 @@ export default {
                 mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span></div>');
                 mylang = mylang.replace(/:最新のコードはこちら:/gmsu, '<div class="i-github"><i class="fas fa-code"></i><span class="i-github-text">最新のコードはこちら</span><i class="fas fa-code"></i></div>');
 
+                /** 前の記事へ */
+                mylang = mylang.replace(/^prev:\s*(.*?)\[(.*?)\]$/gmsu, '<a class="i-prev" href="$2"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i><div class="i-prev-text"><span>p</span><span>r</span><span>e</span><span>v</span></div><span class="i-prev-title">$1</span></a>')
+
+                /** 次の記事へ */
+                mylang = mylang.replace(/^next:\s*(.*?)\[(.*?)\]$/gmsu, '<a class="i-next" href="$2"><div class="i-next-text"><span>n</span><span>e</span><span>x</span><span>t</span></div><span class="i-next-title">$1</span><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>')
+
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
 
