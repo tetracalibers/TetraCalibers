@@ -11,6 +11,7 @@
     <meta property="og:url" content="{{ url()->current() }}" />
     @yield('meta')
     <x-favicon />
+    @if (app()->isProduction())
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7D6WJVHS4D"></script>
     <script>
@@ -19,6 +20,7 @@
         gtag('js', new Date());
         gtag('config', 'G-7D6WJVHS4D');
     </script>
+    @endif
     <title>@yield('title')</title>
     <x-loadPlugin />
 </head>
