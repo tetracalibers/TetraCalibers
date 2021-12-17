@@ -25,6 +25,20 @@ $headHeight: 3rem;
             background-color: #f9c5d1;
             background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
             background-clip: text;
+
+            @media (max-width: $forGalaxyFold) {
+                font-size: 1.8rem;
+            }
+        }
+
+        dd {
+            @media (max-width: 395px) {
+                font-size: .8rem;
+            }
+
+            @media (max-width: $forGalaxyFold) {
+                font-size: .7rem;
+            }
         }
 
         pre {
@@ -34,12 +48,6 @@ $headHeight: 3rem;
             background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
             background-clip: text;
             padding-bottom: 10px;
-        }
-
-        @media (max-width: 395px) {
-            dd {
-                font-size: .8rem;
-            }
         }
     }
 

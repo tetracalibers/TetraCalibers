@@ -29,6 +29,10 @@
         color: rgba(255, 255, 255, 0.8);
         text-shadow: 0 0 2px silver;
         font-family: 'Kaisei Opti', serif;
+
+        @media (max-width: $forGalaxyFold) {
+            font-size: 1.8rem;
+        }
     }
 
     .cardGroup {
@@ -101,6 +105,10 @@
     .tocTitle {
         font-size: 2rem;
         filter: opacity(0.8);
+
+        @media (max-width: $forGalaxyFold) {
+            font-size: 1.8rem;
+        }
     }
 
     .toc {
@@ -110,6 +118,10 @@
         li {
             display: inline-block;
             padding: 2rem;
+
+            @media (max-width: $forGalaxyFold) {
+                padding: 1rem;
+            }
 
             a {
                 text-decoration: none;
