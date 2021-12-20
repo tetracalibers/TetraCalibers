@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Tag;
+use App\Models\Series;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
 
@@ -20,7 +21,9 @@ class BlogController extends Controller
         $articles = Blog::all()
                     ->sortByDesc('updated_at');
 
-        return view('back.blog.index', compact('articles'));
+        $series = Series::all()->pluck('title', 'id')->toArray();
+
+        return view('back.blog.index', compact('articles', 'series'));
     }
 
     /**
@@ -30,6 +33,8 @@ class BlogController extends Controller
      */
     public function create()
     {
+        $series = Series::all()->sortBy('created_at');
+
         $tags = Tag::all()->sortBy('name');
         $tagsJSON = [];
 
@@ -40,7 +45,7 @@ class BlogController extends Controller
 
         $tagsJSON = json_encode($tagsJSON);
 
-        return view('back.blog.create', compact('tagsJSON'));
+        return view('back.blog.create', compact('tagsJSON', 'series'));
     }
 
     /**
@@ -51,9 +56,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $article = Blog::create($request->except('attachedImage'));
+        $article = new Blog();
 
-        $article->tags()->attach($request->tags);
+        $article->series_id = $request->series;
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->metadesc = $request->metadesc;
+        $article->series_pos = Blog::where('series_id', $request->series)->get()->count();
 
         if ($request->metaimageFile) {
             $file = $request->metaimageFile;
@@ -73,6 +82,9 @@ class BlogController extends Controller
         }
 
         $article->save();
+
+        // 必ずセーブ後に書く
+        $article->tags()->attach($request->tags);
 
         return redirect()->route('back.blog.index')->with('message', '新規ブログ記事を作成しました！');
     }
@@ -97,6 +109,8 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::findOrFail($id);
+
+        $series = Series::all()->sortBy('created_at');
         $tags = Tag::all()->sortBy('name');
 
         $tagsJSON = [];
@@ -109,7 +123,7 @@ class BlogController extends Controller
         $tagsJSON = json_encode($tagsJSON);
         $checkedTagsJSON = json_encode(collect($blog->tags()->pluck('tag_id')->toArray()));
 
-        return view('back.blog.edit', compact('blog', 'tagsJSON', 'checkedTagsJSON'));
+        return view('back.blog.edit', compact('blog', 'tagsJSON', 'checkedTagsJSON', 'series'));
     }
 
     /**
@@ -124,9 +138,23 @@ class BlogController extends Controller
         $article = Blog::find($id);
         $article->tags()->sync($request->tags);
 
+        $article->series_id = $request->series;
         $article->title = $request->title;
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
+
+        if (!$article->series_pos) {
+            $thisSeriesArticles = Blog::where('series_id', $request->series)->get();
+            $allPosNum = collect(range(0, $thisSeriesArticles->count()));
+            $noAvailablePosNum = $thisSeriesArticles->whereNotNull('series_pos')->pluck('series_pos');
+            $availablePosNum = $allPosNum->diff($noAvailablePosNum);
+
+            $article->series_pos = $availablePosNum->min();
+        }
+
+        if ($request->series == 0) {
+            $article->series_pos = null;
+        }
 
         if ($request->file('attachedImage')) {
             $files = $request->file('attachedImage');

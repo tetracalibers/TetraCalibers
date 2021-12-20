@@ -5,6 +5,8 @@ use App\Models\Subject;
 use App\Models\LearningUnit;
 use App\Models\Clearnote;
 use App\Models\latexbook;
+use App\Models\Series;
+use App\Models\Blog;
 
 Route::middleware(['firewall'])->group(function() {
     Route::get('/', 'DashboardController')->name('dashboard');
@@ -36,6 +38,11 @@ Route::middleware(['firewall'])->group(function() {
                     $book = latexbook::where('id', $id)->first();
                     $book->position = $position;
                     $book->save();
+                } elseif (preg_match('/article([0-9]+)/', $item, $matches)) {
+                    $id = (int)$matches[1];
+                    $blog = Blog::where('id', $id)->first();
+                    $blog->series_pos = $position;
+                    $blog->save();
                 }
             }
 
@@ -52,6 +59,7 @@ Route::middleware(['firewall'])->group(function() {
     Route::resource('blog', 'BlogController')->except('show');
     Route::resource('readingNote', 'ReadingNoteController');
     Route::resource('tags', 'TagController')->except('show');
+    Route::resource('series', 'SeriesController');
     Route::resource('latexbooks', 'LaTeXbookController');
     Route::resource('subjects', 'SubjectController');
     Route::resource('subjects.learningUnits', 'LearningUnitController')->except(['index', 'create', 'edit']);

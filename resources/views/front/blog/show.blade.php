@@ -4,8 +4,14 @@
 <meta property="og:image" content="{{ $article->metaimage }}" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{ $article->metadesc }}" />
+<mata name="description" content="{{ $article->metadesc }}" />
 @endsection
-@section('title', $article->title)
+
+@if ($series)
+@section('title', $article->title . ' <- ' .  $series['title'] . ' <- TetraCalibers')
+@else
+@section('title', $article->title . ' <- TetraCalibers')
+@endif
 
 @section('main')
 <article class="blogContainer" id="particles_blog">
@@ -30,18 +36,55 @@
             <ul class="toc"></ul>
         </div>
     </div><!-- END tocWrapper -->
-    <div class="articleTitle">
-        {!! $article->title !!}
-    </div><!-- END articleTitle -->
+    <div class="titles">
+        @if ($series)
+        <div class="seriesTitle">
+            {!! $series['title'] !!} - {{ $article->series_pos + 1 }}
+        </div>
+        @endif
+        <div class="articleTitle">
+            {!! $article->title !!}
+        </div>
+    </div>
+    @if ($seriesArticles)
+    <div class="seriesMapWrapper">
+        <ul class="seriesMap">
+            @foreach ($seriesArticles as $sArticle)
+            <li>
+                @if ($sArticle->series_pos == $article->series_pos)
+                {{ $sArticle->series_pos + 1 . ' => ' . $sArticle->title }}<i class="fas fa-arrow-left"></i>現在地
+                @else
+                <a href="{{ route('front.blog.show', $sArticle->id)}}">{{ $sArticle->series_pos + 1 . ' => ' . $sArticle->title }}</a>
+                @endif
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <time class="articleDate">
         <div>公開日==&#39;{{ $article->created_at }}&#39;;</div>
-    @if ($article->created_at != $article->updated_at)
+        @if ($article->created_at != $article->updated_at)
         <div>最終更新日==&#39;{{ $article->updated_at }}&#39;;</div>
-    @endif
+        @endif
     </time>
     <div class="blogContents">
         {!! $article->content !!}
     </div><!-- END blogContents -->
+    @if ($next)
+    <div class="nextArticle">
+        <a class="i-next" href="{{ route('front.blog.show', $next->id) }}">
+            <div class="i-next-text">
+                <span>n</span>
+                <span>e</span>
+                <span>x</span>
+                <span>t</span>
+            </div>
+            <span class="i-next-title">{{ $next->title }}</span>
+            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    @endif
     <x-front.affiliate />
     <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>
 </article>

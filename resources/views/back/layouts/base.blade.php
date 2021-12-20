@@ -27,10 +27,11 @@
             <li><a href="{{ route('back.profile.edit', 1) }}" class="row">Profile</a></li>
             <li><a href="{{ route('back.archive.edit', 1) }}" class="row">Blog - All</a></li>
             <li><a href="{{ route('back.blog.index')}}" class="row">ブログ</a></li>
-            <li><a href="{{ route('back.readingNote.index') }}" class="row">読書ノート</a></li>
+            <li><a href="{{ route('back.series.index') }}" class="row">シリーズ</a></li>
             <li><a href="{{ route('back.tags.index') }}" class="row">タグ</a></li>
             <li><a href="{{ route('back.subjects.index') }}" class="row">Clearnote</a></li>
-            <li><a href="{{ route('back.latexbooks.index') }}" class="row">LaTeX本</a></li>
+            <li><a href="{{ route('back.latexbooks.index') }}" class="row">LaTeX教科書</a></li>
+            <li><a href="{{ route('back.readingNote.index') }}" class="row">読書ノート</a></li>
         </ul>
     </nav>
     <main class="my_adminMain">

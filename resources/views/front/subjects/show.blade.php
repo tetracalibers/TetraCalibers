@@ -4,8 +4,9 @@
 <meta property="og:image" content="{{ asset('images/Subjects/' . $subject->logo) }}" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{ $subject->metadesc }}" />
+<mata name="description" content="{{ $subject->metadesc }}" />
 @endsection
-@section('title', $subject->name . 'のノート一覧')
+@section('title', $subject->name . 'のノート一覧 <- TetraCalibers')
 
 @section('main')
 <article class="notesContainer">

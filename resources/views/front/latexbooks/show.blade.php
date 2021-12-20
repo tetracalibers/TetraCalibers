@@ -4,6 +4,7 @@
 <meta property="og:image" content="{{ $book->thumbnail }}" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{ $book->metadesc }}" />
+<mata name="description" content="{{ $book->metadesc }}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="{{ url('/LaTeXbooks/' . $book->slug . '/assets/idrviewer.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/buildVu.css') }}">
@@ -14,7 +15,7 @@
 <script src="{{ url('/LaTeXbooks/' . $book->slug . '/assets/idrviewer.annotations.js') }}"></script>
 <script src="{{ asset('js/buildVu.js') }}"></script>
 @endsection
-@section('title', $book->title)
+@section('title', $book->title . ' <- LaTeX製教科書 <- TetraCalibers')
 
 @section('body')
 <body class="light-theme idrviewerContainer">

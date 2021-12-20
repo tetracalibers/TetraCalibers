@@ -12,6 +12,14 @@
     <div id="app">
         <form method="post" action="{{ route('back.blog.store') }}" id="validateform" enctype="multipart/form-data">
         @csrf
+            <label for="series">シリーズ</label>
+            <select name="series" class="_width100">
+                <option value="0">該当なし</option>
+                @foreach ($series as $s)
+                <option value="{{ $s->id }}">{{ $s->title }}</option>
+                @endforeach
+            </select>
+
             <label for="title">タイトル</label>
             <input type="text" name="title" class="_width100" v-model="need_title">
             <need-errors :errors="errors.title"></need-errors>

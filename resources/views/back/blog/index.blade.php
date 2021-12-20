@@ -12,6 +12,7 @@
     <table class="_width100">
         <thead>
             <tr>
+                <th>シリーズ</th>
                 <th>タイトル</th>
                 <th>公開日</th>
                 <th>最終更新日</th>
@@ -25,6 +26,11 @@
         <tbody>
         @foreach ($articles as $article)
             <tr>
+                <td>
+                    @if ($article->series_id > 0)
+                    {{ $series[$article->series_id] }}
+                    @endif
+                </td>
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>{{ $article->updated_at }}</td>

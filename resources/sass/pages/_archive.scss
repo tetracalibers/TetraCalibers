@@ -1,14 +1,13 @@
 .archiveContainer {
     width: 100vw;
     height: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 125px);
     background-color: #000000;
     background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
     color: white;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    font-family: 'Share Tech Mono', "TsukushiAMaruGothic";
     padding-top: 125px;
     padding-bottom: 100px;
 
@@ -18,8 +17,20 @@
     }
 }
 
+.archiveContainer .seriesTitle {
+    font-family: 'Kaisei HarunoUmi', serif;
+    padding: .5rem 1rem;
+    letter-spacing: 1px;
+    background-color: #f907fc;
+    background-image: linear-gradient(315deg, #f907fc 0%, #05d6d9 74%);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 1.5px silver;
+}
+
 .shell {
     padding: 2rem;
+    font-family: 'Zen Kurenaido', sans-serif;
 }
 
 .shellMark {
@@ -35,15 +46,17 @@
 
 .articleList {
     padding: 1rem 2rem;
+    font-family: 'Zen Kurenaido', sans-serif;
 
     li {
         padding-bottom: 1rem;
+        letter-spacing: 1px;
+        line-height: 1.5rem;
     }
 
     a {
         color: white;
         text-decoration: 1px underline dotted;
-        font-size: 1.25rem;
         transition: 1s;
 
         &:hover {

@@ -20,6 +20,14 @@
         <form method="post" action="/admin/blog/{{ $blog->id }}" id="validateform" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
+            <label for="series">シリーズ</label>
+            <select name="series" class="_width100">
+                <option value="0" {{ $blog->series_id == 0 ? 'selected' : '' }}>該当なし</option>
+                @foreach ($series as $s)
+                <option value="{{ $s->id }}" {{ $blog->series_id == $s->id ? 'selected' : '' }}>{{ $s->title }}</option>
+                @endforeach
+            </select>
+
             <label for="title">タイトル</label>
             <input type="text" name="title" class="_width100" v-model="need_title" v-init:need_title="'{{ $blog->title }}'">
             <need-errors :errors="errors.title"></need-errors>

@@ -4,8 +4,9 @@
 <meta property="og:image" content="{{ $top->metaimage }}" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="{{ $top->metadesc }}" />
+<mata name="description" content="{{ $top->metadesc }}" />
 @endsection
-@section('title', 'TetraCalibers - Top')
+@section('title', 'Top <- TetraCalibers')
 
 @section('main')
 <article class="topContainer">

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Tag;
 use App\Models\Series;
+use Illuminate\Http\Request;
 
-class TagController extends Controller
+class SeriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $series = Series::all();
+
+        return view('back.series.index', compact('series'));
     }
 
     /**
@@ -26,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.series.create');
     }
 
     /**
@@ -35,9 +36,11 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store(Request $request)
     {
+        $series = Series::create($request->all());
 
+        return redirect()->route('back.series.index')->with('message', '新規シリーズを登録しました！');
     }
 
     /**
@@ -48,19 +51,10 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $tag = Tag::findOrFail($id);
-        $articles = $tag->find($id)->blogs()->get();
-        $series = Series::all()->pluck('title', 'id')->toArray();
-        $articlesBySeries = [];
+        $series = Series::findOrFail($id);
+        $articles = $series->blogs()->get()->sortBy('series_pos');
 
-        foreach ($series as $series_id => $series_title) {
-            $articlesBySeries[] = $articles->sortBy('series_pos')->where('series_id', $series_id)->toArray();
-        }
-
-        $articlesNotBelongSeries = $articles->sortByDesc('created_at')->where('series_id', null);
-        $articlesNotBelongSeries = $articlesNotBelongSeries->merge($articles->sortByDesc('created_at')->where('series_id', 0))->toArray();
-
-        return view('front.tag.show', compact('tag', 'articles', 'series', 'articlesBySeries', 'articlesNotBelongSeries'));
+        return view('back.series.show', compact('articles', 'series'));
     }
 
     /**
@@ -71,7 +65,9 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $series = Series::findOrFail($id);
+
+        return view('back.series.edit', compact('series'));
     }
 
     /**
@@ -83,7 +79,11 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $series = Series::findOrFail($id);
+        $series->title = $request->title;
+        $series->save();
+
+        return redirect()->route('back.series.index')->with('message', 'シリーズ情報を更新しました！');
     }
 
     /**

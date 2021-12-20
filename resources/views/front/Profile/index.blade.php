@@ -4,8 +4,9 @@
 <meta property="og:image" content="{{ $profile->metaimage }}" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{ $profile->metadesc }}" />
+<mata name="description" content="{{ $profile->metadesc }}" />
 @endsection
-@section('title', 'プロフィール')
+@section('title', 'プロフィール <- TetraCalibers')
 
 @section('main')
 <article class="profileContainer">
