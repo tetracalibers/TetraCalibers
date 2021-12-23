@@ -21,7 +21,7 @@
         @foreach ($articlesNotBelongSeries as $articleNBS)
             <li>
                 <a href="{{ route('front.blog.show', $articleNBS['id']) }}">
-                    {{ $articleNBS['title'] }}
+                    {{ $articleNBS['title'] . ($articleNBS['subtitle'] ? "〜" . $articleNBS['subtitle'] . "〜" : "") }}
                 </a>
             </li>
         @endforeach
@@ -34,7 +34,7 @@
             @foreach ($value as $article)
             <li>
                 <a href="{{ route('front.blog.show', $article['id']) }}">
-                    {{ $article['title'] }}
+                    {{ $article['title'] . ($article['subtitle'] ? "〜" . $article['subtitle'] . "〜" : "") }}
                 </a>
             </li>
             @endforeach

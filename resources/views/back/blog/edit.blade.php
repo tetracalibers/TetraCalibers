@@ -32,6 +32,9 @@
             <input type="text" name="title" class="_width100" v-model="need_title" v-init:need_title="'{{ $blog->title }}'">
             <need-errors :errors="errors.title"></need-errors>
 
+            <label for="subtitle">サブタイトル</label>
+            <input type="text" name="subtitle" class="_width100" value="{{ $blog->subtitle }}">
+
             <label for="content">本文</label>
             <multi-image-uploader></multi-image-uploader>
             <xml-file-parser @tomixy_updatecontent="updateContent" init-content="{{ $blog->content }}"></xml-file-parser>

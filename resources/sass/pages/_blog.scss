@@ -14,7 +14,6 @@ $affRow: $blogContentsRow + 1;
     padding-bottom: 100px;
     display: grid;
     grid-template-columns: 20vw 55vw 25vw;
-    //grid-template-rows: auto auto auto auto auto;
     box-sizing: border-box;
     padding-top: 125px;
 
@@ -24,13 +23,12 @@ $affRow: $blogContentsRow + 1;
 
     @media (max-width: $changeLayoutWidth) {
         grid-template-columns: 1fr;
-        //grid-template-rows: repeat(6, auto);
     }
 }
 
 .categoryList {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2 / 3;
 
     @media (max-width: $changeLayoutWidth) {
         grid-column: 1;
@@ -63,7 +61,7 @@ $affRow: $blogContentsRow + 1;
 
 .blogContainer .tocWrapper {
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 2 / 3;
 
     @media (max-width: $changeLayoutWidth) {
         grid-column: 1;
@@ -134,7 +132,7 @@ $affRow: $blogContentsRow + 1;
 .blogContainer .tocWrapper {
     justify-self: center;
     z-index: 5;
-    height: 100vh;
+    max-height: 100vh;
     overflow-y: auto;
     padding-bottom: 2rem;
     position: sticky;
@@ -189,7 +187,7 @@ $affRow: $blogContentsRow + 1;
 }
 
 .categoryList {
-    height: 100vh;
+    max-height: 100vh;
     justify-self: center;
     align-self: start;
     padding-top: 2rem;
@@ -369,7 +367,13 @@ $affRow: $blogContentsRow + 1;
     }
 
     .seriesTitle {
+        font-size: 1.25rem;
+        padding: 0.5rem 0;
+    }
+
+    .articleSubTitle {
         font-size: 1.5rem;
+        padding: 0.5rem 0;
     }
 }
 
@@ -626,7 +630,6 @@ $affRow: $blogContentsRow + 1;
     dd {
         justify-self: center;
         padding-bottom: 2rem;
-        font-size: 1.2rem;
         text-align: center;
     }
 
@@ -636,7 +639,11 @@ $affRow: $blogContentsRow + 1;
         width: 100%;
 
         @media (max-width: $changeLayoutWidth) {
-            font-size: .8rem;
+            font-size: 0.8rem;
+            width: 85vw;
+            overflow-x: scroll;
+            box-sizing: border-box;
+            display: block;
         }
     }
 
@@ -653,6 +660,7 @@ $affRow: $blogContentsRow + 1;
         padding: .5rem 1rem;
         background-color: #ffffff;
         background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+        text-align: center;
     }
 }
 

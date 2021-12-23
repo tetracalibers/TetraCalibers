@@ -70,7 +70,7 @@ class BlogController extends Controller
                 'title' => $series[$article->series_id],
                 'id' => $article->series_id
             ]);
-            $seriesArticles = Blog::where('series_id', $article->series_id)->get();
+            $seriesArticles = Blog::where('series_id', $article->series_id)->get()->sortBy('series_pos');
             $next = $seriesArticles->get($article->series_pos + 1);
         } else {
             $series = null;

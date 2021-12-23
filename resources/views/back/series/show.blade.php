@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th>記事タイトル</th>
+                <th>記事サブタイトル</th>
                 <th>{{-- 表示 --}}</th>
                 <th>{{-- 編集 --}}</th>
             </tr>
@@ -25,6 +26,7 @@
         @foreach ($articles as $article)
             <tr id="article{{ $article->id }}">
                 <td>{{ $article->title }}</td>
+                <td>{{ $article->subtitle }}</td>
                 <td>
                     <a href="{{ route('front.blog.show', $article->id) }}" target="_blank" rel="noopener noreferrer">
                         <button type="button" class="_info">表示</button>

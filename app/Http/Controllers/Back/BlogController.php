@@ -60,6 +60,7 @@ class BlogController extends Controller
 
         $article->series_id = $request->series;
         $article->title = $request->title;
+        $article->subtitle = $request->subtitle;
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
         $article->series_pos = Blog::where('series_id', $request->series)->get()->count();
@@ -140,16 +141,21 @@ class BlogController extends Controller
 
         $article->series_id = $request->series;
         $article->title = $request->title;
+        $article->subtitle = $request->subtitle;
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
 
         if (!$article->series_pos) {
             $thisSeriesArticles = Blog::where('series_id', $request->series)->get();
-            $allPosNum = collect(range(0, $thisSeriesArticles->count()));
-            $noAvailablePosNum = $thisSeriesArticles->whereNotNull('series_pos')->pluck('series_pos');
-            $availablePosNum = $allPosNum->diff($noAvailablePosNum);
 
-            $article->series_pos = $availablePosNum->min();
+            if ($thisSeriesArticles->count() == 1) {
+                $article->series_pos = 0;
+            } else {
+                $allPosNum = collect(range(0, $thisSeriesArticles->count()));
+                $noAvailablePosNum = $thisSeriesArticles->whereNotNull('series_pos')->pluck('series_pos');
+                $availablePosNum = $allPosNum->diff($noAvailablePosNum);
+                $article->series_pos = $availablePosNum->min();
+            }
         }
 
         if ($request->series == 0) {

@@ -14,6 +14,7 @@
             <tr>
                 <th>シリーズ</th>
                 <th>タイトル</th>
+                <th>サブタイトル</th>
                 <th>公開日</th>
                 <th>最終更新日</th>
                 <th>og:image</th>
@@ -32,6 +33,7 @@
                     @endif
                 </td>
                 <td>{{ $article->title }}</td>
+                <td>{{ $article->subtitle }}</td>
                 <td>{{ $article->created_at }}</td>
                 <td>{{ $article->updated_at }}</td>
                 <td>

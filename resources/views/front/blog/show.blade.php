@@ -8,9 +8,9 @@
 @endsection
 
 @if ($series)
-@section('title', $article->title . ' <- ' .  $series['title'] . ' <- TetraCalibers')
+    @section('title', $article->title . ' <- ' .  $series['title'] . ' <- TetraCalibers')
 @else
-@section('title', $article->title . ' <- TetraCalibers')
+    @section('title', $article->title . ' <- TetraCalibers')
 @endif
 
 @section('main')
@@ -45,6 +45,11 @@
         <div class="articleTitle">
             {!! $article->title !!}
         </div>
+        @if ($article->subtitle)
+        <div class="articleSubTitle">
+            {!! $article->subtitle !!}
+        </div>
+        @endif
     </div>
     @if ($seriesArticles)
     <div class="seriesMapWrapper">

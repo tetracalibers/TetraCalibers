@@ -122,6 +122,8 @@ export default {
                 /** ショートコード */
                 mylang = mylang.replace(/::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
                 mylang = mylang.replace(/::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
+                mylang = mylang.replace(/::マル/gmsu, '<i class="far fa-circle"></i>')
+                mylang = mylang.replace(/::バツ/gmsu, '<i class="fas fa-times"></i>')
                 mylang = mylang.replace(/担当者::/gmsu, '<span class="i-tantosha"><i class="fas fa-user"></i><span class="i-tantosha-text">担当者：</span></span>');
                 mylang = mylang.replace(/:参考文献:/gmsu, '<div class="i-sankobunken"><i class="fas fa-book"></i><span class="i-sankobunken-text">参考文献</span></div>');
                 mylang = mylang.replace(/:最新のコードはこちら:/gmsu, '<div class="i-github"><i class="fas fa-code"></i><span class="i-github-text">最新のコードはこちら</span><i class="fas fa-code"></i></div>');
@@ -129,7 +131,7 @@ export default {
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
 
-                /** ブロックURL */
+                /** ブロックURL（非推奨） */
                 mylang = mylang.replace(
                     /^a:\s*(.*?)$/gms,
                     '<a href="$1" class="url" target="_blank" rel="noopener noreferrer"><div class="omit">$1</div></a>'
@@ -141,11 +143,23 @@ export default {
                     '<a href="$2" class="i-link" target="_blank rel="noopener noreferrer><i class="fas fa-link"></i>$2</a>'
                 );
 
-                /** タイトル付きURL */
+                /** ブロックURL */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*link\s*-b:\s*(.*?)\[(.*?)\]/gms,
+                    '<a href="$2" class="i-link i-block" target="_blank rel="noopener noreferrer><i class="fas fa-link"></i>$2</a>'
+                );
+
+                /** タイトル付きインラインURL */
                 mylang = mylang.replace(
                     /(?:<br>|<\/p>)?[\n\t\s]*linkt:\s*(.*?)\[(.*?)\]/gms,
                     '<a href="$2" class="i-link" target="_blank rel="noopener noreferrer><i class="fas fa-link"></i>$1</a>'
                 );
+
+                /** タイトル付きブロックURL */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*linkt\s*-b:\s*(.*?)\[(.*?)\]/gms,
+                    '<a href="$2" class="i-link i-block" target="_blank rel="noopener noreferrer><i class="fas fa-link"></i>$1</a>'
+                )
 
                 /** ファイル名 */
                 mylang = mylang.replace(
@@ -266,6 +280,18 @@ export default {
                 mylang = mylang.replace(
                     /(?:<br>|<\/p>)?[\n\t\s]*(?:button|pre):\s*(.*?)(?:$|::::)/gmsu,
                     '<span class="i-button"><span class="i-button-text">$1</span></span>'
+                );
+
+                /** デザインパターン用 - 抽象役 */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*role-abst:\s*(.*?)(?:$|::::)/gmsu,
+                    '<span class="i-role -abstract"><i class="far fa-user"></i>$1</span>'
+                );
+
+                /** デザインパターン用 - 具象役 */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*(?:role-conc|role):\s*(.*?)(?:$|::::)/gmsu,
+                    '<span class="i-role -concreate"><i class="fas fa-user"></i>$1</span>'
                 );
 
                 /** インラインコード */

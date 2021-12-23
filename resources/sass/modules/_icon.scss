@@ -71,6 +71,10 @@
     word-break: break-all;
     hyphens: none;
 
+    &.i-block {
+        display: block;
+    }
+
     i {
         padding-right: .25rem;
     }
@@ -186,4 +190,9 @@
         background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
         background-clip: text;
     }
+}
+
+.i-role {
+    font-family: 'Londrina Shadow', cursive;
+    letter-spacing: 2px;
 }
