@@ -1,6 +1,6 @@
 @extends('front.layouts.base')
 @section('meta')
-<meta property="og:title" content="{{ $article->title }}" />
+<meta property="og:title" content="{{ $article->title . ($article['subtitle'] ? "〜" . $article['subtitle'] . "〜" : "") }}" />
 <meta property="og:image" content="{{ $article->metaimage }}" />
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{ $article->metadesc }}" />
@@ -8,9 +8,9 @@
 @endsection
 
 @if ($series)
-    @section('title', $article->title . ' <- ' .  $series['title'] . ' <- TetraCalibers')
+    @section('title', $article->title . ($article['subtitle'] ? "〜" . $article['subtitle'] . "〜" : "") . ' <- ' .  $series['title'] . ' <- TetraCalibers')
 @else
-    @section('title', $article->title . ' <- TetraCalibers')
+    @section('title', $article->title . ($article['subtitle'] ? "〜" . $article['subtitle'] . "〜" : "") . ' <- TetraCalibers')
 @endif
 
 @section('main')
