@@ -51,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/front.php'));
 
             // 管理画面
-            Route::prefix('admin')
+            Route::prefix((app()->isProduction()) ? 'admin' : 'test')
                 ->middleware((app()->isProduction()) ? ['web', 'auth'] : ['web'])
                 ->namespace($this->namespace . '\Back')
                 ->as('back.')

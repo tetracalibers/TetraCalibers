@@ -15,8 +15,6 @@
                 <th>シリーズ</th>
                 <th>タイトル</th>
                 <th>サブタイトル</th>
-                <th>公開日</th>
-                <th>最終更新日</th>
                 <th>og:image</th>
                 <th>og:description</th>
                 <th>{{-- 表示 --}}</th>
@@ -34,8 +32,6 @@
                 </td>
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->subtitle }}</td>
-                <td>{{ $article->created_at }}</td>
-                <td>{{ $article->updated_at }}</td>
                 <td>
                     <img src="{{ $article->metaimage }}" id="img{{ $article->id }}" class="my_adminLogo modalimg" onclick="openimg('img{{ $article->id }}','imgb')">
                     <div id="imgb" class="modal">

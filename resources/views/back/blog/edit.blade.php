@@ -17,7 +17,7 @@
         <?php echo $checkedTagsJSON; ?>
     </script>
     <div id="app">
-        <form method="post" action="/admin/blog/{{ $blog->id }}" id="validateform" enctype="multipart/form-data">
+        <form method="post" action="{{ route('back.blog.update', $blog->id) }}" id="validateform" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
             <label for="series">シリーズ</label>

@@ -1,10 +1,12 @@
 $(function(){
+    var currentPath = location.pathname;
+    var pathParts = currentPath.split("/");
     $(".sortable").sortable();
     $("#saveSort").click(function() {
         var result = $(".sortable").sortable("toArray");
         $.ajax({
             type: 'POST',
-            url: '/admin/sortUpdate',
+            url: '/' + pathParts[1] + "/sort",
             cache: false,
             dataType: 'json',
             headers: {

@@ -120,8 +120,8 @@ export default {
                 mylang = mylangArr.join("");
 
                 /** ショートコード */
-                mylang = mylang.replace(/::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
-                mylang = mylang.replace(/::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
+                mylang = mylang.replace(/[^:]::抽象/gmsu, '<span class="i-tyusho"><i class="fas fa-spinner"></i><span class="i-tyusho-text">抽象</span></span>');
+                mylang = mylang.replace(/[^:]::具体/gmsu, '<span class="i-gutai"><i class="fas fa-circle-notch"></i><span class="i-gutai-text">具体</span></span>');
                 mylang = mylang.replace(/::マル/gmsu, '<i class="far fa-circle"></i>')
                 mylang = mylang.replace(/::バツ/gmsu, '<i class="fas fa-times"></i>')
                 mylang = mylang.replace(/担当者::/gmsu, '<span class="i-tantosha"><i class="fas fa-user"></i><span class="i-tantosha-text">担当者：</span></span>');

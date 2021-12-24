@@ -48,5 +48,5 @@
         @endforeach
         </tbody>
     </table>
-    <button class="_purple" form="sortUpdate" id="saveSort">並び順を保存</button>
+    <button class="_purple" form="{{ route('back.sort.save') }}" id="saveSort">並び順を保存</button>
 @endsection
