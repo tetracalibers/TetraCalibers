@@ -63,20 +63,46 @@
     text-decoration: none;
     text-align: center;
     word-break: keep-all;
+    position: relative;
 
     @media (max-width: 495px) {
         width: 35vw;
     }
 
+    &:hover {
+        div {
+            color: white;
+        }
+    }
+
+    &::before {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+        border-radius: 50%;
+        content: '';
+        filter: opacity(0.25);
+    }
+
     div {
-        grid-row: 1;
-        grid-column: 1;
-        justify-self: center;
         align-self: center;
-        z-index: 5;
+        color: transparent;
         font-size: 1.5em;
-        color: #f7f7f7;
-        text-shadow: 2px 1px 2px $plsumire;
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        text-shadow: 3px -2px 4px #e4ff8096;
+        width: fit-content;
+        position: relative;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        background-clip: text;
+        z-index: 11;
+        padding: .5rem 0;
 
         @media (max-width: 495px) {
             font-size: 1rem;
@@ -119,16 +145,42 @@
     text-decoration: none;
     text-align: center;
     word-break: keep-all;
+    position: relative;
+    padding: .5rem 0;
+
+    &::before {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+        border-radius: 50%;
+        content: '';
+        filter: opacity(0.25);
+    }
+
+    &:hover {
+        div {
+            color: white;
+        }
+    }
 
     div {
-        grid-row: 1;
-        grid-column: 1;
-        justify-self: center;
         align-self: center;
-        z-index: 5;
+        color: transparent;
         font-size: 1.5em;
-        color: #f7f7f7;
-        text-shadow: 2px 1px 2px $plsumire;
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        width: fit-content;
+        position: relative;
+        background-color: #1fd1f9;
+        background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+        background-clip: text;
+        z-index: 11;
+        padding: .5rem 0;
     }
 
     img {
