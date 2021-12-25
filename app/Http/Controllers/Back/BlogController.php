@@ -64,10 +64,11 @@ class BlogController extends Controller
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
         $article->series_pos = Blog::where('series_id', $request->series)->get()->count();
+        $article_id = Blog::all()->pluck('id')->max() + 1;
 
         if ($request->metaimageFile) {
             $file = $request->metaimageFile;
-            $name = 'blog' . $article->id . 'meta.' . $file->getClientOriginalExtension();
+            $name = 'blog' . $article_id . 'meta.' . $file->getClientOriginalExtension();
             $file->move('images/Articles/meta', $name);
             $article->metaimage = url('images/Articles/meta/' . $name);
         } else {

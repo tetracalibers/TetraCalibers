@@ -52,7 +52,7 @@
                     </a>
                 </td>
                 <td>
-                    <form method="post" action="/admin/blog/{{ $article->id }}" class="_noMargin">
+                    <form method="post" action="{{ route('back.blog.destroy', $article->id) }}" class="_noMargin">
                     @method('DELETE')
                     @csrf
                         <button type="submit" onclick="return confirm('本当に削除しますか？');" class="_danger">削除</button>
