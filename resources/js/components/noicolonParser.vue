@@ -94,7 +94,7 @@ export default {
                         nextAddBr = true;
                         isBetween = false;
                     } else if (
-                        current.match(/^(image)|(h)|(a)|(fname):.*?$/gmsu)
+                        current.match(/^(image)|(h)|(a)|(fname)|(comment):.*?$/gmsu)
                     ) {
                         currentAddBr = false;
                         nextAddBr = false;
@@ -130,6 +130,9 @@ export default {
 
                 /** 見出し */
                 mylang = mylang.replace(/^h:\s*(.*?)$/gms, "<h1>$1</h1>");
+
+                /** コメント */
+                mylang = mylang.replace(/^comment:\s*(.*?)$/gms, "<!-- $1 -->");
 
                 /** ブロックURL（非推奨） */
                 mylang = mylang.replace(
