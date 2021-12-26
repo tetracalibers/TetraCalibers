@@ -270,6 +270,12 @@ export default {
                     '<span class="key">$1</span>'
                 );
 
+                /** 暗記したい単語 */
+                mylang = mylang.replace(
+                    /(?:<br>|<\/p>)?[\n\t\s]*annki:\s*(.*?)(?:$|::::)/gmsu,
+                    '<span class="annkiWord">$1</span>'
+                );
+
                 /** ディレクトリ */
                 mylang = mylang.replace(/(?:<br>|<\/p>)?[\n\t\s]*dir:\s*(.*?)(?:$|::::)/gmsu, '<span class="i-dirPath"><i class="far fa-folder-open"></i>$1</span>');
 

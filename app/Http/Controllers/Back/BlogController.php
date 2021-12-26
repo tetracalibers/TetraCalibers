@@ -64,6 +64,7 @@ class BlogController extends Controller
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
         $article->series_pos = Blog::where('series_id', $request->series)->get()->count();
+        $article->memorize = $request->memorize;
         $article_id = Blog::all()->pluck('id')->max() + 1;
 
         if ($request->metaimageFile) {
@@ -145,6 +146,7 @@ class BlogController extends Controller
         $article->subtitle = $request->subtitle;
         $article->content = $request->content;
         $article->metadesc = $request->metadesc;
+        $article->memorize = $request->memorize;
 
         if (!$article->series_pos) {
             $thisSeriesArticles = Blog::where('series_id', $request->series)->get();

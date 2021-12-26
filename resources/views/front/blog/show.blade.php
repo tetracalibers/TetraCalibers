@@ -73,6 +73,13 @@
         @endif
     </time>
     <div class="blogContents">
+        @if ($article->memorize)
+        <div class="annkiDesc">
+            この記事は一問一答問題集としても使えます。<br>
+            画面左下の<i class="fas fa-puzzle-piece fa-2x"></i>ボタンを押すと、<span class="annkiWord">桃色の文字</span>が塗りつぶされます。
+            （もう一度押すと元に戻ります。）
+        </div>
+        @endif
         {!! $article->content !!}
     </div><!-- END blogContents -->
     @if ($next)
@@ -92,5 +99,11 @@
     @endif
     <x-front.affiliate />
     <div class="toTopButton"><i class="fas fa-chevron-up fa-2x"></i></div>
+    @if ($article->memorize)
+    <div class="memorizeToggle">
+        <i class="fas fa-puzzle-piece fa-2x"></i>
+        <span class="annkiLabel">隠す</span>
+    </div>
+    @endif
 </article>
 @endsection

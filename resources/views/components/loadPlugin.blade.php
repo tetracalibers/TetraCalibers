@@ -98,4 +98,5 @@
 <script src="{{ asset('/js/setParticles.js') }}"></script>
 <script src="{{ asset('/js/makeToc.js') }}"></script>
 <script src="{{ asset('/js/svgSizing.js') }}"></script>
+<script src="{{ asset('/js/annkiCard.js') }}"></script>
 @endif
