@@ -16,97 +16,58 @@ $affRow: $blogContentsRow + 1;
     grid-template-columns: 20vw 55vw 25vw;
     box-sizing: border-box;
     padding-top: 125px;
+    grid-auto-flow: row;
 
     @media (max-width: $changeRatioWidth) {
         grid-template-columns: 25vw 50vw 25vw;
     }
 
     @media (max-width: $changeLayoutWidth) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
     }
 }
 
 .categoryList {
     grid-column: 1;
     grid-row: 2 / 3;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 6;
-    }
 }
 
 .blogContainer .aff {
     grid-column: 1 / -1;
-    grid-row: 5;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 8;
-    }
 }
 
 .nextArticle {
     grid-column: 2;
-    grid-row: 4;
     justify-self: right;
     position: relative;
     z-index: 5;
 
     @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 7;
+        align-self: end;
     }
 }
 
 .blogContainer .tocWrapper {
     grid-column: 3;
     grid-row: 2 / 3;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 4;
-    }
 }
 
 .articleDate {
     grid-column: 3;
-    grid-row: 1;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 2;
-    }
 }
 
 .blogContainer .titles {
     grid-column: 2;
-    grid-row: 1;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 1;
-    }
 }
 
 .seriesMapWrapper {
-    grid-row: 2;
     grid-column: 2;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 3;
-    }
 }
 
 .blogContents {
     grid-column: 2;
-    grid-row: 3;
-
-    @media (max-width: $changeLayoutWidth) {
-        grid-column: 1;
-        grid-row: 5;
-    }
 }
 
 /* 配置に関してはここまで -------------------------------------------------------------- */
@@ -210,6 +171,7 @@ $affRow: $blogContentsRow + 1;
     @media (max-width: $changeLayoutWidth) {
         position: relative;
         height: auto;
+        align-self: center;
     }
 
     .categoryListText {
@@ -409,6 +371,7 @@ $affRow: $blogContentsRow + 1;
     ul {
         display: grid;
         justify-content: center;
+        margin-left: 2rem;
 
         &::before {
             content: "$series = [";

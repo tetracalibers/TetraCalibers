@@ -79,9 +79,13 @@ class BlogController extends Controller
             $next = null;
         }
 
-        $series_ref = Series::findOrFail($series['id'])->references()->pluck('url', 'title');
         $article_ref = $article->references()->pluck('url', 'title');
-        $references = $series_ref->concat($article_ref->whereNotIn('title', $series_ref->keys()))->toArray();
+        if ($series) {
+            $series_ref = Series::findOrFail($series['id'])->references()->pluck('url', 'title');
+            $references = $series_ref->concat($article_ref->whereNotIn('title', $series_ref->keys()))->toArray();
+        } else {
+            $references = $article_ref;
+        }
 
         return view('front.blog.show', compact('article', 'tags', 'series', 'seriesArticles', 'next', 'references'));
     }

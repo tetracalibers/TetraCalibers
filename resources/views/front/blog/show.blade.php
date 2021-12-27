@@ -15,27 +15,6 @@
 
 @section('main')
 <article class="blogContainer" id="particles_blog">
-    <div class="categoryList">
-        <div class="categoryBack fluid"></div>
-        <div class="categoryListText">
-            <div class="categoryListTitle">Category</div>
-            <ul>
-            @foreach($tags as $name => $slug)
-                <li>
-                    <a href="/tags/{{ $slug }}">
-                        {{ str_replace("<wbr>", "", $name) }}
-                    </a>
-                </li>
-            @endforeach
-            </ul>
-        </div>
-    </div><!-- END categoryList -->
-    <div class="tocWrapper">
-        <div class="tocContent">
-            <div class="tocTitle"></div>
-            <ul class="toc"></ul>
-        </div>
-    </div><!-- END tocWrapper -->
     <div class="titles">
         @if ($series)
         <div class="seriesTitle">
@@ -51,6 +30,12 @@
         </div>
         @endif
     </div>
+    <time class="articleDate">
+        <div>公開日==&#39;{{ $article->created_at }}&#39;;</div>
+        @if ($article->created_at != $article->updated_at)
+        <div>最終更新日==&#39;{{ $article->updated_at }}&#39;;</div>
+        @endif
+    </time>
     @if ($seriesArticles)
     <div class="seriesMapWrapper">
         <ul class="seriesMap">
@@ -66,12 +51,12 @@
         </ul>
     </div>
     @endif
-    <time class="articleDate">
-        <div>公開日==&#39;{{ $article->created_at }}&#39;;</div>
-        @if ($article->created_at != $article->updated_at)
-        <div>最終更新日==&#39;{{ $article->updated_at }}&#39;;</div>
-        @endif
-    </time>
+    <div class="tocWrapper">
+        <div class="tocContent">
+            <div class="tocTitle"></div>
+            <ul class="toc"></ul>
+        </div>
+    </div><!-- END tocWrapper -->
     <div class="blogContents">
         @if ($article->memorize)
         <div class="annkiDesc">
@@ -96,6 +81,21 @@
         </div>
         @endif
     </div><!-- END blogContents -->
+    <div class="categoryList">
+        <div class="categoryBack fluid"></div>
+        <div class="categoryListText">
+            <div class="categoryListTitle">Category</div>
+            <ul>
+            @foreach($tags as $name => $slug)
+                <li>
+                    <a href="/tags/{{ $slug }}">
+                        {{ str_replace("<wbr>", "", $name) }}
+                    </a>
+                </li>
+            @endforeach
+            </ul>
+        </div>
+    </div><!-- END categoryList -->
     @if ($next)
     <div class="nextArticle">
         <a class="i-next" href="{{ route('front.blog.show', $next->id) }}">
