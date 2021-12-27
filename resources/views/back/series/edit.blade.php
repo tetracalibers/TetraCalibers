@@ -13,6 +13,13 @@
             <label for="title">タイトル</label>
             <input type="text" name="title" value="{{ old('title', $series->title) }}" class="_width100">
 
+            <label for="references">参考文献</label>
+            <select name="references[]" class="_width100" multiple="multiple" style="height: calc(26px * {{ $references->count() }});">
+                @foreach ($references as $reference)
+                <option value="{{ $reference->id }}" {{ $checkedReferences->keys()->contains($reference->id) ? 'selected' : '' }}>{{ $reference->title }}</option>
+                @endforeach
+            </select>
+
             <button type="submit" class="_primary">更新</button>
             <a href="{{ route('back.series.index') }}">
                 <button type="button">シリーズ一覧へ戻る</button>

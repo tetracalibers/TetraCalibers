@@ -81,6 +81,20 @@
         </div>
         @endif
         {!! $article->content !!}
+        @if (count($references) > 0)
+        <div class="referenceList">
+            <div class="i-sankobunken">
+                <i class="fas fa-book"></i>
+                <span class="i-sankobunken-text">参考文献</span>
+            </div>
+            @foreach ($references as $ref_title => $ref_url)
+            <a href="{{ $ref_url }}" class="i-link i-block" target="_blank rel="noopener noreferrer>
+                <i class="fas fa-link"></i>
+                {{ $ref_title }}
+            </a>
+            @endforeach
+        </div>
+        @endif
     </div><!-- END blogContents -->
     @if ($next)
     <div class="nextArticle">

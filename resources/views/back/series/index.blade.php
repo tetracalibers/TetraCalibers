@@ -13,6 +13,7 @@
         <thead>
             <tr>
                 <th>シリーズ名</th>
+                <th>参考文献</th>
                 <th>{{-- 記事一覧へ --}}</th>
                 <th>{{-- 編集 --}}</th>
             </tr>
@@ -21,6 +22,15 @@
         @foreach ($series as $s)
             <tr>
                 <td>{{ $s->title }}</td>
+                <td>
+                    @if ($s->references()->count() > 0)
+                    <ul>
+                        @foreach ($s->references()->pluck('title', 'reference_id') as $ref_id => $ref_title)
+                        <li>{{ $ref_title }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </td>
                 <td>
                     <a href="{{ route('back.series.show', $s->id)}}">
                         <button type="button" class="_info">記事一覧へ</button>

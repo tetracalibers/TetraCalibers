@@ -29,6 +29,7 @@
             <li><a href="{{ route('back.blog.index')}}" class="row">ブログ</a></li>
             <li><a href="{{ route('back.series.index') }}" class="row">シリーズ</a></li>
             <li><a href="{{ route('back.tags.index') }}" class="row">タグ</a></li>
+            <li><a href="{{ route('back.references.index') }}" class="row">参考文献</a></li>
             <li><a href="{{ route('back.subjects.index') }}" class="row">Clearnote</a></li>
             <li><a href="{{ route('back.latexbooks.index') }}" class="row">LaTeX教科書</a></li>
             <li><a href="{{ route('back.readingNote.index') }}" class="row">読書ノート</a></li>

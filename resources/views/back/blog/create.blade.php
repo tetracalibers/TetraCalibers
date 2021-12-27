@@ -32,6 +32,13 @@
             <xml-file-parser @tomixy_updatecontent="updateContent"></xml-file-parser>
             <need-errors :errors="errors.content"></need-errors>
 
+            <label for="references">参考文献</label>
+            <select name="references[]" class="_width100" multiple="multiple" style="height: calc(26px * {{ $references->count() }});">
+                @foreach ($references as $reference)
+                <option value="{{ $reference->id }}">{{ $reference->title }}</option>
+                @endforeach
+            </select>
+
             <label for="memorize">暗記モード</label>
             <select name="memorize" class="_width100">
                 <option value="0">OFF</option>

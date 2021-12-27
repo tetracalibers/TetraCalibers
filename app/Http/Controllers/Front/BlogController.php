@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Archive;
 use App\Models\Series;
+use App\Models\Reference;
 
 class BlogController extends Controller
 {
@@ -78,7 +79,11 @@ class BlogController extends Controller
             $next = null;
         }
 
-        return view('front.blog.show', compact('article', 'tags', 'series', 'seriesArticles', 'next'));
+        $series_ref = Series::findOrFail($series['id'])->references()->pluck('url', 'title');
+        $article_ref = $article->references()->pluck('url', 'title');
+        $references = $series_ref->concat($article_ref->whereNotIn('title', $series_ref->keys()))->toArray();
+
+        return view('front.blog.show', compact('article', 'tags', 'series', 'seriesArticles', 'next', 'references'));
     }
 
     /**

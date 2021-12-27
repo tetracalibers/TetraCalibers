@@ -129,6 +129,14 @@ $affRow: $blogContentsRow + 1;
     }
 }
 
+.referenceList {
+    margin: 5rem 0 1rem;
+
+    .i-sankobunken {
+        margin: 0;
+    }
+}
+
 .blogContainer .tocWrapper {
     justify-self: center;
     z-index: 5;

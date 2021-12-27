@@ -11,6 +11,7 @@ Route::middleware(['firewall'])->group(function() {
     Route::resource('readingNote', 'ReadingNoteController');
     Route::resource('tags', 'TagController')->except('show');
     Route::resource('series', 'SeriesController');
+    Route::resource('references', 'ReferenceController')->except('show');
     Route::resource('latexbooks', 'LaTeXbookController');
     Route::resource('subjects', 'SubjectController');
     Route::resource('subjects.learningUnits', 'LearningUnitController')->except(['index', 'create', 'edit']);

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Models\Series;
 use App\Models\Reference;
 use Illuminate\Http\Request;
 
-class SeriesController extends Controller
+class ReferenceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,9 @@ class SeriesController extends Controller
      */
     public function index()
     {
-        $series = Series::all();
         $references = Reference::all()->sortBy('title')->sortBy('type');
 
-        return view('back.series.index', compact('series', 'references'));
+        return view('back.references.index', compact('references'));
     }
 
     /**
@@ -29,9 +27,7 @@ class SeriesController extends Controller
      */
     public function create()
     {
-        $references = Reference::all()->sortBy('title')->sortBy('type');
-
-        return view('back.series.create', compact('references'));
+        return view('back.references.create');
     }
 
     /**
@@ -42,10 +38,9 @@ class SeriesController extends Controller
      */
     public function store(Request $request)
     {
-        $series = Series::create($request->all());
-        $series->references()->attach($request->references);
+        $reference = Reference::create($request->all());
 
-        return redirect()->route('back.series.index')->with('message', '新規シリーズを登録しました！');
+        return redirect()->route('back.references.index')->with('message', '新規参考文献を登録しました！');
     }
 
     /**
@@ -56,10 +51,7 @@ class SeriesController extends Controller
      */
     public function show($id)
     {
-        $series = Series::findOrFail($id);
-        $articles = $series->blogs()->get()->sortBy('series_pos');
-
-        return view('back.series.show', compact('articles', 'series'));
+        //
     }
 
     /**
@@ -70,12 +62,9 @@ class SeriesController extends Controller
      */
     public function edit($id)
     {
-        $series = Series::findOrFail($id);
+        $reference = Reference::findOrFail($id);
 
-        $references = Reference::all()->sortBy('title')->sortBy('type');
-        $checkedReferences = $series->references()->pluck('title', 'reference_id');
-
-        return view('back.series.edit', compact('series', 'references', 'checkedReferences'));
+        return view('back.references.edit', compact('reference'));
     }
 
     /**
@@ -87,12 +76,13 @@ class SeriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $series = Series::findOrFail($id);
-        $series->references()->sync($request->references);
-        $series->title = $request->title;
-        $series->save();
+        $reference = Reference::findOrFail($id);
+        $reference->title = $request->title;
+        $reference->type = $request->type;
+        $reference->url = $request->url;
+        $reference->save();
 
-        return redirect()->route('back.series.index')->with('message', 'シリーズ情報を更新しました！');
+        return redirect()->route('back.references.index')->with('message', '参考文献情報を更新しました！');
     }
 
     /**

@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Blog;
-use App\Models\Reference;
+use App\Models\Series;
 
-class Series extends Model
+class Reference extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title'
+        'title',
+        'type',
+        'url'
     ];
 
     public function blogs()
     {
-        return $this->hasMany(Blog::class);
+        return $this->belongsToMany(Blog::class);
     }
 
-    public function references()
+    public function series()
     {
-        return $this->belongsToMany(Reference::class);
+        return $this->belongsToMany(Series::class);
     }
 }

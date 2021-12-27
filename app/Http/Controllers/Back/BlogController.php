@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Tag;
 use App\Models\Series;
+use App\Models\Reference;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
 
@@ -38,6 +39,8 @@ class BlogController extends Controller
         $tags = Tag::all()->sortBy('name');
         $tagsJSON = [];
 
+        $references = Reference::all()->sortBy('title')->sortBy('type');
+
         foreach ($tags as $tag) {
             $tag = $tag->only(['id', 'name', 'logo']);
             array_push($tagsJSON, $tag);
@@ -45,7 +48,7 @@ class BlogController extends Controller
 
         $tagsJSON = json_encode($tagsJSON);
 
-        return view('back.blog.create', compact('tagsJSON', 'series'));
+        return view('back.blog.create', compact('tagsJSON', 'series', 'references'));
     }
 
     /**
@@ -88,6 +91,7 @@ class BlogController extends Controller
 
         // 必ずセーブ後に書く
         $article->tags()->attach($request->tags);
+        $article->references()->attach($request->references);
 
         return redirect()->route('back.blog.index')->with('message', '新規ブログ記事を作成しました！');
     }
@@ -114,19 +118,20 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
 
         $series = Series::all()->sortBy('created_at');
+
+        $references = Reference::all()->sortBy('title')->sortBy('type');
+        $checkedReferences = $blog->references()->pluck('title', 'reference_id');
+
         $tags = Tag::all()->sortBy('name');
-
         $tagsJSON = [];
-
         foreach ($tags as $tag) {
             $tag = $tag->only(['id', 'name', 'logo']);
             array_push($tagsJSON, $tag);
         }
-
         $tagsJSON = json_encode($tagsJSON);
         $checkedTagsJSON = json_encode(collect($blog->tags()->pluck('tag_id')->toArray()));
 
-        return view('back.blog.edit', compact('blog', 'tagsJSON', 'checkedTagsJSON', 'series'));
+        return view('back.blog.edit', compact('blog', 'tagsJSON', 'checkedTagsJSON', 'series', 'checkedReferences', 'references'));
     }
 
     /**
@@ -140,6 +145,7 @@ class BlogController extends Controller
     {
         $article = Blog::find($id);
         $article->tags()->sync($request->tags);
+        $article->references()->sync($request->references);
 
         $article->series_id = $request->series;
         $article->title = $request->title;
