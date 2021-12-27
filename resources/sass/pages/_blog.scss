@@ -45,7 +45,7 @@ $affRow: $blogContentsRow + 1;
     z-index: 5;
 
     @media (max-width: $changeLayoutWidth) {
-        align-self: end;
+        align-self: flex-end;
     }
 }
 
